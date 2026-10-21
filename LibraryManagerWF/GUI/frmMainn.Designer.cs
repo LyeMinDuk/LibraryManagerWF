@@ -85,18 +85,19 @@
             // 
             this.pnlNoiDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.pnlNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlNoiDung.Location = new System.Drawing.Point(494, 85);
-            this.pnlNoiDung.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlNoiDung.Location = new System.Drawing.Point(439, 68);
+            this.pnlNoiDung.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlNoiDung.Name = "pnlNoiDung";
-            this.pnlNoiDung.Size = new System.Drawing.Size(1215, 1116);
+            this.pnlNoiDung.Size = new System.Drawing.Size(1080, 776);
             this.pnlNoiDung.TabIndex = 5;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(491, 87);
+            this.panel1.Size = new System.Drawing.Size(436, 70);
             this.panel1.TabIndex = 1;
             // 
             // button1
@@ -106,10 +107,11 @@
             this.button1.ForeColor = System.Drawing.Color.Yellow;
             this.button1.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-4, -14);
+            this.button1.Location = new System.Drawing.Point(-4, -11);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(560, 118);
+            this.button1.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(498, 94);
             this.button1.TabIndex = 2;
             this.button1.Text = "Trang chủ";
             this.button1.UseVisualStyleBackColor = false;
@@ -120,10 +122,10 @@
             this.pnlHeader.Controls.Add(this.lblTrang);
             this.pnlHeader.Controls.Add(this.lblNguoiDung);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(494, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlHeader.Location = new System.Drawing.Point(439, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1215, 85);
+            this.pnlHeader.Size = new System.Drawing.Size(1080, 68);
             this.pnlHeader.TabIndex = 4;
             // 
             // lblTrang
@@ -134,8 +136,8 @@
             this.lblTrang.Location = new System.Drawing.Point(0, 0);
             this.lblTrang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTrang.Name = "lblTrang";
-            this.lblTrang.Padding = new System.Windows.Forms.Padding(31, 0, 0, 0);
-            this.lblTrang.Size = new System.Drawing.Size(701, 85);
+            this.lblTrang.Padding = new System.Windows.Forms.Padding(28, 0, 0, 0);
+            this.lblTrang.Size = new System.Drawing.Size(623, 68);
             this.lblTrang.TabIndex = 0;
             this.lblTrang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -144,11 +146,11 @@
             this.lblNguoiDung.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblNguoiDung.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.lblNguoiDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
-            this.lblNguoiDung.Location = new System.Drawing.Point(701, 0);
+            this.lblNguoiDung.Location = new System.Drawing.Point(623, 0);
             this.lblNguoiDung.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNguoiDung.Name = "lblNguoiDung";
-            this.lblNguoiDung.Padding = new System.Windows.Forms.Padding(0, 0, 31, 0);
-            this.lblNguoiDung.Size = new System.Drawing.Size(514, 85);
+            this.lblNguoiDung.Padding = new System.Windows.Forms.Padding(0, 0, 28, 0);
+            this.lblNguoiDung.Size = new System.Drawing.Size(457, 68);
             this.lblNguoiDung.TabIndex = 1;
             this.lblNguoiDung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -160,11 +162,11 @@
             this.pnlSidebar.Controls.Add(this.btnDangXuat);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlSidebar.MaximumSize = new System.Drawing.Size(494, 0);
-            this.pnlSidebar.MinimumSize = new System.Drawing.Size(117, 0);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pnlSidebar.MaximumSize = new System.Drawing.Size(439, 0);
+            this.pnlSidebar.MinimumSize = new System.Drawing.Size(104, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(494, 1201);
+            this.pnlSidebar.Size = new System.Drawing.Size(439, 844);
             this.pnlSidebar.TabIndex = 6;
             // 
             // flpMenu
@@ -183,19 +185,20 @@
             this.flpMenu.Controls.Add(this.panel11);
             this.flpMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpMenu.Location = new System.Drawing.Point(0, 117);
-            this.flpMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.flpMenu.Location = new System.Drawing.Point(0, 94);
+            this.flpMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flpMenu.Name = "flpMenu";
-            this.flpMenu.Size = new System.Drawing.Size(494, 1015);
+            this.flpMenu.Size = new System.Drawing.Size(439, 695);
             this.flpMenu.TabIndex = 1;
             this.flpMenu.WrapContents = false;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Location = new System.Drawing.Point(3, 96);
+            this.panel2.Location = new System.Drawing.Point(3, 76);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(491, 87);
+            this.panel2.Size = new System.Drawing.Size(436, 70);
             this.panel2.TabIndex = 2;
             // 
             // button2
@@ -205,10 +208,11 @@
             this.button2.ForeColor = System.Drawing.Color.Yellow;
             this.button2.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(-4, -14);
+            this.button2.Location = new System.Drawing.Point(-4, -11);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(560, 118);
+            this.button2.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(498, 94);
             this.button2.TabIndex = 2;
             this.button2.Text = "Sách && thể loại";
             this.button2.UseVisualStyleBackColor = false;
@@ -216,9 +220,10 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.button3);
-            this.panel3.Location = new System.Drawing.Point(3, 189);
+            this.panel3.Location = new System.Drawing.Point(3, 150);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(491, 87);
+            this.panel3.Size = new System.Drawing.Size(436, 70);
             this.panel3.TabIndex = 3;
             // 
             // button3
@@ -228,10 +233,11 @@
             this.button3.ForeColor = System.Drawing.Color.Yellow;
             this.button3.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(-4, -14);
+            this.button3.Location = new System.Drawing.Point(-4, -11);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(560, 118);
+            this.button3.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(498, 94);
             this.button3.TabIndex = 2;
             this.button3.Text = "Độc giả && thẻ";
             this.button3.UseVisualStyleBackColor = false;
@@ -239,9 +245,10 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.button4);
-            this.panel4.Location = new System.Drawing.Point(3, 282);
+            this.panel4.Location = new System.Drawing.Point(3, 224);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(491, 87);
+            this.panel4.Size = new System.Drawing.Size(436, 70);
             this.panel4.TabIndex = 4;
             // 
             // button4
@@ -251,10 +258,11 @@
             this.button4.ForeColor = System.Drawing.Color.Yellow;
             this.button4.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(-4, -14);
+            this.button4.Location = new System.Drawing.Point(-4, -11);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(560, 118);
+            this.button4.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(498, 94);
             this.button4.TabIndex = 2;
             this.button4.Text = "Cho mượn";
             this.button4.UseVisualStyleBackColor = false;
@@ -262,9 +270,10 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.button5);
-            this.panel5.Location = new System.Drawing.Point(3, 375);
+            this.panel5.Location = new System.Drawing.Point(3, 298);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(491, 87);
+            this.panel5.Size = new System.Drawing.Size(436, 70);
             this.panel5.TabIndex = 5;
             // 
             // button5
@@ -274,10 +283,11 @@
             this.button5.ForeColor = System.Drawing.Color.Yellow;
             this.button5.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(-4, -14);
+            this.button5.Location = new System.Drawing.Point(-4, -11);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(560, 118);
+            this.button5.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(498, 94);
             this.button5.TabIndex = 2;
             this.button5.Text = "Gia hạn sách";
             this.button5.UseVisualStyleBackColor = false;
@@ -285,9 +295,10 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.button6);
-            this.panel6.Location = new System.Drawing.Point(3, 468);
+            this.panel6.Location = new System.Drawing.Point(3, 372);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(491, 87);
+            this.panel6.Size = new System.Drawing.Size(436, 70);
             this.panel6.TabIndex = 6;
             // 
             // button6
@@ -297,10 +308,11 @@
             this.button6.ForeColor = System.Drawing.Color.Yellow;
             this.button6.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(-4, -14);
+            this.button6.Location = new System.Drawing.Point(-4, -11);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(560, 118);
+            this.button6.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(498, 94);
             this.button6.TabIndex = 2;
             this.button6.Text = "Trả sách";
             this.button6.UseVisualStyleBackColor = false;
@@ -308,9 +320,10 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.button7);
-            this.panel7.Location = new System.Drawing.Point(3, 561);
+            this.panel7.Location = new System.Drawing.Point(3, 446);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(491, 87);
+            this.panel7.Size = new System.Drawing.Size(436, 70);
             this.panel7.TabIndex = 7;
             // 
             // button7
@@ -320,10 +333,11 @@
             this.button7.ForeColor = System.Drawing.Color.Yellow;
             this.button7.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(-4, -14);
+            this.button7.Location = new System.Drawing.Point(-4, -11);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(560, 118);
+            this.button7.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(498, 94);
             this.button7.TabIndex = 2;
             this.button7.Text = "Theo dõi mượn trả";
             this.button7.UseVisualStyleBackColor = false;
@@ -331,9 +345,10 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.button8);
-            this.panel8.Location = new System.Drawing.Point(3, 654);
+            this.panel8.Location = new System.Drawing.Point(3, 520);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(491, 87);
+            this.panel8.Size = new System.Drawing.Size(436, 70);
             this.panel8.TabIndex = 8;
             // 
             // button8
@@ -343,10 +358,11 @@
             this.button8.ForeColor = System.Drawing.Color.Yellow;
             this.button8.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(-4, -14);
+            this.button8.Location = new System.Drawing.Point(-4, -11);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(560, 118);
+            this.button8.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(498, 94);
             this.button8.TabIndex = 2;
             this.button8.Text = "Phiếu thu";
             this.button8.UseVisualStyleBackColor = false;
@@ -354,9 +370,10 @@
             // panel9
             // 
             this.panel9.Controls.Add(this.button9);
-            this.panel9.Location = new System.Drawing.Point(3, 747);
+            this.panel9.Location = new System.Drawing.Point(3, 594);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(491, 87);
+            this.panel9.Size = new System.Drawing.Size(436, 70);
             this.panel9.TabIndex = 9;
             // 
             // button9
@@ -366,10 +383,11 @@
             this.button9.ForeColor = System.Drawing.Color.Yellow;
             this.button9.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(-4, -14);
+            this.button9.Location = new System.Drawing.Point(-4, -11);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(560, 118);
+            this.button9.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button9.Size = new System.Drawing.Size(498, 94);
             this.button9.TabIndex = 2;
             this.button9.Text = "Báo cáo doanh thu";
             this.button9.UseVisualStyleBackColor = false;
@@ -377,9 +395,10 @@
             // panel10
             // 
             this.panel10.Controls.Add(this.button10);
-            this.panel10.Location = new System.Drawing.Point(3, 840);
+            this.panel10.Location = new System.Drawing.Point(3, 668);
+            this.panel10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(491, 87);
+            this.panel10.Size = new System.Drawing.Size(436, 70);
             this.panel10.TabIndex = 10;
             // 
             // button10
@@ -389,10 +408,11 @@
             this.button10.ForeColor = System.Drawing.Color.Yellow;
             this.button10.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.Location = new System.Drawing.Point(-4, -14);
+            this.button10.Location = new System.Drawing.Point(-4, -11);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(560, 118);
+            this.button10.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button10.Size = new System.Drawing.Size(498, 94);
             this.button10.TabIndex = 2;
             this.button10.Text = "Tài khoản";
             this.button10.UseVisualStyleBackColor = false;
@@ -400,9 +420,10 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.button11);
-            this.panel11.Location = new System.Drawing.Point(3, 933);
+            this.panel11.Location = new System.Drawing.Point(3, 742);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(491, 87);
+            this.panel11.Size = new System.Drawing.Size(436, 70);
             this.panel11.TabIndex = 11;
             // 
             // button11
@@ -412,10 +433,11 @@
             this.button11.ForeColor = System.Drawing.Color.Yellow;
             this.button11.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(-4, -14);
+            this.button11.Location = new System.Drawing.Point(-4, -11);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(560, 118);
+            this.button11.Padding = new System.Windows.Forms.Padding(27, 0, 0, 0);
+            this.button11.Size = new System.Drawing.Size(498, 94);
             this.button11.TabIndex = 2;
             this.button11.Text = "Cấu hình đơn giá";
             this.button11.UseVisualStyleBackColor = false;
@@ -426,17 +448,19 @@
             this.pnlLogo.Controls.Add(this.pbLogo);
             this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(494, 117);
+            this.pnlLogo.Size = new System.Drawing.Size(439, 94);
             this.pnlLogo.TabIndex = 0;
             // 
             // pbText
             // 
             this.pbText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbText.Image = global::LibraryManagerWF.Properties.Resources.text_utc;
-            this.pbText.Location = new System.Drawing.Point(122, 0);
+            this.pbText.Location = new System.Drawing.Point(108, 0);
+            this.pbText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbText.Name = "pbText";
-            this.pbText.Size = new System.Drawing.Size(372, 117);
+            this.pbText.Size = new System.Drawing.Size(331, 94);
             this.pbText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbText.TabIndex = 1;
             this.pbText.TabStop = false;
@@ -446,8 +470,9 @@
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.pbLogo.Image = global::LibraryManagerWF.Properties.Resources.logo;
             this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(122, 117);
+            this.pbLogo.Size = new System.Drawing.Size(108, 94);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
@@ -462,28 +487,32 @@
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 1132);
-            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 789);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(494, 69);
+            this.btnDangXuat.Size = new System.Drawing.Size(439, 55);
             this.btnDangXuat.TabIndex = 2;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.UseVisualStyleBackColor = false;
             // 
             // SideBarTimer
             // 
+            this.SideBarTimer.Interval = 10;
             this.SideBarTimer.Tick += new System.EventHandler(this.SideBarTimer_Tick);
             // 
             // frmMainn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1709, 1201);
+            this.ClientSize = new System.Drawing.Size(1519, 844);
             this.Controls.Add(this.pnlNoiDung);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebar);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMainn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainn";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);

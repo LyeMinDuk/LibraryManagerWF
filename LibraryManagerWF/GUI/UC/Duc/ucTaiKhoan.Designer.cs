@@ -228,7 +228,7 @@
             this.cboVaiTro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboVaiTro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboVaiTro.FormattingEnabled = true;
-            this.cboVaiTro.Location = new System.Drawing.Point(144, 56);
+            this.cboVaiTro.Location = new System.Drawing.Point(144, 61);
             this.cboVaiTro.Margin = new System.Windows.Forms.Padding(4);
             this.cboVaiTro.Name = "cboVaiTro";
             this.cboVaiTro.Size = new System.Drawing.Size(342, 33);
@@ -292,10 +292,10 @@
             this.gbThaoTac.Controls.Add(this.flpThaoTac);
             this.gbThaoTac.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gbThaoTac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbThaoTac.Location = new System.Drawing.Point(0, 518);
+            this.gbThaoTac.Location = new System.Drawing.Point(0, 513);
             this.gbThaoTac.Name = "gbThaoTac";
             this.gbThaoTac.Padding = new System.Windows.Forms.Padding(10, 5, 10, 8);
-            this.gbThaoTac.Size = new System.Drawing.Size(1000, 82);
+            this.gbThaoTac.Size = new System.Drawing.Size(1000, 87);
             this.gbThaoTac.TabIndex = 3;
             this.gbThaoTac.TabStop = false;
             this.gbThaoTac.Text = "Thao tác";
@@ -313,7 +313,7 @@
             this.flpThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpThaoTac.Location = new System.Drawing.Point(10, 28);
             this.flpThaoTac.Name = "flpThaoTac";
-            this.flpThaoTac.Size = new System.Drawing.Size(980, 46);
+            this.flpThaoTac.Size = new System.Drawing.Size(980, 51);
             this.flpThaoTac.TabIndex = 0;
             // 
             // btnThem
@@ -403,7 +403,7 @@
             this.dgv.Location = new System.Drawing.Point(0, 248);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
-            this.dgv.Size = new System.Drawing.Size(1000, 270);
+            this.dgv.Size = new System.Drawing.Size(1000, 265);
             this.dgv.TabIndex = 2;
             // 
             // ucTaiKhoan

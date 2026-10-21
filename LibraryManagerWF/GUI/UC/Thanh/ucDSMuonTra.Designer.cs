@@ -44,22 +44,24 @@
             // 
             this.dgv.ColumnHeadersHeight = 34;
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.Location = new System.Drawing.Point(0, 83);
+            this.dgv.Location = new System.Drawing.Point(0, 95);
+            this.dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 62;
             this.dgv.RowTemplate.Height = 28;
-            this.dgv.Size = new System.Drawing.Size(1371, 674);
+            this.dgv.Size = new System.Drawing.Size(1219, 511);
             this.dgv.TabIndex = 0;
             // 
             // gbTimKiem
             // 
             this.gbTimKiem.Controls.Add(this.flpTimKiem);
             this.gbTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTimKiem.Location = new System.Drawing.Point(0, 0);
-            this.gbTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.gbTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gbTimKiem.Name = "gbTimKiem";
-            this.gbTimKiem.Padding = new System.Windows.Forms.Padding(10, 5, 10, 11);
-            this.gbTimKiem.Size = new System.Drawing.Size(1371, 83);
+            this.gbTimKiem.Padding = new System.Windows.Forms.Padding(9, 4, 9, 9);
+            this.gbTimKiem.Size = new System.Drawing.Size(1219, 95);
             this.gbTimKiem.TabIndex = 3;
             this.gbTimKiem.TabStop = false;
             this.gbTimKiem.Text = "Tìm kiếm / lọc";
@@ -71,58 +73,60 @@
             this.flpTimKiem.Controls.Add(this.btnTimKiem);
             this.flpTimKiem.Controls.Add(this.btnLamMoi);
             this.flpTimKiem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpTimKiem.Location = new System.Drawing.Point(10, 24);
-            this.flpTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.flpTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flpTimKiem.Location = new System.Drawing.Point(9, 27);
+            this.flpTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flpTimKiem.Name = "flpTimKiem";
-            this.flpTimKiem.Size = new System.Drawing.Size(1351, 48);
+            this.flpTimKiem.Size = new System.Drawing.Size(1201, 59);
             this.flpTimKiem.TabIndex = 0;
             // 
             // lblLocTuKhoa
             // 
             this.lblLocTuKhoa.AutoSize = true;
-            this.lblLocTuKhoa.Location = new System.Drawing.Point(10, 12);
-            this.lblLocTuKhoa.Margin = new System.Windows.Forms.Padding(10, 12, 4, 0);
+            this.lblLocTuKhoa.Location = new System.Drawing.Point(9, 10);
+            this.lblLocTuKhoa.Margin = new System.Windows.Forms.Padding(9, 10, 4, 0);
             this.lblLocTuKhoa.Name = "lblLocTuKhoa";
-            this.lblLocTuKhoa.Size = new System.Drawing.Size(70, 20);
+            this.lblLocTuKhoa.Size = new System.Drawing.Size(90, 25);
             this.lblLocTuKhoa.TabIndex = 0;
             this.lblLocTuKhoa.Text = "Từ khóa:";
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(88, 8);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 8, 4, 4);
+            this.txtTimKiem.Location = new System.Drawing.Point(107, 6);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 3);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(307, 26);
+            this.txtTimKiem.Size = new System.Drawing.Size(273, 30);
             this.txtTimKiem.TabIndex = 0;
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(403, 4);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTimKiem.Location = new System.Drawing.Point(388, 3);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(129, 40);
+            this.btnTimKiem.Size = new System.Drawing.Size(115, 32);
             this.btnTimKiem.TabIndex = 0;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Location = new System.Drawing.Point(540, 4);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLamMoi.Location = new System.Drawing.Point(511, 3);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(129, 40);
+            this.btnLamMoi.Size = new System.Drawing.Size(115, 32);
             this.btnLamMoi.TabIndex = 0;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = true;
             // 
             // ucDSMuonTra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.gbTimKiem);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ucDSMuonTra";
-            this.Size = new System.Drawing.Size(1371, 757);
+            this.Size = new System.Drawing.Size(1219, 606);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.gbTimKiem.ResumeLayout(false);
             this.flpTimKiem.ResumeLayout(false);

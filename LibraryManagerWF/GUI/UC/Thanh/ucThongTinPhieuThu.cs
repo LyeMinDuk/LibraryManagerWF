@@ -1,120 +1,115 @@
-﻿using LibraryManagerWF.BLL;
-using LibraryManagerWF.DTO;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagerWF.BLL;
+using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
+    /// <summary>
+    /// Tra cứu phiếu thu theo khoảng ngày và loại thu (PhieuThuBLL.TimKiem). Chỉ xem: phiếu thu là sổ ghi tiền
+    /// do nghiệp vụ tự sinh (BR08), không sửa/xóa nên khung nút Xác nhận/Sửa/Xóa/Hủy của designer cũ được ẩn.
+    /// </summary>
     public partial class ucThongTinPhieuThu : UserControl
     {
         public ucThongTinPhieuThu()
         {
             InitializeComponent();
+            gbThaoTac.Visible = false;
+            foreach (TextBox t in new[] { txt, txtLoaiThu, txtSoTien, txtGanVoi, txtNguoiThu, txtGhiChu })
+                t.ReadOnly = true;
+            dtpNgayThu.Enabled = false;
+            dtpNgayThu.Format = DateTimePickerFormat.Custom;
+            dtpNgayThu.CustomFormat = "dd/MM/yyyy HH:mm";
+            Load += ucThongTinPhieuThu_Load;
         }
-        //public ucThongTinPhieuThu()
-        //{
-        //    InitializeComponent();
-        //    Load += ucQuanLyPhieuThu_Load;
-        //}
 
-        //private void ucQuanLyPhieuThu_Load(object sender, EventArgs e)
-        //{
-        //    CauHinhLuoi();
-        //    DoCombobox();
-        //    btnTimKiem.Click += btnTimKiem_Click;
-        //    btnLamMoi.Click += btnLamMoi_Click;
-        //    cboLoaiThu.SelectedIndexChanged += cboLoaiThu_SelectedIndexChanged;
+        private void ucThongTinPhieuThu_Load(object sender, EventArgs e)
+        {
+            CauHinhLuoi();
+            DoCombobox();
+            DatLaiBoLoc();
+            btnTimKiem.Click += (s, ev) => TaiDuLieu();
+            btnLamMoi.Click += (s, ev) => { DatLaiBoLoc(); TaiDuLieu(); };
+            cboLoaiThu.SelectedIndexChanged += (s, ev) => TaiDuLieu();
+            dgv.SelectionChanged += (s, ev) => HienChiTiet();
+            TaiDuLieu();
+        }
 
+        private void DoCombobox()
+        {
+            cboLoaiThu.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboLoaiThu.Items.AddRange(new object[] { "Tất cả loại thu", LoaiThu.PhiThe, LoaiThu.PhatTre, LoaiThu.DenBu });
+            cboLoaiThu.SelectedIndex = 0;
+        }
 
-        //    TaiDuLieu();
-        //}
+        private void DatLaiBoLoc()
+        {
+            dtpTu.Value = DateTime.Today.AddDays(-30);
+            dtpDen.Value = DateTime.Today;
+            cboLoaiThu.SelectedIndex = 0;
+        }
 
-        //private void btnTimKiem_Click(object sender, EventArgs e)
-        //{
-        //    TaiDuLieu();
-        //}
+        // Tên thuộc tính trùng tên cột của PhieuThuDAL.TimKiem
+        private void CauHinhLuoi()
+        {
+            GridStyle.Apply(dgv);
+            var maPT = GridStyle.AddText(dgv, "Mã PT", "MaPT", "PT00");
+            var loai = GridStyle.AddText(dgv, "Loại thu", "LoaiThu");
+            var tien = GridStyle.AddText(dgv, "Số tiền", "SoTien", "N0'đ'", System.Windows.Forms.DataGridViewContentAlignment.MiddleRight);
+            var ngay = GridStyle.AddText(dgv, "Ngày thu", "NgayThu", "dd/MM/yyyy HH:mm");
+            var ghiChu = GridStyle.AddFill(dgv, "Ghi chú", "GhiChu", 150);
 
-        //private void btnLamMoi_Click(object sender, EventArgs e)
-        //{
+            maPT.FillWeight = 10;
+            loai.FillWeight = 16;
+            tien.FillWeight = 16;
+            ngay.FillWeight = 20;
+            ghiChu.FillWeight = 38;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.RowTemplate.Height = 42;
+            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+        }
 
-        //}
+        private void TaiDuLieu()
+        {
+            if (dtpTu.Value.Date > dtpDen.Value.Date)
+            {
+                MessageBox.Show("\"Từ ngày\" không được lớn hơn \"Đến ngày\".", "Khoảng ngày không hợp lệ",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        //private void cboLoaiThu_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    TaiDuLieu();
-        //}
+            string loai = cboLoaiThu.SelectedIndex <= 0 ? "" : cboLoaiThu.Text;
+            DataTable dt = PhieuThuBLL.TimKiem(dtpTu.Value, dtpDen.Value, loai);
+            dgv.DataSource = dt;
 
-        //private void dgvPhieuThu_SelectionChanged(object sender, EventArgs e)
-        //{
-        //    if (!(dgv.CurrentRow?.DataBoundItem is PhieuThu pt))
-        //    {
-        //        return;
-        //    }
+            object tong = dt.Compute("SUM(SoTien)", "");
+            lblSoPhieu.Text = dt.Rows.Count + " phiếu thu";
+            lblTongTien.Text = "Tổng: " + (tong == DBNull.Value ? 0m : Convert.ToDecimal(tong)).ToString("N0") + "đ";
 
-        //    var kq = PhieuThuBLL.LayTheoId(pt.MaPT);
-        //    if (kq.Ok) HienThiChiTiet(kq.Data);
-        //}
+            dgv.ClearSelection();
+            HienChiTiet();
+        }
 
-        //private void TaiDuLieu()
-        //{
-        //    DateTime? tu = dtpTu.Checked ? dtpTu.Value.Date : (DateTime?)null;
-        //    DateTime? den = dtpDen.Checked ? dtpDen.Value.Date : (DateTime?)null;
-        //    string loai = cboLoaiThu.SelectedIndex == 0 ? null : cboLoaiThu.Text;
+        private void HienChiTiet()
+        {
+            DataRowView v = dgv.SelectedRows.Count > 0 ? dgv.SelectedRows[0].DataBoundItem as DataRowView : null;
+            if (v == null)
+            {
+                foreach (TextBox t in new[] { txt, txtLoaiThu, txtSoTien, txtGanVoi, txtNguoiThu, txtGhiChu })
+                    t.Clear();
+                return;
+            }
 
-        //    var kq = PhieuThuBLL.TimKiem(tu, den, loai, null);
-        //    if (!kq.Ok) { MessageBox.Show(kq.Message); return; }
-
-        //    dgv.DataSource = kq.Data;
-        //    lblSoPhieu.Text = $"{kq.Data.Count} phiếu thu";
-        //    lblTongTien.Text = "Tổng: " + kq.Data.Sum(x => x.SoTien).ToString("N0") + "đ";
-        //}
-
-        //private void DoCombobox()
-        //{
-        //    cboLoaiThu.Items.Add("Tất cả");
-        //    cboLoaiThu.Items.Add("Phí thẻ");
-        //    cboLoaiThu.Items.Add("Phạt trễ");
-        //    cboLoaiThu.Items.Add("Đền bù");
-        //    cboLoaiThu.SelectedIndex = 0;
-        //}
-
-        //private void HienThiChiTiet(PhieuThu pt)
-        //{
-        //    //lblMaPT.Text = pt.MaPT.ToString();
-        //    //lblLoaiThu.Text = pt.LoaiThu;
-        //    //lblSoTien.Text = pt.SoTien.ToString("N0") + "đ";
-        //    //lblNgayThu.Text = pt.NgayThu.ToString("dd/MM/yyyy HH:mm");
-        //    //lblGhiChu.Text = pt.GhiChu;
-        //}
-
-        //private void CauHinhLuoi()
-        //{
-        //    GridStyle.Apply(dgv);
-
-        //    DataGridViewTextBoxColumn maPT = GridStyle.AddText(
-        //        dgv, "Mã PT", "MaPT", "PT00", DataGridViewContentAlignment.MiddleLeft);
-        //    DataGridViewTextBoxColumn loaiThu = GridStyle.AddText(dgv, "Loại thu", "LoaiThu");
-        //    DataGridViewTextBoxColumn soTien = GridStyle.AddText(
-        //        dgv, "Số tiền", "SoTien", "0'đ'", DataGridViewContentAlignment.MiddleRight);
-        //    DataGridViewTextBoxColumn ngayThu = GridStyle.AddText(
-        //        dgv, "Ngày thu", "NgayThu", "dd/MM/yyyy HH:mm");
-        //    DataGridViewTextBoxColumn ghiChu = GridStyle.AddFill(dgv, "Ghi chú", "GhiChu", 150);
-
-        //    maPT.FillWeight = 10;
-        //    loaiThu.FillWeight = 16;
-        //    soTien.FillWeight = 16;
-        //    ngayThu.FillWeight = 20;
-        //    ghiChu.FillWeight = 38;
-        //    dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        //    dgv.RowTemplate.Height = 42;
-        //    dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-        //}
+            txt.Text = "PT" + Convert.ToInt32(v["MaPT"]).ToString("00");
+            txtLoaiThu.Text = Convert.ToString(v["LoaiThu"]);
+            txtSoTien.Text = Convert.ToDecimal(v["SoTien"]).ToString("N0") + "đ";
+            dtpNgayThu.Value = Convert.ToDateTime(v["NgayThu"]);
+            txtGanVoi.Text = v["MaThe"] != DBNull.Value
+                ? "Thẻ #" + v["MaThe"]
+                : "Cuốn mượn #" + v["MaCTM"];
+            txtNguoiThu.Text = Convert.ToString(v["NguoiThu"]);
+            txtGhiChu.Text = Convert.ToString(v["GhiChu"]);
+        }
     }
 }

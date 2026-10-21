@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,9 +78,17 @@
     <Compile Include="DTO\TaiKhoanDTO.cs" />
     <Compile Include="DTO\TheLoaiDTO.cs" />
     <Compile Include="DTO\TheThuVienDTO.cs" />
+    <Compile Include="GUI\frmMainn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMainn.Designer.cs">
+      <DependentUpon>frmMainn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\LogicTests.cs" />
+    <EmbeddedResource Include="GUI\frmMainn.resx">
+      <DependentUpon>frmMainn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -88,6 +97,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Docs\API_BLL.md" />
     <None Include="Docs\DeCuong_BTL_QuanLyThuVien.md" />
@@ -110,6 +120,31 @@
     <Content Include="Database\02_doi_soat.sql" />
     <Content Include="Docs\ER_QuanLyThuVien.png" />
     <Content Include="Docs\RM_QuanLyThuVien.png" />
+    <Content Include="resources\img\logo.png" />
+    <Content Include="resources\img\text_utc.png" />
+    <None Include="resources\text_utc1.png" />
+    <None Include="resources\logo1.png" />
+    <None Include="resources\burger-menu.png" />
+    <Content Include="resources\img\icon\burger-menu.png" />
+    <Content Include="resources\img\bookcovers\TLBI25-001.jpg" />
+    <Content Include="resources\img\bookcovers\TLRU25-002.png" />
+    <Content Include="resources\img\icon\icon_bandoc.png" />
+    <Content Include="resources\img\icon\icon_bandoc_active.png" />
+    <Content Include="resources\img\icon\icon_muontra.png" />
+    <Content Include="resources\img\icon\icon_muontra_active.png" />
+    <Content Include="resources\img\icon\icon_phanquyen.png" />
+    <Content Include="resources\img\icon\icon_phanquyen_active.png" />
+    <Content Include="resources\img\icon\icon_tailieu.png" />
+    <Content Include="resources\img\icon\icon_tailieu_active.png" />
+    <Content Include="resources\img\icon\icon_thongke.png" />
+    <Content Include="resources\img\icon\icon_thongke_active.png" />
+    <Content Include="resources\img\icon\icon_trangchu.png" />
+    <Content Include="resources\img\icon\icon_trangchu_active.png" />
+    <Content Include="resources\img\login\bg-login.jpg" />
+    <Content Include="resources\img\login\login-line-1.png" />
+    <Content Include="resources\img\login\login-line-2.png" />
+    <Content Include="resources\img\login\login_frm_bg.png" />
+    <Content Include="resources\img\logo_utc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,16 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.pnlNoiDung = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTrang = new System.Windows.Forms.Label();
             this.lblNguoiDung = new System.Windows.Forms.Label();
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.flpMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.btnDangXuat = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pbText = new System.Windows.Forms.PictureBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -61,14 +57,15 @@
             this.button10 = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pbText = new System.Windows.Forms.PictureBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.SideBarTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.flpMenu.SuspendLayout();
-            this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -79,16 +76,19 @@
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNoiDung
             // 
             this.pnlNoiDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.pnlNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlNoiDung.Location = new System.Drawing.Point(117, 85);
+            this.pnlNoiDung.Location = new System.Drawing.Point(494, 85);
             this.pnlNoiDung.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNoiDung.Name = "pnlNoiDung";
-            this.pnlNoiDung.Size = new System.Drawing.Size(1592, 1116);
+            this.pnlNoiDung.Size = new System.Drawing.Size(1215, 1116);
             this.pnlNoiDung.TabIndex = 5;
             // 
             // panel1
@@ -99,16 +99,31 @@
             this.panel1.Size = new System.Drawing.Size(491, 87);
             this.panel1.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Yellow;
+            this.button1.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-4, -14);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(560, 118);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Trang chủ";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.White;
             this.pnlHeader.Controls.Add(this.lblTrang);
             this.pnlHeader.Controls.Add(this.lblNguoiDung);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(117, 0);
+            this.pnlHeader.Location = new System.Drawing.Point(494, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1592, 85);
+            this.pnlHeader.Size = new System.Drawing.Size(1215, 85);
             this.pnlHeader.TabIndex = 4;
             // 
             // lblTrang
@@ -120,7 +135,7 @@
             this.lblTrang.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTrang.Name = "lblTrang";
             this.lblTrang.Padding = new System.Windows.Forms.Padding(31, 0, 0, 0);
-            this.lblTrang.Size = new System.Drawing.Size(1078, 85);
+            this.lblTrang.Size = new System.Drawing.Size(701, 85);
             this.lblTrang.TabIndex = 0;
             this.lblTrang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -129,7 +144,7 @@
             this.lblNguoiDung.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblNguoiDung.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.lblNguoiDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
-            this.lblNguoiDung.Location = new System.Drawing.Point(1078, 0);
+            this.lblNguoiDung.Location = new System.Drawing.Point(701, 0);
             this.lblNguoiDung.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNguoiDung.Name = "lblNguoiDung";
             this.lblNguoiDung.Padding = new System.Windows.Forms.Padding(0, 0, 31, 0);
@@ -149,7 +164,7 @@
             this.pnlSidebar.MaximumSize = new System.Drawing.Size(494, 0);
             this.pnlSidebar.MinimumSize = new System.Drawing.Size(117, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(117, 1201);
+            this.pnlSidebar.Size = new System.Drawing.Size(494, 1201);
             this.pnlSidebar.TabIndex = 6;
             // 
             // flpMenu
@@ -171,74 +186,9 @@
             this.flpMenu.Location = new System.Drawing.Point(0, 117);
             this.flpMenu.Margin = new System.Windows.Forms.Padding(4);
             this.flpMenu.Name = "flpMenu";
-            this.flpMenu.Size = new System.Drawing.Size(117, 1015);
+            this.flpMenu.Size = new System.Drawing.Size(494, 1015);
             this.flpMenu.TabIndex = 1;
             this.flpMenu.WrapContents = false;
-            // 
-            // pnlLogo
-            // 
-            this.pnlLogo.Controls.Add(this.pbText);
-            this.pnlLogo.Controls.Add(this.pbLogo);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(117, 117);
-            this.pnlLogo.TabIndex = 0;
-            // 
-            // btnDangXuat
-            // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
-            this.btnDangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDangXuat.FlatAppearance.BorderSize = 0;
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 1132);
-            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(117, 69);
-            this.btnDangXuat.TabIndex = 2;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Yellow;
-            this.button1.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-4, -14);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(560, 118);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Trang chủ";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // pbText
-            // 
-            this.pbText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbText.Image = global::LibraryManagerWF.Properties.Resources.text_utc;
-            this.pbText.Location = new System.Drawing.Point(122, 0);
-            this.pbText.Name = "pbText";
-            this.pbText.Size = new System.Drawing.Size(0, 117);
-            this.pbText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbText.TabIndex = 1;
-            this.pbText.TabStop = false;
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbLogo.Image = global::LibraryManagerWF.Properties.Resources.logo;
-            this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(122, 117);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
-            this.pbLogo.Click += new System.EventHandler(this.pbLogo_Click);
             // 
             // panel2
             // 
@@ -470,6 +420,56 @@
             this.button11.Text = "Cấu hình đơn giá";
             this.button11.UseVisualStyleBackColor = false;
             // 
+            // pnlLogo
+            // 
+            this.pnlLogo.Controls.Add(this.pbText);
+            this.pnlLogo.Controls.Add(this.pbLogo);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(494, 117);
+            this.pnlLogo.TabIndex = 0;
+            // 
+            // pbText
+            // 
+            this.pbText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbText.Image = global::LibraryManagerWF.Properties.Resources.text_utc;
+            this.pbText.Location = new System.Drawing.Point(122, 0);
+            this.pbText.Name = "pbText";
+            this.pbText.Size = new System.Drawing.Size(372, 117);
+            this.pbText.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbText.TabIndex = 1;
+            this.pbText.TabStop = false;
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbLogo.Image = global::LibraryManagerWF.Properties.Resources.logo;
+            this.pbLogo.Location = new System.Drawing.Point(0, 0);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(122, 117);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbLogo.TabIndex = 0;
+            this.pbLogo.TabStop = false;
+            this.pbLogo.Click += new System.EventHandler(this.pbLogo_Click);
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
+            this.btnDangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDangXuat.FlatAppearance.BorderSize = 0;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 1132);
+            this.btnDangXuat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(494, 69);
+            this.btnDangXuat.TabIndex = 2;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = false;
+            // 
             // SideBarTimer
             // 
             this.SideBarTimer.Tick += new System.EventHandler(this.SideBarTimer_Tick);
@@ -488,9 +488,6 @@
             this.pnlHeader.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);
             this.flpMenu.ResumeLayout(false);
-            this.pnlLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -501,6 +498,9 @@
             this.panel9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.pnlLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

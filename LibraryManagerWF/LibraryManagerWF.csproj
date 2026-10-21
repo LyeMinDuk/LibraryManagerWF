@@ -78,16 +78,83 @@
     <Compile Include="DTO\TaiKhoanDTO.cs" />
     <Compile Include="DTO\TheLoaiDTO.cs" />
     <Compile Include="DTO\TheThuVienDTO.cs" />
+    <Compile Include="GUI\Common\EditState.cs" />
+    <Compile Include="GUI\Common\GridStyle.cs" />
+    <Compile Include="GUI\Common\TabInfo.cs" />
+    <Compile Include="GUI\Common\ucTabContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Common\ucTabContainer.Designer.cs">
+      <DependentUpon>ucTabContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMainn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\frmMainn.Designer.cs">
       <DependentUpon>frmMainn.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Theme.cs" />
+    <Compile Include="GUI\UC\ucChoPhatTrien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucDSMuonTra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucDSMuonTra.Designer.cs">
+      <DependentUpon>ucDSMuonTra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucQuanLyPhieuThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucQuanLyPhieuThu.Designer.cs">
+      <DependentUpon>ucQuanLyPhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucQuanLyTra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucQuanLyTra.Designer.cs">
+      <DependentUpon>ucQuanLyTra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucTaoPhieuThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucTaoPhieuThu.Designer.cs">
+      <DependentUpon>ucTaoPhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucTheoDoiMuonTra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucTheoDoiMuonTra.Designer.cs">
+      <DependentUpon>ucTheoDoiMuonTra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucThongTinPhieuThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucThongTinPhieuThu.Designer.cs">
+      <DependentUpon>ucThongTinPhieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\ucTrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\frmMainn.resx">
       <DependentUpon>frmMainn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Thanh\ucDSMuonTra.resx">
+      <DependentUpon>ucDSMuonTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Thanh\ucQuanLyTra.resx">
+      <DependentUpon>ucQuanLyTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Thanh\ucTaoPhieuThu.resx">
+      <DependentUpon>ucTaoPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Thanh\ucTheoDoiMuonTra.resx">
+      <DependentUpon>ucTheoDoiMuonTra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Thanh\ucThongTinPhieuThu.resx">
+      <DependentUpon>ucThongTinPhieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

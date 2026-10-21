@@ -22,7 +22,7 @@ namespace LibraryManagerWF.BLL
             if (dsMaSach == null || dsMaSach.Count == 0) return "Vui lòng chọn ít nhất một cuốn sách.";
             if (dsMaSach.Distinct().Count() != dsMaSach.Count) return "Một phiếu mượn không được chọn trùng sách.";
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 db.BatDauGiaoDich();
                 hanTra = DateTime.Today.AddDays(CauHinhBLL.Lay(db, "MUON_SO_NGAY"));
@@ -60,7 +60,7 @@ namespace LibraryManagerWF.BLL
             hanMoi = DateTime.Today;
             Quyen.YeuCauDangNhap();
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 db.BatDauGiaoDich();
 
@@ -88,7 +88,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable DanhSachMuon(string tuKhoa, int maThe, int loc)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return ChiTietMuonDAL.DanhSach(db, DateTime.Today, tuKhoa, maThe, loc);
         }
     }

@@ -33,7 +33,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable TimKiem(string tuKhoa)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return DocGiaDAL.TimKiem(db, tuKhoa);
         }
 
@@ -44,7 +44,7 @@ namespace LibraryManagerWF.BLL
             if (loi != null) return loi;
             ChuanHoa(d);
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 DocGiaDAL.Them(db, d);
                 return null;
@@ -58,7 +58,7 @@ namespace LibraryManagerWF.BLL
             if (loi != null) return loi;
             ChuanHoa(d);
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (DocGiaDAL.Sua(db, d) == 0) return "Độc giả không còn tồn tại.";
                 return null;
@@ -69,7 +69,7 @@ namespace LibraryManagerWF.BLL
         public static void DoiTrangThai(int maDG, bool hoatDong)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 DocGiaDAL.DoiTrangThai(db, maDG, hoatDong);
         }
 
@@ -77,7 +77,7 @@ namespace LibraryManagerWF.BLL
         public static string Xoa(int maDG)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (DocGiaDAL.DemThe(db, maDG) > 0) return "Độc giả đã có thẻ nên không xóa được, hãy khóa độc giả.";
                 DocGiaDAL.Xoa(db, maDG);

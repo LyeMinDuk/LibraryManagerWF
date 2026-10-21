@@ -16,7 +16,7 @@ namespace LibraryManagerWF.BLL
         /// Lập một phiếu thu trong transaction của người gọi. Khoản 0đ thì không lập và trả về 0.
         /// Phí thẻ: truyền maThe, maCTM = null. Phạt trễ / Đền bù: truyền maCTM, maThe = null.
         /// </summary>
-        public static int TaoPhieuThu(DataBaseProcess db, string loaiThu, decimal soTien, int? maThe, int? maCTM, string ghiChu)
+        public static int TaoPhieuThu(DbHelpers db, string loaiThu, decimal soTien, int? maThe, int? maCTM, string ghiChu)
         {
             soTien = Math.Round(soTien, 0, MidpointRounding.AwayFromZero);   // làm tròn nửa lên, khớp ROUND của SQL
             if (soTien <= 0) return 0;
@@ -36,7 +36,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable TimKiem(DateTime tuNgay, DateTime denNgay, string loaiThu)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return PhieuThuDAL.TimKiem(db, tuNgay, denNgay, loaiThu);
         }
 
@@ -45,14 +45,14 @@ namespace LibraryManagerWF.BLL
         public static DataTable DoanhThuTheoLoai(DateTime tuNgay, DateTime denNgay)
         {
             Quyen.YeuCauQuanTri();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return PhieuThuDAL.DoanhThuTheoLoai(db, tuNgay, denNgay);
         }
 
         public static DataTable DoanhThuTheoNgay(DateTime tuNgay, DateTime denNgay)
         {
             Quyen.YeuCauQuanTri();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return PhieuThuDAL.DoanhThuTheoNgay(db, tuNgay, denNgay);
         }
     }

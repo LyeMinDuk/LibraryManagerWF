@@ -14,7 +14,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable LayTatCa()
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return TheLoaiDAL.LayTatCa(db);
         }
 
@@ -31,7 +31,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraTen(ten);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (TheLoaiDAL.TrungTen(db, ten.Trim(), 0)) return "Thể loại này đã tồn tại.";
                 TheLoaiDAL.Them(db, ten.Trim());
@@ -45,7 +45,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraTen(ten);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (TheLoaiDAL.TrungTen(db, ten.Trim(), maTL)) return "Thể loại này đã tồn tại.";
                 if (TheLoaiDAL.Sua(db, maTL, ten.Trim()) == 0) return "Thể loại không còn tồn tại.";
@@ -57,7 +57,7 @@ namespace LibraryManagerWF.BLL
         public static string Xoa(int maTL)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (TheLoaiDAL.DemSach(db, maTL) > 0) return "Không xóa được: thể loại còn sách.";
                 TheLoaiDAL.Xoa(db, maTL);

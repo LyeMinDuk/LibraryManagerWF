@@ -62,7 +62,7 @@
     <Compile Include="BLL\TraBLL.cs" />
     <Compile Include="DAL\CauHinhDAL.cs" />
     <Compile Include="DAL\ChiTietMuonDAL.cs" />
-    <Compile Include="DAL\DataBaseProcess.cs" />
+    <Compile Include="DAL\DbHelpers.cs" />
     <Compile Include="DAL\DocGiaDAL.cs" />
     <Compile Include="DAL\PhieuMuonDAL.cs" />
     <Compile Include="DAL\PhieuThuDAL.cs" />

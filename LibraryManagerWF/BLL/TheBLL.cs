@@ -19,7 +19,7 @@ namespace LibraryManagerWF.BLL
         public static TheThuVienDTO LayTheoDocGia(int maDG)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return TheThuVienDAL.LayTheoDocGia(db, maDG);
         }
 
@@ -28,7 +28,7 @@ namespace LibraryManagerWF.BLL
         /// và không có cuốn nào quá hạn. Trả về lý do không được, hoặc null nếu được.
         /// Dùng trong transaction của MuonBLL nên nhận db từ người gọi.
         /// </summary>
-        public static string KiemTraDuocMuon(DataBaseProcess db, int maThe)
+        public static string KiemTraDuocMuon(DbHelpers db, int maThe)
         {
             TheThuVienDTO the = TheThuVienDAL.LayTheoMa(db, maThe);
             if (the == null) return "Không tìm thấy thẻ thư viện (độc giả chưa được cấp thẻ?).";
@@ -53,7 +53,7 @@ namespace LibraryManagerWF.BLL
             ngayHetHan = DateTime.Today;
             Quyen.YeuCauDangNhap();
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 db.BatDauGiaoDich();
 
@@ -80,7 +80,7 @@ namespace LibraryManagerWF.BLL
             ngayHetHanMoi = DateTime.Today;
             Quyen.YeuCauDangNhap();
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 db.BatDauGiaoDich();
 
@@ -105,7 +105,7 @@ namespace LibraryManagerWF.BLL
         public static void DoiTrangThai(int maThe, bool hoatDong)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 TheThuVienDAL.DoiTrangThai(db, maThe, hoatDong);
         }
 
@@ -113,7 +113,7 @@ namespace LibraryManagerWF.BLL
         public static string Xoa(int maThe)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (TheThuVienDAL.DemGiaoDich(db, maThe) > 0) return "Thẻ đã phát sinh giao dịch nên không xóa được, hãy khóa thẻ.";
                 TheThuVienDAL.Xoa(db, maThe);

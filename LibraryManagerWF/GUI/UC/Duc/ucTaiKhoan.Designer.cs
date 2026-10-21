@@ -121,7 +121,6 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnTimKiem_KeyDown);
             // 
             // btnLamMoi
             // 

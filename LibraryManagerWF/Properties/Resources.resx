@@ -119,19 +119,19 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="icon_trangchu_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_trangchu_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_trangchu_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_utc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\logo_utc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\logo_utc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_phanquyen_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_phanquyen_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_phanquyen_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_thongke" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_thongke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_thongke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login-line-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\login\login-line-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\login\login-line-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="burger-menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\burger-menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -140,43 +140,43 @@
     <value>..\resources\logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_thongke_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_thongke_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_thongke_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="text_utc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\text_utc.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\resources\text_utc.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="icon_bandoc_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_bandoc_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_bandoc_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login_frm_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\login\login_frm_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\login\login_frm_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_trangchu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_trangchu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_trangchu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_phanquyen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_phanquyen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_phanquyen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg-login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\login\bg-login.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\login\bg-login.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_muontra" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_muontra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_muontra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login-line-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\login\login-line-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\login\login-line-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_muontra_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_muontra_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_muontra_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_tailieu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_tailieu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_tailieu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_bandoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_bandoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_bandoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_tailieu_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\TMP\LibraryManagerApp\Properties\..\Resources\img\icon\icon_tailieu_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\img\icon\icon_tailieu_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="text_utc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\text_utc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

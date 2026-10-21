@@ -26,7 +26,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraTinhTrang(tinhTrang);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 ChiTietMuonDTO ct = ChiTietMuonDAL.LayTheoMa(db, maCTM);
                 if (ct == null) return "Không tìm thấy cuốn mượn.";
@@ -51,7 +51,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraTinhTrang(tinhTrang);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 db.BatDauGiaoDich();
 

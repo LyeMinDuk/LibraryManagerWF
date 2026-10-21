@@ -52,7 +52,7 @@ namespace LibraryManagerWF.BLL
             if (string.IsNullOrWhiteSpace(tenDN) || string.IsNullOrEmpty(matKhau))
                 return "Vui lòng nhập tên đăng nhập và mật khẩu.";
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 TaiKhoanDTO tk = TaiKhoanDAL.LayTheoTenDN(db, tenDN.Trim());
 
@@ -81,7 +81,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraMatKhauMoi(matKhauMoi);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 TaiKhoanDTO tk = TaiKhoanDAL.LayTheoMa(db, AppSession.MaTK);
                 if (tk == null || !KiemTraMatKhau(matKhauCu ?? "", tk.MatKhauHash)) return "Mật khẩu hiện tại không đúng.";

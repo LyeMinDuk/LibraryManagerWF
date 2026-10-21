@@ -16,7 +16,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable LayTatCa()
         {
             Quyen.YeuCauQuanTri();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return TaiKhoanDAL.LayTatCa(db);
         }
 
@@ -36,7 +36,7 @@ namespace LibraryManagerWF.BLL
         }
 
         // Lấy tài khoản cần sửa. Hầu hết thao tác không được nhắm vào chính tài khoản đang đăng nhập
-        static string LayMucTieu(DataBaseProcess db, int maTK, bool choPhepChinhMinh, out TaiKhoanDTO tk)
+        static string LayMucTieu(DbHelpers db, int maTK, bool choPhepChinhMinh, out TaiKhoanDTO tk)
         {
             tk = TaiKhoanDAL.LayTheoMa(db, maTK);
             if (tk == null) return "Không tìm thấy tài khoản.";
@@ -51,7 +51,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraTenDN(tenDN) ?? AuthBLL.KiemTraMatKhauMoi(matKhau) ?? KiemTraHoTenVaiTro(hoTen, vaiTro);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (TaiKhoanDAL.TenDNDaCo(db, tenDN.Trim())) return "Tên đăng nhập đã tồn tại.";
                 TaiKhoanDAL.Them(db, new TaiKhoanDTO
@@ -72,7 +72,7 @@ namespace LibraryManagerWF.BLL
             string loi = KiemTraHoTenVaiTro(hoTen, vaiTro);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 TaiKhoanDTO tk;
                 loi = LayMucTieu(db, maTK, false, out tk);
@@ -89,7 +89,7 @@ namespace LibraryManagerWF.BLL
             string loi = AuthBLL.KiemTraMatKhauMoi(matKhauMoi);
             if (loi != null) return loi;
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 TaiKhoanDTO tk;
                 loi = LayMucTieu(db, maTK, true, out tk);
@@ -103,7 +103,7 @@ namespace LibraryManagerWF.BLL
         public static string DoiTrangThai(int maTK, bool hoatDong)
         {
             Quyen.YeuCauQuanTri();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 TaiKhoanDTO tk;
                 string loi = LayMucTieu(db, maTK, false, out tk);
@@ -117,7 +117,7 @@ namespace LibraryManagerWF.BLL
         public static string Xoa(int maTK)
         {
             Quyen.YeuCauQuanTri();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 TaiKhoanDTO tk;
                 string loi = LayMucTieu(db, maTK, false, out tk);

@@ -6,7 +6,7 @@ namespace LibraryManagerWF.DAL
 {
     public static class PhieuThuDAL
     {
-        public static int Them(DataBaseProcess db, PhieuThuDTO p)
+        public static int Them(DbHelpers db, PhieuThuDTO p)
         {
             return db.ThemLayMa(
                 "INSERT INTO PhieuThu(LoaiThu, SoTien, NgayThu, MaThe, MaCTM, MaTK, GhiChu) VALUES(@0, @1, @2, @3, @4, @5, @6)",
@@ -14,7 +14,7 @@ namespace LibraryManagerWF.DAL
         }
 
         /// <summary>Tra cứu phiếu thu trong [tuNgay, denNgay]. loaiThu rỗng là mọi loại.</summary>
-        public static DataTable TimKiem(DataBaseProcess db, DateTime tuNgay, DateTime denNgay, string loaiThu)
+        public static DataTable TimKiem(DbHelpers db, DateTime tuNgay, DateTime denNgay, string loaiThu)
         {
             return db.DocBang(
                 "SELECT p.MaPT, p.LoaiThu, p.SoTien, p.NgayThu, p.MaThe, p.MaCTM, p.GhiChu, tk.HoTen AS NguoiThu " +
@@ -24,7 +24,7 @@ namespace LibraryManagerWF.DAL
                 tuNgay.Date, denNgay.Date.AddDays(1), loaiThu ?? "");
         }
 
-        public static DataTable DoanhThuTheoLoai(DataBaseProcess db, DateTime tuNgay, DateTime denNgay)
+        public static DataTable DoanhThuTheoLoai(DbHelpers db, DateTime tuNgay, DateTime denNgay)
         {
             return db.DocBang(
                 "SELECT LoaiThu, COUNT(*) AS SoPhieu, SUM(SoTien) AS TongTien FROM PhieuThu " +
@@ -32,7 +32,7 @@ namespace LibraryManagerWF.DAL
                 tuNgay.Date, denNgay.Date.AddDays(1));
         }
 
-        public static DataTable DoanhThuTheoNgay(DataBaseProcess db, DateTime tuNgay, DateTime denNgay)
+        public static DataTable DoanhThuTheoNgay(DbHelpers db, DateTime tuNgay, DateTime denNgay)
         {
             return db.DocBang(
                 "SELECT CAST(NgayThu AS DATE) AS Ngay, COUNT(*) AS SoPhieu, SUM(SoTien) AS TongTien FROM PhieuThu " +

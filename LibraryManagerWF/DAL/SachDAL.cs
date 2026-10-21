@@ -24,7 +24,7 @@ namespace LibraryManagerWF.DAL
             };
         }
 
-        public static SachDTO LayTheoMa(DataBaseProcess db, int maSach)
+        public static SachDTO LayTheoMa(DbHelpers db, int maSach)
         {
             DataTable dt = db.DocBang(
                 "SELECT MaSach, TenSach, TacGia, MaTL, NXB, NamXB, GiaBia, SoLuongTong, SoLuongCon, TrangThai FROM Sach WHERE MaSach = @0", maSach);
@@ -32,7 +32,7 @@ namespace LibraryManagerWF.DAL
         }
 
         /// <summary>Tìm sách, ghép dần điều kiện AND theo ô nào được nhập. maTL = 0: mọi thể loại; trangThai = -1: mọi trạng thái.</summary>
-        public static DataTable TimKiem(DataBaseProcess db, string tuKhoa, int maTL, int trangThai)
+        public static DataTable TimKiem(DbHelpers db, string tuKhoa, int maTL, int trangThai)
         {
             string sql =
                 "SELECT s.MaSach, s.TenSach, s.TacGia, s.MaTL, tl.TenTL, s.NXB, s.NamXB, s.GiaBia, " +
@@ -60,7 +60,7 @@ namespace LibraryManagerWF.DAL
         }
 
         /// <summary>Sách mới: số lượng còn = số lượng tổng, đang hoạt động.</summary>
-        public static int Them(DataBaseProcess db, SachDTO s)
+        public static int Them(DbHelpers db, SachDTO s)
         {
             return db.CapNhat(
                 "INSERT INTO Sach(TenSach, TacGia, MaTL, NXB, NamXB, GiaBia, SoLuongTong, SoLuongCon, TrangThai) " +
@@ -69,7 +69,7 @@ namespace LibraryManagerWF.DAL
         }
 
         /// <summary>Đổi tổng thì "còn" đổi cùng mức, giữ đúng: còn = tổng - đang mượn.</summary>
-        public static int Sua(DataBaseProcess db, SachDTO s)
+        public static int Sua(DbHelpers db, SachDTO s)
         {
             return db.CapNhat(
                 "UPDATE Sach SET TenSach = @0, TacGia = @1, MaTL = @2, NXB = @3, NamXB = @4, GiaBia = @5, " +
@@ -77,17 +77,17 @@ namespace LibraryManagerWF.DAL
                 s.TenSach, s.TacGia, s.MaTL, s.NXB, s.NamXB, s.GiaBia, s.SoLuongTong, s.MaSach);
         }
 
-        public static int DoiTrangThai(DataBaseProcess db, int maSach, bool hoatDong)
+        public static int DoiTrangThai(DbHelpers db, int maSach, bool hoatDong)
         {
             return db.CapNhat("UPDATE Sach SET TrangThai = @0 WHERE MaSach = @1", hoatDong, maSach);
         }
 
-        public static int DemLuotMuon(DataBaseProcess db, int maSach)
+        public static int DemLuotMuon(DbHelpers db, int maSach)
         {
             return (int)db.LayMotGiaTri("SELECT COUNT(*) FROM ChiTietMuon WHERE MaSach = @0", maSach);
         }
 
-        public static int Xoa(DataBaseProcess db, int maSach)
+        public static int Xoa(DbHelpers db, int maSach)
         {
             return db.CapNhat("DELETE FROM Sach WHERE MaSach = @0", maSach);
         }
@@ -95,18 +95,18 @@ namespace LibraryManagerWF.DAL
         // ===== Tồn kho: chỉ Mượn và Trả được gọi =====
 
         /// <summary>Trừ kho một cuốn. Trả 0 dòng nghĩa là sách đã hết hoặc đang bị khóa (BR05).</summary>
-        public static int TruKho(DataBaseProcess db, int maSach)
+        public static int TruKho(DbHelpers db, int maSach)
         {
             return db.CapNhat("UPDATE Sach SET SoLuongCon = SoLuongCon - 1 WHERE MaSach = @0 AND SoLuongCon > 0 AND TrangThai = 1", maSach);
         }
 
-        public static int CongKho(DataBaseProcess db, int maSach)
+        public static int CongKho(DbHelpers db, int maSach)
         {
             return db.CapNhat("UPDATE Sach SET SoLuongCon = SoLuongCon + 1 WHERE MaSach = @0", maSach);
         }
 
         /// <summary>Sách mất: giảm tổng (cuốn đó đã bị trừ "còn" từ lúc mượn).</summary>
-        public static int GiamTong(DataBaseProcess db, int maSach)
+        public static int GiamTong(DbHelpers db, int maSach)
         {
             return db.CapNhat("UPDATE Sach SET SoLuongTong = SoLuongTong - 1 WHERE MaSach = @0", maSach);
         }

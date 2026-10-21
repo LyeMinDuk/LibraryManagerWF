@@ -33,7 +33,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable TimKiem(string tuKhoa, int maTL, int trangThai)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return SachDAL.TimKiem(db, tuKhoa, maTL, trangThai);
         }
 
@@ -44,7 +44,7 @@ namespace LibraryManagerWF.BLL
             if (loi != null) return loi;
             ChuanHoa(s);
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 SachDAL.Them(db, s);
                 return null;
@@ -58,7 +58,7 @@ namespace LibraryManagerWF.BLL
             if (loi != null) return loi;
             ChuanHoa(s);
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 SachDTO cu = SachDAL.LayTheoMa(db, s.MaSach);
                 if (cu == null) return "Sách không còn tồn tại.";
@@ -76,7 +76,7 @@ namespace LibraryManagerWF.BLL
         public static void DoiTrangThai(int maSach, bool hoatDong)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 SachDAL.DoiTrangThai(db, maSach, hoatDong);
         }
 
@@ -84,7 +84,7 @@ namespace LibraryManagerWF.BLL
         public static string Xoa(int maSach)
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (SachDAL.DemLuotMuon(db, maSach) > 0) return "Sách đã có giao dịch mượn nên không xóa được, hãy khóa sách.";
                 SachDAL.Xoa(db, maSach);

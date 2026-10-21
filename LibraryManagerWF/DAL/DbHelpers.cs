@@ -13,12 +13,12 @@ namespace LibraryManagerWF.DAL
     ///     Nhờ vậy tên có dấu nháy (O'Brien) không làm lỗi câu SQL và không bị SQL injection.
     /// Thoát khỏi khối using mà chưa gọi XacNhan() thì mọi thay đổi trong transaction tự bị hủy.
     /// </summary>
-    public class DataBaseProcess : IDisposable
+    public class DbHelpers : IDisposable
     {
         SqlConnection conn;
         SqlTransaction tran;
 
-        public DataBaseProcess()
+        public DbHelpers()
         {
             string strConnect = ConfigurationManager.ConnectionStrings["LibraryDB"].ConnectionString;
             conn = new SqlConnection(strConnect);

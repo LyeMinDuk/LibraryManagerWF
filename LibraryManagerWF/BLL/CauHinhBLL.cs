@@ -11,7 +11,7 @@ namespace LibraryManagerWF.BLL
     public static class CauHinhBLL
     {
         /// <summary>Dùng nội bộ giữa các BLL (đã kiểm tra quyền ở hàm gọi).</summary>
-        public static int Lay(DataBaseProcess db, string khoa)
+        public static int Lay(DbHelpers db, string khoa)
         {
             return CauHinhDAL.LayGiaTri(db, khoa);
         }
@@ -19,7 +19,7 @@ namespace LibraryManagerWF.BLL
         public static DataTable LayTatCa()
         {
             Quyen.YeuCauDangNhap();
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
                 return CauHinhDAL.LayTatCa(db);
         }
 
@@ -30,7 +30,7 @@ namespace LibraryManagerWF.BLL
             int so;
             if (!int.TryParse(giaTri, out so) || so < 0) return "Giá trị phải là số nguyên không âm.";
 
-            using (var db = new DataBaseProcess())
+            using (var db = new DbHelpers())
             {
                 if (CauHinhDAL.CapNhat(db, khoa, so.ToString()) == 0) return "Không có khóa cấu hình này.";
                 return null;

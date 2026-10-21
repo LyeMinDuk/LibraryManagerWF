@@ -27,7 +27,7 @@ namespace LibraryManagerWF.BLL
         /// Ghép ba công thức theo tình trạng. Mất: chỉ đền (không phạt trễ). Hỏng: phạt trễ cộng đền.
         /// Bình thường: chỉ phạt trễ. Đơn giá lấy từ CauHinh.
         /// </summary>
-        public static void Tinh(DAL.DataBaseProcess db, decimal giaBia, DateTime hanTra, string tinhTrang,
+        public static void Tinh(DAL.DbHelpers db, decimal giaBia, DateTime hanTra, string tinhTrang,
             out int soNgayTre, out decimal tienPhat, out decimal tienDen)
         {
             soNgayTre = 0;

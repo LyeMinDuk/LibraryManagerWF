@@ -6,12 +6,12 @@ namespace LibraryManagerWF.DAL
 {
     public static class PhieuMuonDAL
     {
-        public static int Them(DataBaseProcess db, PhieuMuonDTO pm)
+        public static int Them(DbHelpers db, PhieuMuonDTO pm)
         {
             return db.ThemLayMa("INSERT INTO PhieuMuon(MaThe, NgayMuon, MaTK) VALUES(@0, @1, @2)", pm.MaThe, pm.NgayMuon, pm.MaTK);
         }
 
-        public static PhieuMuonDTO LayTheoMa(DataBaseProcess db, int maPM)
+        public static PhieuMuonDTO LayTheoMa(DbHelpers db, int maPM)
         {
             DataTable dt = db.DocBang("SELECT MaPM, MaThe, NgayMuon, MaTK FROM PhieuMuon WHERE MaPM = @0", maPM);
             if (dt.Rows.Count == 0) return null;

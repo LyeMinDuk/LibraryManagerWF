@@ -44,6 +44,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,32 @@
       <DependentUpon>frmMainn.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Theme.cs" />
+    <Compile Include="GUI\UC\Cuong\ucMuon.cs" />
+    <Compile Include="GUI\UC\Cuong\ucMuon.Designer.cs">
+      <DependentUpon>ucMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucGiaHan.cs" />
+    <Compile Include="GUI\UC\Cuong\ucGiaHan.Designer.cs">
+      <DependentUpon>ucGiaHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucQuanLyDocGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucQuanLyDocGia.Designer.cs">
+      <DependentUpon>ucQuanLyDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucDocGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucDocGia.Designer.cs">
+      <DependentUpon>ucDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucThe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Cuong\ucThe.Designer.cs">
+      <DependentUpon>ucThe.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UC\Duc\ucCauHinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +168,12 @@
     </Compile>
     <Compile Include="GUI\UC\ucChoPhatTrien.Designer.cs">
       <DependentUpon>ucChoPhatTrien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucBaoCaoDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Thanh\ucBaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>ucBaoCaoDoanhThu.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UC\Thanh\ucDSMuonTra.cs">
       <SubType>UserControl</SubType>
@@ -189,8 +222,23 @@
     <EmbeddedResource Include="GUI\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmDoiMatKhau.resx">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMainn.resx">
       <DependentUpon>frmMainn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Cuong\ucMuon.resx">
+      <DependentUpon>ucMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Cuong\ucQuanLyDocGia.resx">
+      <DependentUpon>ucQuanLyDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Cuong\ucDocGia.resx">
+      <DependentUpon>ucDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Cuong\ucThe.resx">
+      <DependentUpon>ucThe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC\Duc\ucCauHinh.resx">
       <DependentUpon>ucCauHinh.cs</DependentUpon>

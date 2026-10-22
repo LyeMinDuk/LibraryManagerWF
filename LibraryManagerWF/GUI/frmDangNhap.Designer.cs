@@ -212,6 +212,7 @@
             this.btnXacNhan.TabIndex = 2;
             this.btnXacNhan.Text = "Xác Nhận";
             this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // frmDangNhap
             // 
@@ -226,6 +227,7 @@
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập - Quản lý thư viện";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.pnlNen.ResumeLayout(false);
             this.pnlFormDangNhap.ResumeLayout(false);

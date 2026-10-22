@@ -70,7 +70,7 @@
             this.lblCu.AutoSize = true;
             this.lblCu.Location = new System.Drawing.Point(19, 27);
             this.lblCu.Name = "lblCu";
-            this.lblCu.Size = new System.Drawing.Size(160, 25);
+            this.lblCu.Size = new System.Drawing.Size(166, 25);
             this.lblCu.TabIndex = 0;
             this.lblCu.Text = "Mật khẩu hiện tại:";
             this.lblCu.UseMnemonic = false;
@@ -78,11 +78,11 @@
             // txtCu
             // 
             this.txtCu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCu.Location = new System.Drawing.Point(249, 20);
+            this.txtCu.Location = new System.Drawing.Point(250, 25);
             this.txtCu.Margin = new System.Windows.Forms.Padding(4);
             this.txtCu.MaxLength = 50;
             this.txtCu.Name = "txtCu";
-            this.txtCu.Size = new System.Drawing.Size(271, 30);
+            this.txtCu.Size = new System.Drawing.Size(270, 30);
             this.txtCu.TabIndex = 1;
             this.txtCu.UseSystemPasswordChar = true;
             // 
@@ -92,7 +92,7 @@
             this.lblMoi.AutoSize = true;
             this.lblMoi.Location = new System.Drawing.Point(19, 75);
             this.lblMoi.Name = "lblMoi";
-            this.lblMoi.Size = new System.Drawing.Size(130, 25);
+            this.lblMoi.Size = new System.Drawing.Size(135, 25);
             this.lblMoi.TabIndex = 2;
             this.lblMoi.Text = "Mật khẩu mới:";
             this.lblMoi.UseMnemonic = false;
@@ -100,11 +100,11 @@
             // txtMoi
             // 
             this.txtMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoi.Location = new System.Drawing.Point(249, 68);
+            this.txtMoi.Location = new System.Drawing.Point(250, 73);
             this.txtMoi.Margin = new System.Windows.Forms.Padding(4);
             this.txtMoi.MaxLength = 50;
             this.txtMoi.Name = "txtMoi";
-            this.txtMoi.Size = new System.Drawing.Size(271, 30);
+            this.txtMoi.Size = new System.Drawing.Size(270, 30);
             this.txtMoi.TabIndex = 3;
             this.txtMoi.UseSystemPasswordChar = true;
             // 
@@ -112,9 +112,9 @@
             // 
             this.lblNhapLai.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblNhapLai.AutoSize = true;
-            this.lblNhapLai.Location = new System.Drawing.Point(19, 123);
+            this.lblNhapLai.Location = new System.Drawing.Point(19, 143);
             this.lblNhapLai.Name = "lblNhapLai";
-            this.lblNhapLai.Size = new System.Drawing.Size(203, 25);
+            this.lblNhapLai.Size = new System.Drawing.Size(210, 25);
             this.lblNhapLai.TabIndex = 4;
             this.lblNhapLai.Text = "Nhập lại mật khẩu mới:";
             this.lblNhapLai.UseMnemonic = false;
@@ -122,11 +122,11 @@
             // txtNhapLai
             // 
             this.txtNhapLai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNhapLai.Location = new System.Drawing.Point(249, 116);
+            this.txtNhapLai.Location = new System.Drawing.Point(250, 141);
             this.txtNhapLai.Margin = new System.Windows.Forms.Padding(4);
             this.txtNhapLai.MaxLength = 50;
             this.txtNhapLai.Name = "txtNhapLai";
-            this.txtNhapLai.Size = new System.Drawing.Size(271, 30);
+            this.txtNhapLai.Size = new System.Drawing.Size(270, 30);
             this.txtNhapLai.TabIndex = 5;
             this.txtNhapLai.UseSystemPasswordChar = true;
             // 
@@ -145,7 +145,7 @@
             // btnHuy
             // 
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHuy.Location = new System.Drawing.Point(418, 11);
+            this.btnHuy.Location = new System.Drawing.Point(403, 11);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(110, 40);
             this.btnHuy.TabIndex = 0;
@@ -154,12 +154,13 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(302, 11);
+            this.btnLuu.Location = new System.Drawing.Point(287, 11);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(110, 40);
             this.btnLuu.TabIndex = 1;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // frmDoiMatKhau
             // 

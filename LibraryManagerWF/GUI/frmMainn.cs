@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using LibraryManagerWF.BLL;
+using LibraryManagerWF.GUI.UC.Cuong;
 using LibraryManagerWF.GUI.UC.Duc;
 
 namespace LibraryManagerWF.GUI
@@ -66,9 +67,9 @@ namespace LibraryManagerWF.GUI
             {
                 Tao("Trang chủ",            false, () => new ucTrangChu(),        "Đức",    button1,  panel1),
                 Tao("Sách & thể loại",      false, () => new ucQuanLySach(),      "Đức",    button2,  panel2),
-                Tao("Độc giả & thẻ",        false, null,                          "Cường",  button3,  panel3),
-                Tao("Cho mượn",             false, null,                          "Cường",  button4,  panel4),
-                Tao("Gia hạn sách",         false, null,                          "Cường",  button5,  panel5),
+                Tao("Độc giả & thẻ",        false, () => new ucQuanLyDocGia(),    "Cường",  button3,  panel3),
+                Tao("Cho mượn",             false, () => new ucMuon(),            "Cường",  button4,  panel4),
+                Tao("Gia hạn sách",         false, () => new ucGiaHan(),          "Cường",  button5,  panel5),
                 Tao("Trả sách",             false, () => new ucQuanLyTra(),       "Thành",  button6,  panel6),
                 Tao("Theo dõi mượn trả",    false, () => new ucTheoDoiMuonTra(),  "Thành",  button7,  panel7),
                 Tao("Phiếu thu",            false, TaoUcQuanLyPhieuThu,            "Thành",  button8,  panel8),

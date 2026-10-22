@@ -48,6 +48,7 @@
             this.dgvLoai = new System.Windows.Forms.DataGridView();
             this.gbTheoNgay = new System.Windows.Forms.GroupBox();
             this.chartNgay = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.flpBoLoc.SuspendLayout();
             this.tlpChinh.SuspendLayout();
             this.gbTheoLoai.SuspendLayout();
@@ -76,6 +77,7 @@
             this.flpBoLoc.Controls.Add(this.lblDen);
             this.flpBoLoc.Controls.Add(this.dtpDen);
             this.flpBoLoc.Controls.Add(this.btnXemBaoCao);
+            this.flpBoLoc.Controls.Add(this.btnXuatExcel);
             this.flpBoLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.flpBoLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpBoLoc.Location = new System.Drawing.Point(0, 36);
@@ -87,10 +89,10 @@
             // lblTu
             // 
             this.lblTu.AutoSize = true;
-            this.lblTu.Location = new System.Drawing.Point(13, 16);
+            this.lblTu.Location = new System.Drawing.Point(13, 18);
             this.lblTu.Margin = new System.Windows.Forms.Padding(3, 8, 4, 0);
             this.lblTu.Name = "lblTu";
-            this.lblTu.Size = new System.Drawing.Size(70, 25);
+            this.lblTu.Size = new System.Drawing.Size(105, 29);
             this.lblTu.TabIndex = 0;
             this.lblTu.Text = "Từ ngày:";
             // 
@@ -98,19 +100,19 @@
             // 
             this.dtpTu.CustomFormat = "dd/MM/yyyy";
             this.dtpTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTu.Location = new System.Drawing.Point(91, 12);
+            this.dtpTu.Location = new System.Drawing.Point(126, 14);
             this.dtpTu.Margin = new System.Windows.Forms.Padding(4, 4, 12, 4);
             this.dtpTu.Name = "dtpTu";
-            this.dtpTu.Size = new System.Drawing.Size(160, 30);
+            this.dtpTu.Size = new System.Drawing.Size(160, 35);
             this.dtpTu.TabIndex = 1;
             // 
             // lblDen
             // 
             this.lblDen.AutoSize = true;
-            this.lblDen.Location = new System.Drawing.Point(267, 16);
+            this.lblDen.Location = new System.Drawing.Point(301, 18);
             this.lblDen.Margin = new System.Windows.Forms.Padding(3, 8, 4, 0);
             this.lblDen.Name = "lblDen";
-            this.lblDen.Size = new System.Drawing.Size(84, 25);
+            this.lblDen.Size = new System.Drawing.Size(120, 29);
             this.lblDen.TabIndex = 2;
             this.lblDen.Text = "Đến ngày:";
             // 
@@ -118,15 +120,15 @@
             // 
             this.dtpDen.CustomFormat = "dd/MM/yyyy";
             this.dtpDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDen.Location = new System.Drawing.Point(359, 12);
+            this.dtpDen.Location = new System.Drawing.Point(429, 14);
             this.dtpDen.Margin = new System.Windows.Forms.Padding(4, 4, 16, 4);
             this.dtpDen.Name = "dtpDen";
-            this.dtpDen.Size = new System.Drawing.Size(160, 30);
+            this.dtpDen.Size = new System.Drawing.Size(160, 35);
             this.dtpDen.TabIndex = 3;
             // 
             // btnXemBaoCao
             // 
-            this.btnXemBaoCao.Location = new System.Drawing.Point(539, 8);
+            this.btnXemBaoCao.Location = new System.Drawing.Point(609, 14);
             this.btnXemBaoCao.Margin = new System.Windows.Forms.Padding(4);
             this.btnXemBaoCao.Name = "btnXemBaoCao";
             this.btnXemBaoCao.Size = new System.Drawing.Size(160, 38);
@@ -183,19 +185,20 @@
             this.chartLoai.ChartAreas.Add(chartArea1);
             this.chartLoai.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartLoai.Legends.Add(legend1);
-            this.chartLoai.Location = new System.Drawing.Point(10, 32);
+            this.chartLoai.Location = new System.Drawing.Point(10, 33);
             this.chartLoai.Name = "chartLoai";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
             series1.LabelFormat = "N0đ";
+            series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartLoai.Series.Add(series1);
-            this.chartLoai.Size = new System.Drawing.Size(478, 322);
+            this.chartLoai.Size = new System.Drawing.Size(478, 321);
             this.chartLoai.TabIndex = 0;
             this.chartLoai.Text = "chartLoai";
             // 
@@ -233,19 +236,28 @@
             legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.chartNgay.Legends.Add(legend2);
-            this.chartNgay.Location = new System.Drawing.Point(10, 32);
+            this.chartNgay.Location = new System.Drawing.Point(10, 33);
             this.chartNgay.Name = "chartNgay";
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(108)))), ((int)(((byte)(223)))));
             series2.IsValueShownAsLabel = true;
             series2.LabelFormat = "N0";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chartNgay.Series.Add(series2);
-            this.chartNgay.Size = new System.Drawing.Size(670, 482);
+            this.chartNgay.Size = new System.Drawing.Size(670, 481);
             this.chartNgay.TabIndex = 0;
             this.chartNgay.Text = "chartNgay";
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Location = new System.Drawing.Point(777, 14);
+            this.btnXuatExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(160, 38);
+            this.btnXuatExcel.TabIndex = 5;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
             // 
             // ucBaoCaoDoanhThu
             // 
@@ -285,5 +297,6 @@
         private System.Windows.Forms.DataGridView dgvLoai;
         private System.Windows.Forms.GroupBox gbTheoNgay;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartNgay;
+        private System.Windows.Forms.Button btnXuatExcel;
     }
 }

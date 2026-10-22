@@ -96,6 +96,9 @@
     <Compile Include="GUI\frmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUI\frmDoiMatKhau.Designer.cs">
+      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frmMainn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +106,30 @@
       <DependentUpon>frmMainn.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Theme.cs" />
+    <Compile Include="GUI\UC\Duc\ucCauHinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucCauHinh.Designer.cs">
+      <DependentUpon>ucCauHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucQuanLySach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucQuanLySach.Designer.cs">
+      <DependentUpon>ucQuanLySach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucSach.Designer.cs">
+      <DependentUpon>ucSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucTheLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\Duc\ucTheLoai.Designer.cs">
+      <DependentUpon>ucTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UC\Duc\ucTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +138,9 @@
     </Compile>
     <Compile Include="GUI\UC\ucChoPhatTrien.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\ucChoPhatTrien.Designer.cs">
+      <DependentUpon>ucChoPhatTrien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UC\Thanh\ucDSMuonTra.cs">
       <SubType>UserControl</SubType>
@@ -151,6 +181,9 @@
     <Compile Include="GUI\UC\ucTrangChu.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="GUI\UC\ucTrangChu.Designer.cs">
+      <DependentUpon>ucTrangChu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\frmDangNhap.resx">
@@ -158,6 +191,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMainn.resx">
       <DependentUpon>frmMainn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Duc\ucCauHinh.resx">
+      <DependentUpon>ucCauHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Duc\ucQuanLySach.resx">
+      <DependentUpon>ucQuanLySach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Duc\ucSach.resx">
+      <DependentUpon>ucSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Duc\ucTheLoai.resx">
+      <DependentUpon>ucTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC\Duc\ucTaiKhoan.resx">
       <DependentUpon>ucTaiKhoan.cs</DependentUpon>
@@ -176,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC\Thanh\ucThongTinPhieuThu.resx">
       <DependentUpon>ucThongTinPhieuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\ucTrangChu.resx">
+      <DependentUpon>ucTrangChu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

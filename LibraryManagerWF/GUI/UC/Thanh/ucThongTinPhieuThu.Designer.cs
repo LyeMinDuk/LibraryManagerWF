@@ -78,6 +78,7 @@
             this.gbTimKiem.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbTimKiem.Location = new System.Drawing.Point(0, 0);
             this.gbTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.gbTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTimKiem.Name = "gbTimKiem";
             this.gbTimKiem.Padding = new System.Windows.Forms.Padding(10, 5, 10, 11);
             this.gbTimKiem.Size = new System.Drawing.Size(1328, 83);
@@ -188,7 +189,7 @@
             this.tlpThongTin.Controls.Add(this.lblTongTien, 1, 0);
             this.tlpThongTin.Controls.Add(this.lblSoPhieu, 0, 0);
             this.tlpThongTin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tlpThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.tlpThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpThongTin.Location = new System.Drawing.Point(0, 777);
             this.tlpThongTin.Name = "tlpThongTin";
             this.tlpThongTin.RowCount = 1;
@@ -234,6 +235,7 @@
             this.flpChiTiet.Controls.Add(this.gbThaoTac);
             this.flpChiTiet.Dock = System.Windows.Forms.DockStyle.Right;
             this.flpChiTiet.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flpChiTiet.Location = new System.Drawing.Point(977, 83);
             this.flpChiTiet.Name = "flpChiTiet";
             this.flpChiTiet.Size = new System.Drawing.Size(351, 774);
@@ -371,7 +373,7 @@
             // dtpNgayThu
             // 
             this.dtpNgayThu.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtpNgayThu.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.dtpNgayThu.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayThu.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dtpNgayThu.Location = new System.Drawing.Point(30, 314);
@@ -449,8 +451,7 @@
             // 
             // ucQuanLyPhieuThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.tlpThongTin);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.flpChiTiet);

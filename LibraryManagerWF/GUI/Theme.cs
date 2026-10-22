@@ -14,6 +14,15 @@ namespace LibraryManagerWF.GUI
         public static readonly Color ChuPhu = Color.FromArgb(108, 117, 125);
         public static readonly Color ChuSangTrenToi = Color.FromArgb(226, 232, 245);
 
+        // Màu nền hàng trong lưới (dùng chung cho mọi bảng để đồng nhất)
+        public static readonly Color HangXen = Color.FromArgb(240, 244, 252);      // hàng chẵn
+        public static readonly Color HangKhoa = Color.FromArgb(222, 226, 230);     // bị khóa
+        public static readonly Color HangCanhBao = Color.Khaki;                    // sắp hết / cần chú ý
+        public static readonly Color HangLoi = Color.LightCoral;                   // quá hạn / lỗi
+        public static readonly Color HangTot = Color.LightGreen;                   // bình thường / ổn
+        public static readonly Color HangNhan = Color.FromArgb(214, 230, 242);     // nhấn nhẹ (xanh dương nhạt)
+        public static readonly Color HangCam = Color.FromArgb(255, 224, 178);      // nhóm cam nhạt
+
         public static Font MakeFont(float size, FontStyle style = FontStyle.Regular)
         {
             return new Font("Segoe UI", size, style);

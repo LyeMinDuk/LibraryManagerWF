@@ -32,8 +32,7 @@
             // 
             // ucTheoDoiMuonTra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Name = "ucTheoDoiMuonTra";
             this.Size = new System.Drawing.Size(1013, 762);
             this.ResumeLayout(false);

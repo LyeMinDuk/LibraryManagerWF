@@ -23,6 +23,10 @@ namespace LibraryManagerWF.GUI
         public ucTabContainer(string tieuDeMacDinh, params TabInfo[] tabs)
         {
             InitializeComponent();
+            DoubleBuffered = true;
+            GridStyle.BatDoubleBuffer(pnlNoiDung);
+            GridStyle.BatDoubleBuffer(pnlTieuDe);
+            GridStyle.BatDoubleBuffer(flpTab);
             _tieuDeMacDinh = tieuDeMacDinh;
             DatTieuDe(tieuDeMacDinh, MauTrangThai.Xem, Color.White);
 
@@ -63,19 +67,24 @@ namespace LibraryManagerWF.GUI
             nut.ForeColor = Color.White;
             nut.Font = new Font("Consolas", 12F, FontStyle.Bold);
 
+            // Tạo UC mới và đặt đúng cỡ TRƯỚC, thêm vào, rồi mới bỏ UC cũ: vùng nội dung không bao giờ bị trống giữa hai lần vẽ.
+            UserControl uc = tab.Tao();
+            var pt = uc as IPhatTrangThai;
+            if (pt != null) pt.OnStatusRequest += (s, e) => DatTieuDe(e.TitleText, e.BackColor, e.ForeColor);
+            else DatTieuDe(_tieuDeMacDinh, MauTrangThai.Xem, Color.White);
+
+            List<Control> cu = pnlNoiDung.Controls.Cast<Control>().ToList();
             pnlNoiDung.SuspendLayout();
-            foreach (Control c in pnlNoiDung.Controls.Cast<Control>().ToList())
+            uc.Size = pnlNoiDung.ClientSize;
+            uc.Dock = DockStyle.Fill;
+            pnlNoiDung.Controls.Add(uc);
+            uc.BringToFront();
+            foreach (Control c in cu)
             {
                 pnlNoiDung.Controls.Remove(c);
                 c.Dispose();
             }
-            UserControl uc = tab.Tao();
-            uc.Dock = DockStyle.Fill;
-            var pt = uc as IPhatTrangThai;
-            if (pt != null) pt.OnStatusRequest += (s, e) => DatTieuDe(e.TitleText, e.BackColor, e.ForeColor);
-            else DatTieuDe(_tieuDeMacDinh, MauTrangThai.Xem, Color.White);
-            pnlNoiDung.Controls.Add(uc);
-            pnlNoiDung.ResumeLayout();
+            pnlNoiDung.ResumeLayout(true);
         }
 
         private void DatTieuDe(string chu, Color nen, Color mau)

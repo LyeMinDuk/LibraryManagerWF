@@ -36,6 +36,9 @@ namespace LibraryManagerWF.GUI
         public frmMainn()
         {
             InitializeComponent();
+            DoubleBuffered = true;
+            foreach (Control v in new Control[] { pnlNoiDung, pnlSidebar, flpMenu, pnlHeader })
+                GridStyle.BatDoubleBuffer(v);
             lblTrang.UseMnemonic = false;
 
             this.Load += frmMainn_Load;
@@ -61,7 +64,7 @@ namespace LibraryManagerWF.GUI
             _menu = new List<MucMenu>
             {
                 Tao("Trang chủ",            false, () => new ucTrangChu(),        "Đức",    button1,  panel1),
-                Tao("Sách & thể loại",      false, null,                          "Đức",    button2,  panel2),
+                Tao("Sách & thể loại",      false, () => new ucQuanLySach(),      "Đức",    button2,  panel2),
                 Tao("Độc giả & thẻ",        false, null,                          "Cường",  button3,  panel3),
                 Tao("Cho mượn",             false, null,                          "Cường",  button4,  panel4),
                 Tao("Gia hạn sách",         false, null,                          "Cường",  button5,  panel5),
@@ -70,7 +73,7 @@ namespace LibraryManagerWF.GUI
                 Tao("Phiếu thu",            false, () => new ucQuanLyPhieuThu(),  "Thành",  button8,  panel8),
                 Tao("Báo cáo doanh thu",    true,  null,                          "Thành",  button9,  panel9),
                 Tao("Tài khoản",            true,  () => new ucTaiKhoan(),        "Đức",    button10, panel10),
-                Tao("Cấu hình đơn giá",     true,  null,                          "Đức",    button11, panel11),
+                Tao("Cấu hình đơn giá",     true,  () => new ucCauHinh(),                          "Đức",    button11, panel11),
             };
 
             foreach (MucMenu m in _menu)
@@ -122,16 +125,20 @@ namespace LibraryManagerWF.GUI
         /// <summary>Thay nội dung vùng giữa bằng một UserControl (hủy control cũ để giải phóng bộ nhớ).</summary>
         public void HienTrang(string tieuDe, UserControl uc)
         {
+            // Thêm UC mới (đúng cỡ) rồi mới bỏ UC cũ, để vùng giữa không bị trống giữa hai lần vẽ.
+            List<Control> cu = pnlNoiDung.Controls.Cast<Control>().ToList();
             pnlNoiDung.SuspendLayout();
-            foreach (Control c in pnlNoiDung.Controls.Cast<Control>().ToList())
+            uc.Size = pnlNoiDung.ClientSize;
+            uc.Dock = DockStyle.Fill;
+            pnlNoiDung.Controls.Add(uc);
+            uc.BringToFront();
+            foreach (Control c in cu)
             {
                 pnlNoiDung.Controls.Remove(c);
                 c.Dispose();
             }
-            uc.Dock = DockStyle.Fill;
-            pnlNoiDung.Controls.Add(uc);
             lblTrang.Text = tieuDe;
-            pnlNoiDung.ResumeLayout();
+            pnlNoiDung.ResumeLayout(true);
         }
 
         private void frmMainn_Load(object sender, EventArgs e)

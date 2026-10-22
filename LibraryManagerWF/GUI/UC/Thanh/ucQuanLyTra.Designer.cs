@@ -44,6 +44,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbThaoTac = new System.Windows.Forms.GroupBox();
             this.flpThaoTac = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTinhTrang = new System.Windows.Forms.Label();
+            this.cboTinhTrang = new System.Windows.Forms.ComboBox();
+            this.txtTien = new System.Windows.Forms.TextBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -239,6 +242,9 @@
             // 
             // flpThaoTac
             // 
+            this.flpThaoTac.Controls.Add(this.lblTinhTrang);
+            this.flpThaoTac.Controls.Add(this.cboTinhTrang);
+            this.flpThaoTac.Controls.Add(this.txtTien);
             this.flpThaoTac.Controls.Add(this.btnXacNhan);
             this.flpThaoTac.Controls.Add(this.btnSua);
             this.flpThaoTac.Controls.Add(this.btnXoa);
@@ -250,6 +256,35 @@
             this.flpThaoTac.Name = "flpThaoTac";
             this.flpThaoTac.Size = new System.Drawing.Size(1277, 53);
             this.flpThaoTac.TabIndex = 0;
+            // 
+            // lblTinhTrang
+            // 
+            this.lblTinhTrang.AutoSize = true;
+            this.lblTinhTrang.Location = new System.Drawing.Point(3, 14);
+            this.lblTinhTrang.Margin = new System.Windows.Forms.Padding(3, 14, 3, 0);
+            this.lblTinhTrang.Name = "lblTinhTrang";
+            this.lblTinhTrang.Size = new System.Drawing.Size(165, 25);
+            this.lblTinhTrang.TabIndex = 4;
+            this.lblTinhTrang.Text = "Tình trạng khi trả:";
+            // 
+            // cboTinhTrang
+            // 
+            this.cboTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTinhTrang.FormattingEnabled = true;
+            this.cboTinhTrang.Location = new System.Drawing.Point(174, 10);
+            this.cboTinhTrang.Margin = new System.Windows.Forms.Padding(3, 10, 12, 0);
+            this.cboTinhTrang.Name = "cboTinhTrang";
+            this.cboTinhTrang.Size = new System.Drawing.Size(170, 33);
+            this.cboTinhTrang.TabIndex = 5;
+            // 
+            // txtTien
+            // 
+            this.txtTien.Location = new System.Drawing.Point(359, 10);
+            this.txtTien.Margin = new System.Windows.Forms.Padding(3, 10, 12, 0);
+            this.txtTien.Name = "txtTien";
+            this.txtTien.ReadOnly = true;
+            this.txtTien.Size = new System.Drawing.Size(430, 30);
+            this.txtTien.TabIndex = 6;
             // 
             // btnXacNhan
             // 
@@ -293,8 +328,7 @@
             // 
             // ucQuanLyTra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.gbThaoTac);
             this.Controls.Add(this.gbThongTin);
@@ -336,6 +370,9 @@
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.GroupBox gbThaoTac;
         private System.Windows.Forms.FlowLayoutPanel flpThaoTac;
+        private System.Windows.Forms.Label lblTinhTrang;
+        private System.Windows.Forms.ComboBox cboTinhTrang;
+        private System.Windows.Forms.TextBox txtTien;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;

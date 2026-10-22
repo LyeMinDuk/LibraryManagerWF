@@ -158,53 +158,53 @@
             // 
             this.lblTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblTenDangNhap.AutoSize = true;
-            this.lblTenDangNhap.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenDangNhap.Location = new System.Drawing.Point(4, 22);
+            this.lblTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenDangNhap.Location = new System.Drawing.Point(4, 23);
             this.lblTenDangNhap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTenDangNhap.Name = "lblTenDangNhap";
-            this.lblTenDangNhap.Size = new System.Drawing.Size(194, 27);
+            this.lblTenDangNhap.Size = new System.Drawing.Size(151, 25);
             this.lblTenDangNhap.TabIndex = 0;
             this.lblTenDangNhap.Text = "Tên đăng nhập:";
             // 
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenDangNhap.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDangNhap.Location = new System.Drawing.Point(239, 22);
+            this.txtTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenDangNhap.Location = new System.Drawing.Point(239, 20);
             this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenDangNhap.MaxLength = 50;
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(283, 27);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(283, 30);
             this.txtTenDangNhap.TabIndex = 1;
             // 
             // lblMatKhau
             // 
             this.lblMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMatKhau.AutoSize = true;
-            this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatKhau.Location = new System.Drawing.Point(4, 92);
+            this.lblMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatKhau.Location = new System.Drawing.Point(4, 94);
             this.lblMatKhau.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMatKhau.Name = "lblMatKhau";
-            this.lblMatKhau.Size = new System.Drawing.Size(115, 29);
+            this.lblMatKhau.Size = new System.Drawing.Size(99, 25);
             this.lblMatKhau.TabIndex = 2;
             this.lblMatKhau.Text = "Mật khẩu:";
             // 
             // txtMatKhau
             // 
             this.txtMatKhau.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMatKhau.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau.Location = new System.Drawing.Point(239, 93);
+            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatKhau.Location = new System.Drawing.Point(239, 92);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatKhau.MaxLength = 50;
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(283, 27);
+            this.txtMatKhau.Size = new System.Drawing.Size(283, 30);
             this.txtMatKhau.TabIndex = 3;
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // btnXacNhan
             // 
             this.btnXacNhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXacNhan.Location = new System.Drawing.Point(5, 243);
             this.btnXacNhan.Margin = new System.Windows.Forms.Padding(5);
             this.btnXacNhan.Name = "btnXacNhan";
@@ -226,6 +226,7 @@
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập - Quản lý thư viện";
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.pnlNen.ResumeLayout(false);
             this.pnlFormDangNhap.ResumeLayout(false);
             this.tlpKhung.ResumeLayout(false);

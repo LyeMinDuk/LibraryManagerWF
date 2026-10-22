@@ -10,22 +10,19 @@ namespace LibraryManagerWF.GUI
     /// <summary>
     /// Trả sách: chọn một cuốn đang mượn, chọn tình trạng, xem trước tiền, xác nhận đã thu rồi mới trả (BR13).
     /// Luật tính tiền và ghi dữ liệu nằm hết ở TraBLL; GUI chỉ hiển thị và hỏi xác nhận.
-    /// Designer chưa có ô chọn tình trạng và ô tiền nên tạo bằng code (cboTinhTrang, txtTien);
+    /// Ô chọn tình trạng (cboTinhTrang) và ô tiền (txtTien) kéo thả trong Designer;
     /// nút Sửa/Xóa của khung CRUD cũ không có nghĩa với trả sách nên ẩn đi.
     /// </summary>
     public partial class ucQuanLyTra : UserControl
     {
-        private ComboBox cboTinhTrang;
-        private TextBox txtTien;
-
         public ucQuanLyTra()
         {
             InitializeComponent();
-            TaoControlThaoTac();
+            CauHinhThaoTac();
             Load += ucQuanLyTra_Load;
         }
 
-        private void TaoControlThaoTac()
+        private void CauHinhThaoTac()
         {
             label2.Text = "Quá hạn:";
             btnXacNhan.Text = "Trả sách";
@@ -33,25 +30,8 @@ namespace LibraryManagerWF.GUI
             btnSua.Visible = false;
             btnXoa.Visible = false;
 
-            var lblTT = new Label { Text = "Tình trạng khi trả:", AutoSize = true, Margin = new Padding(3, 14, 3, 0), Font = btnXacNhan.Font };
-            cboTinhTrang = new ComboBox
-            {
-                DropDownStyle = ComboBoxStyle.DropDownList,
-                Width = 170,
-                Margin = new Padding(3, 10, 12, 0),
-                Font = btnXacNhan.Font
-            };
             cboTinhTrang.Items.AddRange(new object[] { TinhTrangMuon.BinhThuong, TinhTrangMuon.Hong, TinhTrangMuon.Mat });
             cboTinhTrang.SelectedIndex = 0;
-
-            txtTien = new TextBox { ReadOnly = true, Width = 430, Margin = new Padding(3, 10, 12, 0), Font = btnXacNhan.Font };
-
-            flpThaoTac.Controls.Add(lblTT);
-            flpThaoTac.Controls.Add(cboTinhTrang);
-            flpThaoTac.Controls.Add(txtTien);
-            flpThaoTac.Controls.SetChildIndex(lblTT, 0);
-            flpThaoTac.Controls.SetChildIndex(cboTinhTrang, 1);
-            flpThaoTac.Controls.SetChildIndex(txtTien, 2);
         }
 
         private void ucQuanLyTra_Load(object sender, EventArgs e)
@@ -93,6 +73,8 @@ namespace LibraryManagerWF.GUI
             GridStyle.AddText(dgv, "Ngày mượn", "NgayMuon", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Hạn trả", "HanTra", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Số ngày trễ", "SoNgayTre", null, DataGridViewContentAlignment.MiddleCenter);
+            // Cùng bảng màu với Theo dõi mượn trả: quá hạn đỏ nhạt, còn hạn vàng
+            GridStyle.ToMauHang(dgv, v => Convert.ToInt32(v["SoNgayTre"]) > 0 ? Theme.HangLoi : Theme.HangCanhBao);
         }
 
         private void TaiDuLieu()

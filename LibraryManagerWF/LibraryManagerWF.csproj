@@ -235,6 +235,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config.example" />
     <None Include="Docs\API_BLL.md" />
     <None Include="Docs\DeCuong_BTL_QuanLyThuVien.md" />
     <None Include="Docs\PhanBien.md" />

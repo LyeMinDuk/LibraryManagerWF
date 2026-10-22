@@ -81,6 +81,7 @@
     <Compile Include="DTO\TheThuVienDTO.cs" />
     <Compile Include="GUI\Common\EditState.cs" />
     <Compile Include="GUI\Common\GridStyle.cs" />
+    <Compile Include="GUI\Common\HoaDonTraSach.cs" />
     <Compile Include="GUI\Common\TabInfo.cs" />
     <Compile Include="GUI\Common\ucTabContainer.cs">
       <SubType>UserControl</SubType>
@@ -107,11 +108,15 @@
       <DependentUpon>frmMainn.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Theme.cs" />
-    <Compile Include="GUI\UC\Cuong\ucMuon.cs" />
+    <Compile Include="GUI\UC\Cuong\ucMuon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\UC\Cuong\ucMuon.Designer.cs">
       <DependentUpon>ucMuon.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UC\Cuong\ucGiaHan.cs" />
+    <Compile Include="GUI\UC\Cuong\ucGiaHan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\UC\Cuong\ucGiaHan.Designer.cs">
       <DependentUpon>ucGiaHan.cs</DependentUpon>
     </Compile>

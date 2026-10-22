@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using LibraryManagerWF.BLL;
-using LibraryManagerWF.GUI.UC.Cuong;
 using LibraryManagerWF.GUI.UC.Duc;
 
 namespace LibraryManagerWF.GUI
@@ -33,6 +32,7 @@ namespace LibraryManagerWF.GUI
         private List<MucMenu> _menu;
         private MucMenu _dangChon;
         private bool sideBarExpand;
+        private Func<UserControl> _taoPhieuThuTiepTheo;
 
         public frmMainn()
         {
@@ -66,13 +66,13 @@ namespace LibraryManagerWF.GUI
             {
                 Tao("Trang chủ",            false, () => new ucTrangChu(),        "Đức",    button1,  panel1),
                 Tao("Sách & thể loại",      false, () => new ucQuanLySach(),      "Đức",    button2,  panel2),
-                Tao("Độc giả & thẻ",        false, () => new ucQuanLyDocGia(),    "Cường",  button3,  panel3),
-                Tao("Cho mượn",             false, () => new ucMuon(),            "Cường",  button4,  panel4),
-                Tao("Gia hạn sách",         false, () => new ucGiaHan(),          "Cường",  button5,  panel5),
+                Tao("Độc giả & thẻ",        false, null,                          "Cường",  button3,  panel3),
+                Tao("Cho mượn",             false, null,                          "Cường",  button4,  panel4),
+                Tao("Gia hạn sách",         false, null,                          "Cường",  button5,  panel5),
                 Tao("Trả sách",             false, () => new ucQuanLyTra(),       "Thành",  button6,  panel6),
                 Tao("Theo dõi mượn trả",    false, () => new ucTheoDoiMuonTra(),  "Thành",  button7,  panel7),
-                Tao("Phiếu thu",            false, () => new ucQuanLyPhieuThu(),  "Thành",  button8,  panel8),
-                Tao("Báo cáo doanh thu",    true,  () => new ucBaoCaoDoanhThu(),  "Thành",  button9,  panel9),
+                Tao("Phiếu thu",            false, TaoUcQuanLyPhieuThu,            "Thành",  button8,  panel8),
+                Tao("Báo cáo doanh thu",    true,  () => new ucBaoCaoDoanhThu(),    "Thành",  button9,  panel9),
                 Tao("Tài khoản",            true,  () => new ucTaiKhoan(),        "Đức",    button10, panel10),
                 Tao("Cấu hình đơn giá",     true,  () => new ucCauHinh(),                          "Đức",    button11, panel11),
             };
@@ -88,6 +88,29 @@ namespace LibraryManagerWF.GUI
 
         private MucMenu Tao(string ten, bool canQuanTri, Func<UserControl> tao, string chuSoHuu, Button nut, Panel panel)
             => new MucMenu { Ten = ten, CanQuanTri = canQuanTri, Tao = tao, ChuSoHuu = chuSoHuu, Nut = nut, NutPanel = panel };
+
+        private UserControl TaoUcQuanLyPhieuThu()
+        {
+            if (_taoPhieuThuTiepTheo == null) return new ucQuanLyPhieuThu();
+
+            Func<UserControl> tao = _taoPhieuThuTiepTheo;
+            _taoPhieuThuTiepTheo = null;
+            return tao();
+        }
+
+        public void MoPhieuThuTra(int maCTM, string hoTen, int maThe, string tenSach, string tinhTrang)
+        {
+            _taoPhieuThuTiepTheo = () => new ucQuanLyPhieuThu(
+                maCTM, hoTen, maThe, tenSach, tinhTrang, () => button6.PerformClick());
+            try
+            {
+                button8.PerformClick();
+            }
+            finally
+            {
+                _taoPhieuThuTiepTheo = null;
+            }
+        }
 
         /// <summary>ThuThu không thấy mục chỉ QuanTri (mục 2) — ẩn cả Panel bọc, không chỉ Button,
         /// để FlowLayoutPanel tự dồn các mục còn lại lên trên, không để khoảng trống giữa chừng.</summary>

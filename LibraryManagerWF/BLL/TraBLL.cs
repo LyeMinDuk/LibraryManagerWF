@@ -43,10 +43,11 @@ namespace LibraryManagerWF.BLL
         /// Có tiền phải thu mà daThuTien = false thì từ chối, cuốn vẫn "Chưa trả" (BR13: thu ngay, không công nợ).
         /// tienPhat, tienDen trả về để hiển thị.
         /// </summary>
-        public static string Tra(int maCTM, string tinhTrang, bool daThuTien, out decimal tienPhat, out decimal tienDen)
+        public static string Tra(int maCTM, string tinhTrang, bool daThuTien, out decimal tienPhat, out decimal tienDen, string GhiChu)
         {
             tienPhat = 0;
             tienDen = 0;
+
             Quyen.YeuCauDangNhap();
             string loi = KiemTraTinhTrang(tinhTrang);
             if (loi != null) return loi;
@@ -74,8 +75,8 @@ namespace LibraryManagerWF.BLL
                 else SachDAL.CongKho(db, ct.MaSach);
 
                 // Bước 4: phiếu thu. Khoản 0đ thì hàm tự bỏ qua. Vừa trễ vừa hỏng thì có 2 phiếu
-                PhieuThuBLL.TaoPhieuThu(db, LoaiThu.PhatTre, tienPhat, null, maCTM, "Trả trễ " + soNgayTre + " ngày");
-                PhieuThuBLL.TaoPhieuThu(db, LoaiThu.DenBu, tienDen, null, maCTM, tinhTrang == TinhTrangMuon.Mat ? "Sách mất" : "Sách hỏng");
+                PhieuThuBLL.TaoPhieuThu(db, LoaiThu.PhatTre, tienPhat, null, maCTM, "Trả trễ " + soNgayTre + " ngày" + (string.IsNullOrEmpty(GhiChu) ? "" : " (" + GhiChu + ")"));
+                PhieuThuBLL.TaoPhieuThu(db, LoaiThu.DenBu, tienDen, null, maCTM, tinhTrang == TinhTrangMuon.Mat ? "Sách mất" : "Sách hỏng" + (string.IsNullOrEmpty(GhiChu) ? "" : " (" + GhiChu + ")"));
 
                 db.XacNhan();
                 return null;

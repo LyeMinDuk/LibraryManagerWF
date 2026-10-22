@@ -121,5 +121,7 @@ namespace LibraryManagerWF.GUI
             txtNguoiThu.Text = Convert.ToString(v["NguoiThu"]);
             txtGhiChu.Text = Convert.ToString(v["GhiChu"]);
         }
+
+
     }
 }

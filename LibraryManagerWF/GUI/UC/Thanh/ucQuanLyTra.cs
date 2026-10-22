@@ -27,8 +27,6 @@ namespace LibraryManagerWF.GUI
             label2.Text = "Quá hạn:";
             btnXacNhan.Text = "Trả sách";
             btnHuy.Text = "Bỏ chọn";
-            btnSua.Visible = false;
-            btnXoa.Visible = false;
 
             cboTinhTrang.Items.AddRange(new object[] { TinhTrangMuon.BinhThuong, TinhTrangMuon.Hong, TinhTrangMuon.Mat });
             cboTinhTrang.SelectedIndex = 0;
@@ -123,6 +121,7 @@ namespace LibraryManagerWF.GUI
             }
 
             decimal tong = phat + den;
+
             txtTien.Text = tong > 0
                 ? string.Format("Phạt trễ {0:N0}đ + Đền {1:N0}đ = {2:N0}đ", phat, den, tong)
                 : "Không phải nộp tiền";
@@ -147,24 +146,37 @@ namespace LibraryManagerWF.GUI
                 return;
             }
 
-            // BR13: có tiền thì thủ thư phải xác nhận ĐÃ THU rồi mới truyền daThuTien = true
-            decimal tong = phat + den;
-            string hoi = tong > 0
-                ? string.Format("Trả \"{0}\" ({1}).\nPhải thu {2:N0}đ. Đã thu đủ tiền của độc giả chưa?", tenSach, tinhTrang, tong)
-                : string.Format("Xác nhận trả \"{0}\" ({1})?", tenSach, tinhTrang);
-            if (MessageBox.Show(hoi, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
-
-            loi = TraBLL.Tra(maCTM, tinhTrang, true, out phat, out den);
-            if (loi != null)
+            if (phat + den <= 0)
             {
-                MessageBox.Show(loi, "Không thể trả sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string hoi = string.Format("Xác nhận trả \"{0}\" ({1})?", tenSach, tinhTrang);
+                if (MessageBox.Show(hoi, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+                loi = TraBLL.Tra(maCTM, tinhTrang, true, out phat, out den, "");
+                if (loi != null)
+                {
+                    MessageBox.Show(loi, "Không thể trả sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TaiDuLieu();
+                    return;
+                }
+
+                MessageBox.Show("Đã trả sách.", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TaiDuLieu();
                 return;
             }
 
-            MessageBox.Show(tong > 0 ? "Đã trả sách và lập phiếu thu." : "Đã trả sách.", "Thành công",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            TaiDuLieu();
+            // Mở phiếu thu, tự điền sẵn thông tin và tình trạng đã chọn; xác nhận thu tiền + trả sách làm trong phiếu
+            string hoTen = Convert.ToString(v["HoTen"]);
+            int maThe = Convert.ToInt32(v["MaThe"]);
+            var main = FindForm() as frmMainn;
+            if (main == null)
+            {
+                MessageBox.Show("Không tìm thấy cửa sổ chính để mở phiếu thu.", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            main.MoPhieuThuTra(maCTM, hoTen, maThe, tenSach, tinhTrang);
         }
     }
 }

@@ -13,7 +13,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
     /// GUI chỉ gọi SachBLL / TheLoaiBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên; mọi luật
     /// (giá và số lượng lớn hơn 0, tổng không nhỏ hơn số cuốn đang mượn, sách đã mượn chỉ khóa không xóa) nằm ở BLL.
     /// Ba trạng thái Read / Create / Update dùng chung EditState và màu thanh tiêu đề (MauTrangThai) như ucTaiKhoan.
-    /// Màu hàng: xám = sách đã khóa, vàng = hết sách (còn lại bằng 0).
     /// </summary>
     public partial class ucSach : UserControl
     {
@@ -38,12 +37,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
             GridStyle.AddText(dgv, "Tổng", "SoLuongTong", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Còn", "SoLuongCon", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Trạng thái", "TrangThai", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                if (!Convert.ToBoolean(v["TrangThai"])) return Theme.HangKhoa;                // sách đã khóa
-                if (Convert.ToInt32(v["SoLuongCon"]) == 0) return Theme.HangCanhBao;          // hết sách
-                return null;
-            });
 
             Load += ucSach_Load;
         }

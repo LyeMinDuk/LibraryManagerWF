@@ -12,7 +12,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
     /// Giao diện kéo thả trong ucDocGia.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
     /// GUI chỉ gọi DocGiaBLL / TheBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên; mọi luật
     /// (họ tên, ngày sinh, SĐT 10 số, email, độc giả đã có thẻ thì không xóa) nằm ở BLL.
-    /// Màu hàng: xám = độc giả bị khóa, vàng = chưa có thẻ.
     /// </summary>
     public partial class ucDocGia : UserControl
     {
@@ -34,12 +33,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             GridStyle.AddFill(dgv, "Địa chỉ", "DiaChi", 150);
             GridStyle.AddText(dgv, "Trạng thái", "TrangThaiChu", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Thẻ", "TinhTrangThe", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                if (!(bool)v["TrangThai"]) return Theme.HangKhoa;                      // độc giả bị khóa
-                if (v["TinhTrangThe"].ToString() == ChuaCoThe) return Theme.HangCanhBao;   // chưa có thẻ
-                return null;
-            });
 
             Load += ucDocGia_Load;
         }

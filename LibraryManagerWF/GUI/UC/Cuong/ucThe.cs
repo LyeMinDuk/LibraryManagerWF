@@ -12,7 +12,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
     /// khóa / mở khóa thẻ, xóa thẻ. Giao diện kéo thả trong ucThe.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
     /// GUI chỉ gọi TheBLL / DocGiaBLL / CauHinhBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên;
     /// luật cấp / gia hạn / xóa thẻ và việc tính ngày hết hạn nằm ở BLL.
-    /// Màu hàng: vàng = chưa có thẻ, đỏ = thẻ hết hạn, xám = thẻ hoặc độc giả bị khóa.
     /// </summary>
     public partial class ucThe : UserControl
     {
@@ -30,14 +29,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             GridStyle.AddText(dgv, "Ngày hết hạn", "NgayHetHan", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Tình trạng thẻ", "TinhTrangThe", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Trạng thái độc giả", "TrangThaiChu", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                string tt = v["TinhTrangThe"].ToString();
-                if (!(bool)v["TrangThai"] || tt == "Khóa") return Theme.HangKhoa;         // độc giả hoặc thẻ bị khóa
-                if (tt == "Hết hạn") return Theme.HangLoi;
-                if (tt == ucDocGia.ChuaCoThe) return Theme.HangCanhBao;
-                return null;
-            });
 
             Load += ucThe_Load;
         }

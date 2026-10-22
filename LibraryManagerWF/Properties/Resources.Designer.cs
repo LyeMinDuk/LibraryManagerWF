@@ -263,6 +263,46 @@ namespace LibraryManagerWF.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_sach {
+            get {
+                object obj = ResourceManager.GetObject("icon_sach", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_sach_active {
+            get {
+                object obj = ResourceManager.GetObject("icon_sach_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_docgia {
+            get {
+                object obj = ResourceManager.GetObject("icon_docgia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_docgia_active {
+            get {
+                object obj = ResourceManager.GetObject("icon_docgia_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_chomuon {
             get {
                 object obj = ResourceManager.GetObject("icon_chomuon", resourceCulture);
@@ -356,6 +396,26 @@ namespace LibraryManagerWF.Properties {
         internal static System.Drawing.Bitmap icon_phieuthu_active {
             get {
                 object obj = ResourceManager.GetObject("icon_phieuthu_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_taikhoan {
+            get {
+                object obj = ResourceManager.GetObject("icon_taikhoan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_taikhoan_active {
+            get {
+                object obj = ResourceManager.GetObject("icon_taikhoan_active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

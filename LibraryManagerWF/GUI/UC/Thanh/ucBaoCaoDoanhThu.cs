@@ -54,7 +54,6 @@ namespace LibraryManagerWF.GUI
             GridStyle.AddFill(dgvLoai, "Loại thu", "LoaiThu", 110);
             GridStyle.AddText(dgvLoai, "Số phiếu", "SoPhieu", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgvLoai, "Tổng tiền", "TongTien", "N0đ", DataGridViewContentAlignment.MiddleRight);
-            GridStyle.ToMauHang(dgvLoai, v => MauTheoLoai(Convert.ToString(v["LoaiThu"])));
         }
 
         private static Color? MauTheoLoai(string loaiThu)

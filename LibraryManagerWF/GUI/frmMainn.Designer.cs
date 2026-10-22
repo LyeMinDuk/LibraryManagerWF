@@ -208,7 +208,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Yellow;
-            this.button2.Image = global::LibraryManagerWF.Properties.Resources.icon_tailieu;
+            this.button2.Image = global::LibraryManagerWF.Properties.Resources.icon_sach;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(-4, -11);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -233,7 +233,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Yellow;
-            this.button3.Image = global::LibraryManagerWF.Properties.Resources.icon_bandoc;
+            this.button3.Image = global::LibraryManagerWF.Properties.Resources.icon_docgia;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(-4, -11);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -408,7 +408,7 @@
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.Yellow;
-            this.button10.Image = global::LibraryManagerWF.Properties.Resources.icon_phanquyen;
+            this.button10.Image = global::LibraryManagerWF.Properties.Resources.icon_taikhoan;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.Location = new System.Drawing.Point(-4, -11);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

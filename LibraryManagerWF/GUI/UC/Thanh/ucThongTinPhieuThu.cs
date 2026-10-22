@@ -65,15 +65,6 @@ namespace LibraryManagerWF.GUI
             dgv.RowTemplate.Height = 42;
             dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            // Màu theo loại thu: phí thẻ xanh dương nhạt, phạt trễ vàng, đền bù cam
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                string loaiThu = Convert.ToString(v["LoaiThu"]);
-                if (loaiThu == LoaiThu.PhiThe) return Theme.HangNhan;
-                if (loaiThu == LoaiThu.PhatTre) return Theme.HangCanhBao;
-                if (loaiThu == LoaiThu.DenBu) return Theme.HangCam;
-                return null;
-            });
         }
 
         private void TaiDuLieu()

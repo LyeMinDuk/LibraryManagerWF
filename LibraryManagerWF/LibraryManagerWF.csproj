@@ -367,6 +367,10 @@
     <Content Include="resources\img\icon\burger-menu.png" />
     <Content Include="resources\img\bookcovers\TLBI25-001.jpg" />
     <Content Include="resources\img\bookcovers\TLRU25-002.png" />
+    <Content Include="resources\img\icon\icon_sach.png" />
+    <Content Include="resources\img\icon\icon_sach_active.png" />
+    <Content Include="resources\img\icon\icon_docgia.png" />
+    <Content Include="resources\img\icon\icon_docgia_active.png" />
     <Content Include="resources\img\icon\icon_chomuon.png" />
     <Content Include="resources\img\icon\icon_chomuon_active.png" />
     <Content Include="resources\img\icon\icon_giahan.png" />
@@ -377,6 +381,8 @@
     <Content Include="resources\img\icon\icon_theodoi_active.png" />
     <Content Include="resources\img\icon\icon_phieuthu.png" />
     <Content Include="resources\img\icon\icon_phieuthu_active.png" />
+    <Content Include="resources\img\icon\icon_taikhoan.png" />
+    <Content Include="resources\img\icon\icon_taikhoan_active.png" />
     <Content Include="resources\img\icon\icon_cauhinh.png" />
     <Content Include="resources\img\icon\icon_cauhinh_active.png" />
     <Content Include="resources\img\icon\icon_bandoc.png" />

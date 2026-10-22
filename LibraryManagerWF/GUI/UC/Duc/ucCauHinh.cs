@@ -12,7 +12,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
     /// Giao diện kéo thả trong ucCauHinh.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
     /// Không thêm / xóa tham số: bộ khóa cố định do nghiệp vụ cần. GUI chỉ gọi CauHinhBLL; việc kiểm tra giá trị
     /// (số nguyên không âm) và quyền QuanTri nằm ở BLL. Giá trị mới chỉ áp dụng cho giao dịch từ lúc đổi trở đi.
-    /// Màu hàng theo nhóm: xanh dương = thẻ thư viện, xanh lá = mượn và gia hạn, cam = phạt và đền bù.
     /// </summary>
     public partial class ucCauHinh : UserControl
     {
@@ -44,14 +43,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
             GridStyle.AddText(dgv, "Mã tham số", "Khoa");
             GridStyle.AddText(dgv, "Giá trị", "GiaTri", null, DataGridViewContentAlignment.MiddleRight);
             GridStyle.AddText(dgv, "Đơn vị", "DonVi");      // cột phụ, điền trong CellFormatting
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                string khoa = Convert.ToString(v["Khoa"]);
-                if (khoa == "THE_SO_THANG" || khoa == "PHI_THE") return Theme.HangNhan;
-                if (khoa.StartsWith("MUON_") || khoa.StartsWith("GIA_HAN_")) return Color.FromArgb(220, 240, 220);
-                if (khoa.StartsWith("PHAT_") || khoa.StartsWith("DEN_")) return Theme.HangCam;
-                return null;
-            });
 
             Load += ucCauHinh_Load;
         }

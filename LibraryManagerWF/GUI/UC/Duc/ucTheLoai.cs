@@ -12,7 +12,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
     /// Giao diện kéo thả trong ucTheLoai.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
     /// GUI chỉ gọi TheLoaiBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên; mọi luật
     /// (tên không rỗng, tối đa 100 ký tự, không trùng, thể loại còn sách thì không xóa) nằm ở BLL.
-    /// Màu hàng: vàng = thể loại chưa có sách nào (xóa được).
     /// </summary>
     public partial class ucTheLoai : UserControl
     {
@@ -29,11 +28,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
             GridStyle.AddText(dgv, "Mã TL", "MaTL", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddFill(dgv, "Tên thể loại", "TenTL", 200);
             GridStyle.AddText(dgv, "Số sách", "SoSach", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                if (Convert.ToInt32(v["SoSach"]) == 0) return Theme.HangCanhBao;              // chưa có sách
-                return null;
-            });
 
             Load += ucTheLoai_Load;
         }

@@ -87,7 +87,7 @@
             this.gbDocGia.Location = new System.Drawing.Point(0, 36);
             this.gbDocGia.Name = "gbDocGia";
             this.gbDocGia.Padding = new System.Windows.Forms.Padding(10, 5, 10, 8);
-            this.gbDocGia.Size = new System.Drawing.Size(1200, 235);
+            this.gbDocGia.Size = new System.Drawing.Size(1200, 312);
             this.gbDocGia.TabIndex = 1;
             this.gbDocGia.TabStop = false;
             this.gbDocGia.Text = "1. Chọn độc giả (cần có thẻ còn hiệu lực)";
@@ -99,7 +99,7 @@
             this.dgvDocGia.Location = new System.Drawing.Point(10, 74);
             this.dgvDocGia.Name = "dgvDocGia";
             this.dgvDocGia.RowHeadersWidth = 51;
-            this.dgvDocGia.Size = new System.Drawing.Size(1180, 121);
+            this.dgvDocGia.Size = new System.Drawing.Size(1180, 198);
             this.dgvDocGia.TabIndex = 2;
             this.dgvDocGia.SelectionChanged += new System.EventHandler(this.dgvDocGia_SelectionChanged);
             // 
@@ -107,7 +107,7 @@
             // 
             this.lblThongTinThe.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblThongTinThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongTinThe.Location = new System.Drawing.Point(10, 195);
+            this.lblThongTinThe.Location = new System.Drawing.Point(10, 272);
             this.lblThongTinThe.Name = "lblThongTinThe";
             this.lblThongTinThe.Size = new System.Drawing.Size(1180, 32);
             this.lblThongTinThe.TabIndex = 1;
@@ -164,11 +164,11 @@
             this.tlpChinh.Controls.Add(this.gbSach, 0, 0);
             this.tlpChinh.Controls.Add(this.gbPhieu, 1, 0);
             this.tlpChinh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpChinh.Location = new System.Drawing.Point(0, 271);
+            this.tlpChinh.Location = new System.Drawing.Point(0, 348);
             this.tlpChinh.Name = "tlpChinh";
             this.tlpChinh.RowCount = 1;
             this.tlpChinh.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpChinh.Size = new System.Drawing.Size(1200, 389);
+            this.tlpChinh.Size = new System.Drawing.Size(1200, 312);
             this.tlpChinh.TabIndex = 2;
             // 
             // gbSach
@@ -181,7 +181,7 @@
             this.gbSach.Location = new System.Drawing.Point(3, 3);
             this.gbSach.Name = "gbSach";
             this.gbSach.Padding = new System.Windows.Forms.Padding(10, 5, 10, 8);
-            this.gbSach.Size = new System.Drawing.Size(594, 383);
+            this.gbSach.Size = new System.Drawing.Size(594, 306);
             this.gbSach.TabIndex = 0;
             this.gbSach.TabStop = false;
             this.gbSach.Text = "2. Chọn sách (chỉ hiện sách còn trong kho)";
@@ -193,7 +193,7 @@
             this.dgvSach.Location = new System.Drawing.Point(10, 74);
             this.dgvSach.Name = "dgvSach";
             this.dgvSach.RowHeadersWidth = 51;
-            this.dgvSach.Size = new System.Drawing.Size(574, 243);
+            this.dgvSach.Size = new System.Drawing.Size(574, 166);
             this.dgvSach.TabIndex = 2;
             this.dgvSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellDoubleClick);
             // 
@@ -201,7 +201,7 @@
             // 
             this.flpThemSach.Controls.Add(this.btnThemSach);
             this.flpThemSach.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpThemSach.Location = new System.Drawing.Point(10, 317);
+            this.flpThemSach.Location = new System.Drawing.Point(10, 240);
             this.flpThemSach.Name = "flpThemSach";
             this.flpThemSach.Size = new System.Drawing.Size(574, 58);
             this.flpThemSach.TabIndex = 1;
@@ -268,7 +268,7 @@
             this.gbPhieu.Location = new System.Drawing.Point(603, 3);
             this.gbPhieu.Name = "gbPhieu";
             this.gbPhieu.Padding = new System.Windows.Forms.Padding(10, 5, 10, 8);
-            this.gbPhieu.Size = new System.Drawing.Size(594, 383);
+            this.gbPhieu.Size = new System.Drawing.Size(594, 306);
             this.gbPhieu.TabIndex = 1;
             this.gbPhieu.TabStop = false;
             this.gbPhieu.Text = "3. Phiếu mượn";
@@ -280,14 +280,14 @@
             this.dgvPhieu.Location = new System.Drawing.Point(10, 28);
             this.dgvPhieu.Name = "dgvPhieu";
             this.dgvPhieu.RowHeadersWidth = 51;
-            this.dgvPhieu.Size = new System.Drawing.Size(574, 237);
+            this.dgvPhieu.Size = new System.Drawing.Size(574, 160);
             this.dgvPhieu.TabIndex = 2;
             this.dgvPhieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieu_CellDoubleClick);
             // 
             // lblTongKet
             // 
             this.lblTongKet.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblTongKet.Location = new System.Drawing.Point(10, 265);
+            this.lblTongKet.Location = new System.Drawing.Point(10, 188);
             this.lblTongKet.Name = "lblTongKet";
             this.lblTongKet.Size = new System.Drawing.Size(574, 60);
             this.lblTongKet.TabIndex = 1;
@@ -301,7 +301,7 @@
             this.flpThaoTac.Controls.Add(this.btnBoHet);
             this.flpThaoTac.Controls.Add(this.btnLapPhieu);
             this.flpThaoTac.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpThaoTac.Location = new System.Drawing.Point(10, 325);
+            this.flpThaoTac.Location = new System.Drawing.Point(10, 248);
             this.flpThaoTac.Name = "flpThaoTac";
             this.flpThaoTac.Size = new System.Drawing.Size(574, 50);
             this.flpThaoTac.TabIndex = 0;

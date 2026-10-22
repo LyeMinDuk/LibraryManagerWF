@@ -43,19 +43,11 @@
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.pnlChuThich = new System.Windows.Forms.Panel();
-            this.pnlMauThe = new System.Windows.Forms.Panel();
-            this.lblChuThichThe = new System.Windows.Forms.Label();
-            this.pnlMauMuon = new System.Windows.Forms.Panel();
-            this.lblChuThichMuon = new System.Windows.Forms.Label();
-            this.pnlMauPhat = new System.Windows.Forms.Panel();
-            this.lblChuThichPhat = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.gbThongTin.SuspendLayout();
             this.tlpThongTin.SuspendLayout();
             this.gbThaoTac.SuspendLayout();
             this.flpThaoTac.SuspendLayout();
-            this.pnlChuThich.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -240,78 +232,6 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // pnlChuThich
-            // 
-            this.pnlChuThich.Controls.Add(this.pnlMauThe);
-            this.pnlChuThich.Controls.Add(this.lblChuThichThe);
-            this.pnlChuThich.Controls.Add(this.pnlMauMuon);
-            this.pnlChuThich.Controls.Add(this.lblChuThichMuon);
-            this.pnlChuThich.Controls.Add(this.pnlMauPhat);
-            this.pnlChuThich.Controls.Add(this.lblChuThichPhat);
-            this.pnlChuThich.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlChuThich.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChuThich.Location = new System.Drawing.Point(0, 533);
-            this.pnlChuThich.Name = "pnlChuThich";
-            this.pnlChuThich.Size = new System.Drawing.Size(1200, 40);
-            this.pnlChuThich.TabIndex = 4;
-            // 
-            // pnlMauThe
-            // 
-            this.pnlMauThe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(230)))), ((int)(((byte)(242)))));
-            this.pnlMauThe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMauThe.Location = new System.Drawing.Point(12, 10);
-            this.pnlMauThe.Name = "pnlMauThe";
-            this.pnlMauThe.Size = new System.Drawing.Size(20, 20);
-            this.pnlMauThe.TabIndex = 0;
-            // 
-            // lblChuThichThe
-            // 
-            this.lblChuThichThe.AutoSize = true;
-            this.lblChuThichThe.Location = new System.Drawing.Point(38, 8);
-            this.lblChuThichThe.Name = "lblChuThichThe";
-            this.lblChuThichThe.Size = new System.Drawing.Size(120, 25);
-            this.lblChuThichThe.TabIndex = 1;
-            this.lblChuThichThe.Text = "Thẻ thư viện";
-            this.lblChuThichThe.UseMnemonic = false;
-            // 
-            // pnlMauMuon
-            // 
-            this.pnlMauMuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(240)))), ((int)(((byte)(220)))));
-            this.pnlMauMuon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMauMuon.Location = new System.Drawing.Point(200, 10);
-            this.pnlMauMuon.Name = "pnlMauMuon";
-            this.pnlMauMuon.Size = new System.Drawing.Size(20, 20);
-            this.pnlMauMuon.TabIndex = 2;
-            // 
-            // lblChuThichMuon
-            // 
-            this.lblChuThichMuon.AutoSize = true;
-            this.lblChuThichMuon.Location = new System.Drawing.Point(226, 8);
-            this.lblChuThichMuon.Name = "lblChuThichMuon";
-            this.lblChuThichMuon.Size = new System.Drawing.Size(149, 25);
-            this.lblChuThichMuon.TabIndex = 3;
-            this.lblChuThichMuon.Text = "Mượn & gia hạn";
-            this.lblChuThichMuon.UseMnemonic = false;
-            // 
-            // pnlMauPhat
-            // 
-            this.pnlMauPhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(178)))));
-            this.pnlMauPhat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMauPhat.Location = new System.Drawing.Point(420, 10);
-            this.pnlMauPhat.Name = "pnlMauPhat";
-            this.pnlMauPhat.Size = new System.Drawing.Size(20, 20);
-            this.pnlMauPhat.TabIndex = 4;
-            // 
-            // lblChuThichPhat
-            // 
-            this.lblChuThichPhat.AutoSize = true;
-            this.lblChuThichPhat.Location = new System.Drawing.Point(446, 8);
-            this.lblChuThichPhat.Name = "lblChuThichPhat";
-            this.lblChuThichPhat.Size = new System.Drawing.Size(135, 25);
-            this.lblChuThichPhat.TabIndex = 5;
-            this.lblChuThichPhat.Text = "Phạt & đền bù";
-            this.lblChuThichPhat.UseMnemonic = false;
-            // 
             // dgv
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -328,7 +248,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.dgv);
-            this.Controls.Add(this.pnlChuThich);
             this.Controls.Add(this.gbThaoTac);
             this.Controls.Add(this.gbThongTin);
             this.Name = "ucCauHinh";
@@ -338,8 +257,6 @@
             this.tlpThongTin.PerformLayout();
             this.gbThaoTac.ResumeLayout(false);
             this.flpThaoTac.ResumeLayout(false);
-            this.pnlChuThich.ResumeLayout(false);
-            this.pnlChuThich.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
@@ -362,13 +279,6 @@
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.Panel pnlChuThich;
-        private System.Windows.Forms.Panel pnlMauThe;
-        private System.Windows.Forms.Label lblChuThichThe;
-        private System.Windows.Forms.Panel pnlMauMuon;
-        private System.Windows.Forms.Label lblChuThichMuon;
-        private System.Windows.Forms.Panel pnlMauPhat;
-        private System.Windows.Forms.Label lblChuThichPhat;
         private System.Windows.Forms.DataGridView dgv;
     }
 }

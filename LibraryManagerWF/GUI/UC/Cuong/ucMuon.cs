@@ -14,7 +14,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
     /// Giao diện kéo thả trong ucMuon.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
     /// GUI chỉ gọi MuonBLL / TheBLL / DocGiaBLL / SachBLL / CauHinhBLL: điều kiện được mượn, hạn mức, hạn trả,
     /// trừ kho đều do MuonBLL.Muon xử lý trong một transaction; GUI chỉ hiện lỗi BLL trả về.
-    /// Màu hàng ở bảng độc giả: vàng = chưa có thẻ, đỏ = thẻ hết hạn, xám = độc giả / thẻ bị khóa.
     /// </summary>
     public partial class ucMuon : UserControl
     {
@@ -41,14 +40,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             GridStyle.AddText(dgvDocGia, "Mã thẻ", "MaThe", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgvDocGia, "Ngày hết hạn", "NgayHetHan", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgvDocGia, "Tình trạng thẻ", "TinhTrangThe", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.ToMauHang(dgvDocGia, v =>
-            {
-                string tt = v["TinhTrangThe"].ToString();
-                if (!(bool)v["TrangThai"] || tt == "Khóa") return Theme.HangKhoa;
-                if (tt == "Hết hạn") return Theme.HangLoi;
-                if (tt == ucDocGia.ChuaCoThe) return Theme.HangCanhBao;
-                return null;
-            });
 
             GridStyle.Apply(dgvSach, 12F);
             GridStyle.AddText(dgvSach, "Mã", "MaSach", null, DataGridViewContentAlignment.MiddleCenter);

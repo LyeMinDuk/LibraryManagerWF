@@ -65,11 +65,6 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.pnlChuThich = new System.Windows.Forms.Panel();
-            this.pnlMauKhoa = new System.Windows.Forms.Panel();
-            this.lblChuThichKhoa = new System.Windows.Forms.Label();
-            this.pnlMauHet = new System.Windows.Forms.Panel();
-            this.lblChuThichHet = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.gbTimKiem.SuspendLayout();
             this.flpTimKiem.SuspendLayout();
@@ -79,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongTong)).BeginInit();
             this.gbThaoTac.SuspendLayout();
             this.flpThaoTac.SuspendLayout();
-            this.pnlChuThich.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -535,57 +529,6 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // pnlChuThich
-            // 
-            this.pnlChuThich.Controls.Add(this.pnlMauKhoa);
-            this.pnlChuThich.Controls.Add(this.lblChuThichKhoa);
-            this.pnlChuThich.Controls.Add(this.pnlMauHet);
-            this.pnlChuThich.Controls.Add(this.lblChuThichHet);
-            this.pnlChuThich.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlChuThich.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChuThich.Location = new System.Drawing.Point(0, 533);
-            this.pnlChuThich.Name = "pnlChuThich";
-            this.pnlChuThich.Size = new System.Drawing.Size(1200, 40);
-            this.pnlChuThich.TabIndex = 4;
-            // 
-            // pnlMauKhoa
-            // 
-            this.pnlMauKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
-            this.pnlMauKhoa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMauKhoa.Location = new System.Drawing.Point(12, 10);
-            this.pnlMauKhoa.Name = "pnlMauKhoa";
-            this.pnlMauKhoa.Size = new System.Drawing.Size(20, 20);
-            this.pnlMauKhoa.TabIndex = 0;
-            // 
-            // lblChuThichKhoa
-            // 
-            this.lblChuThichKhoa.AutoSize = true;
-            this.lblChuThichKhoa.Location = new System.Drawing.Point(38, 8);
-            this.lblChuThichKhoa.Name = "lblChuThichKhoa";
-            this.lblChuThichKhoa.Size = new System.Drawing.Size(133, 25);
-            this.lblChuThichKhoa.TabIndex = 1;
-            this.lblChuThichKhoa.Text = "Sách đã khóa";
-            this.lblChuThichKhoa.UseMnemonic = false;
-            // 
-            // pnlMauHet
-            // 
-            this.pnlMauHet.BackColor = System.Drawing.Color.Khaki;
-            this.pnlMauHet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMauHet.Location = new System.Drawing.Point(200, 10);
-            this.pnlMauHet.Name = "pnlMauHet";
-            this.pnlMauHet.Size = new System.Drawing.Size(20, 20);
-            this.pnlMauHet.TabIndex = 2;
-            // 
-            // lblChuThichHet
-            // 
-            this.lblChuThichHet.AutoSize = true;
-            this.lblChuThichHet.Location = new System.Drawing.Point(226, 8);
-            this.lblChuThichHet.Name = "lblChuThichHet";
-            this.lblChuThichHet.Size = new System.Drawing.Size(328, 25);
-            this.lblChuThichHet.TabIndex = 3;
-            this.lblChuThichHet.Text = "Hết sách (không còn cuốn để mượn)";
-            this.lblChuThichHet.UseMnemonic = false;
-            // 
             // dgv
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -602,7 +545,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.dgv);
-            this.Controls.Add(this.pnlChuThich);
             this.Controls.Add(this.gbThaoTac);
             this.Controls.Add(this.gbThongTin);
             this.Controls.Add(this.gbTimKiem);
@@ -618,8 +560,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSoLuongTong)).EndInit();
             this.gbThaoTac.ResumeLayout(false);
             this.flpThaoTac.ResumeLayout(false);
-            this.pnlChuThich.ResumeLayout(false);
-            this.pnlChuThich.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
@@ -664,11 +604,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.Panel pnlChuThich;
-        private System.Windows.Forms.Panel pnlMauKhoa;
-        private System.Windows.Forms.Label lblChuThichKhoa;
-        private System.Windows.Forms.Panel pnlMauHet;
-        private System.Windows.Forms.Label lblChuThichHet;
         private System.Windows.Forms.DataGridView dgv;
     }
 }

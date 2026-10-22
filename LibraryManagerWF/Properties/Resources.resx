@@ -181,6 +181,18 @@
   <data name="text_utc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\text_utc1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_sach" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\icon\icon_sach.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_sach_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\icon\icon_sach_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_docgia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\icon\icon_docgia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_docgia_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\icon\icon_docgia_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_chomuon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\icon\icon_chomuon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -210,6 +222,12 @@
   </data>
   <data name="icon_phieuthu_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\icon\icon_phieuthu_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_taikhoan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\icon\icon_taikhoan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_taikhoan_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\icon\icon_taikhoan_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_cauhinh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\icon\icon_cauhinh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -147,7 +147,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
                 e.FormattingApplied = true;
             }
 
-            if (!(bool)v["TrangThai"]) e.CellStyle.ForeColor = Color.FromArgb(160, 60, 60);   // tài khoản đã khóa
         }
 
         private void dgv_SelectionChanged(object sender, EventArgs e)

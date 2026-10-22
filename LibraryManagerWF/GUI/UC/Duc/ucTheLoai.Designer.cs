@@ -50,9 +50,6 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.pnlChuThich = new System.Windows.Forms.Panel();
-            this.pnlMauTrong = new System.Windows.Forms.Panel();
-            this.lblChuThichTrong = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.gbTimKiem.SuspendLayout();
             this.flpTimKiem.SuspendLayout();
@@ -60,7 +57,6 @@
             this.tlpThongTin.SuspendLayout();
             this.gbThaoTac.SuspendLayout();
             this.flpThaoTac.SuspendLayout();
-            this.pnlChuThich.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -323,36 +319,6 @@
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // pnlChuThich
-            // 
-            this.pnlChuThich.Controls.Add(this.pnlMauTrong);
-            this.pnlChuThich.Controls.Add(this.lblChuThichTrong);
-            this.pnlChuThich.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlChuThich.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlChuThich.Location = new System.Drawing.Point(0, 533);
-            this.pnlChuThich.Name = "pnlChuThich";
-            this.pnlChuThich.Size = new System.Drawing.Size(1200, 40);
-            this.pnlChuThich.TabIndex = 4;
-            // 
-            // pnlMauTrong
-            // 
-            this.pnlMauTrong.BackColor = System.Drawing.Color.Khaki;
-            this.pnlMauTrong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMauTrong.Location = new System.Drawing.Point(12, 10);
-            this.pnlMauTrong.Name = "pnlMauTrong";
-            this.pnlMauTrong.Size = new System.Drawing.Size(20, 20);
-            this.pnlMauTrong.TabIndex = 0;
-            // 
-            // lblChuThichTrong
-            // 
-            this.lblChuThichTrong.AutoSize = true;
-            this.lblChuThichTrong.Location = new System.Drawing.Point(38, 8);
-            this.lblChuThichTrong.Name = "lblChuThichTrong";
-            this.lblChuThichTrong.Size = new System.Drawing.Size(270, 25);
-            this.lblChuThichTrong.TabIndex = 1;
-            this.lblChuThichTrong.Text = "Chưa có sách nào (xóa được)";
-            this.lblChuThichTrong.UseMnemonic = false;
-            // 
             // dgv
             // 
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -368,7 +334,6 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.dgv);
-            this.Controls.Add(this.pnlChuThich);
             this.Controls.Add(this.gbThaoTac);
             this.Controls.Add(this.gbThongTin);
             this.Controls.Add(this.gbTimKiem);
@@ -382,8 +347,6 @@
             this.tlpThongTin.PerformLayout();
             this.gbThaoTac.ResumeLayout(false);
             this.flpThaoTac.ResumeLayout(false);
-            this.pnlChuThich.ResumeLayout(false);
-            this.pnlChuThich.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
@@ -413,9 +376,6 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Button btnHuy;
-        private System.Windows.Forms.Panel pnlChuThich;
-        private System.Windows.Forms.Panel pnlMauTrong;
-        private System.Windows.Forms.Label lblChuThichTrong;
         private System.Windows.Forms.DataGridView dgv;
     }
 }

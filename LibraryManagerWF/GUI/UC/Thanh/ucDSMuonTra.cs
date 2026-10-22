@@ -29,7 +29,6 @@ namespace LibraryManagerWF.GUI
         private void ucDSMuonTra_Load(object sender, EventArgs e)
         {
             CauHinhLuoi();
-            dgv.DataBindingComplete += (s, ev) => ToMauTinhTrang();
             TaiDuLieu();
         }
 
@@ -67,27 +66,6 @@ namespace LibraryManagerWF.GUI
         {
             dgv.DataSource = MuonBLL.DanhSachMuon(txtTimKiem.Text.Trim(), 0, (int)_loc);
             dgv.ClearSelection();
-        }
-
-        private void ToMauTinhTrang()
-        {
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                DataRowView v = row.DataBoundItem as DataRowView;
-                if (v == null) continue;
-
-                string tt = Convert.ToString(v["TinhTrang"]).Trim();
-                bool quaHan = Convert.ToInt32(v["SoNgayTre"]) > 0;
-
-                Color nen;
-                if (tt == TinhTrangMuon.Mat) nen = Color.IndianRed;
-                else if (tt == TinhTrangMuon.Hong) nen = Color.Orange;
-                else if (tt == TinhTrangMuon.BinhThuong) nen = Color.LightGreen;
-                else nen = quaHan ? Color.LightCoral : Color.Khaki;   // Chưa trả: quá hạn đỏ nhạt, còn hạn vàng
-
-                row.DefaultCellStyle.BackColor = nen;
-                row.DefaultCellStyle.ForeColor = Color.Black;
-            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

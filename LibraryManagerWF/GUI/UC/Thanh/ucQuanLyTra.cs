@@ -64,8 +64,6 @@ namespace LibraryManagerWF.GUI
             GridStyle.AddText(dgv, "Ngày mượn", "NgayMuon", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Hạn trả", "HanTra", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Số ngày trễ", "SoNgayTre", null, DataGridViewContentAlignment.MiddleCenter);
-            // Cùng bảng màu với Theo dõi mượn trả: quá hạn đỏ nhạt, còn hạn vàng
-            GridStyle.ToMauHang(dgv, v => Convert.ToInt32(v["SoNgayTre"]) > 0 ? Theme.HangLoi : Theme.HangCanhBao);
         }
 
         private void TaiDuLieu()

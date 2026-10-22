@@ -11,7 +11,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
     /// Giao diện kéo thả trong ucGiaHan.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
     /// GUI chỉ gọi MuonBLL.GiaHan — toàn bộ điều kiện (quá hạn, số lần gia hạn tối đa, độc giả/thẻ bị khóa,
     /// còn cuốn khác quá hạn) đều do MuonBLL.GiaHan kiểm tra trong một transaction; GUI chỉ hiện lỗi BLL trả về.
-    /// Màu hàng: đỏ = đã quá hạn (không gia hạn được), vàng = đã gia hạn hết số lần cho phép.
     /// </summary>
     public partial class ucGiaHan : UserControl
     {
@@ -61,12 +60,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             GridStyle.AddText(dgv, "Hạn trả", "HanTra", "dd/MM/yyyy", DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Số ngày trễ", "SoNgayTre", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Đã gia hạn", "SoLanGiaHan", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.ToMauHang(dgv, v =>
-            {
-                if (Convert.ToInt32(v["SoNgayTre"]) > 0) return Theme.HangLoi;
-                if (Convert.ToInt32(v["SoLanGiaHan"]) >= _toiDa) return Theme.HangCanhBao;
-                return null;
-            });
         }
 
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)

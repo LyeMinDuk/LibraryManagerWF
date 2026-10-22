@@ -15,7 +15,6 @@ namespace LibraryManagerWF.GUI
         public static readonly Color ChuSangTrenToi = Color.FromArgb(226, 232, 245);
 
         // Màu nền hàng trong lưới (dùng chung cho mọi bảng để đồng nhất)
-        public static readonly Color HangXen = Color.FromArgb(240, 244, 252);      // hàng chẵn
         public static readonly Color HangKhoa = Color.FromArgb(222, 226, 230);     // bị khóa
         public static readonly Color HangCanhBao = Color.Khaki;                    // sắp hết / cần chú ý
         public static readonly Color HangLoi = Color.LightCoral;                   // quá hạn / lỗi

@@ -101,7 +101,7 @@
             this.lblKhoa.AutoSize = true;
             this.lblKhoa.Location = new System.Drawing.Point(3, 9);
             this.lblKhoa.Name = "lblKhoa";
-            this.lblKhoa.Size = new System.Drawing.Size(129, 25);
+            this.lblKhoa.Size = new System.Drawing.Size(120, 25);
             this.lblKhoa.TabIndex = 0;
             this.lblKhoa.Text = "Mã tham số:";
             this.lblKhoa.UseMnemonic = false;
@@ -122,7 +122,7 @@
             this.lblGiaTri.AutoSize = true;
             this.lblGiaTri.Location = new System.Drawing.Point(593, 9);
             this.lblGiaTri.Name = "lblGiaTri";
-            this.lblGiaTri.Size = new System.Drawing.Size(80, 25);
+            this.lblGiaTri.Size = new System.Drawing.Size(68, 25);
             this.lblGiaTri.TabIndex = 2;
             this.lblGiaTri.Text = "Giá trị:";
             this.lblGiaTri.UseMnemonic = false;
@@ -141,9 +141,9 @@
             // 
             this.lblMoTa.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMoTa.AutoSize = true;
-            this.lblMoTa.Location = new System.Drawing.Point(3, 53);
+            this.lblMoTa.Location = new System.Drawing.Point(3, 60);
             this.lblMoTa.Name = "lblMoTa";
-            this.lblMoTa.Size = new System.Drawing.Size(66, 25);
+            this.lblMoTa.Size = new System.Drawing.Size(67, 25);
             this.lblMoTa.TabIndex = 4;
             this.lblMoTa.Text = "Mô tả:";
             this.lblMoTa.UseMnemonic = false;
@@ -152,7 +152,7 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlpThongTin.SetColumnSpan(this.txtMoTa, 3);
-            this.txtMoTa.Location = new System.Drawing.Point(164, 51);
+            this.txtMoTa.Location = new System.Drawing.Point(164, 58);
             this.txtMoTa.Margin = new System.Windows.Forms.Padding(4);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.ReadOnly = true;
@@ -264,7 +264,7 @@
             this.lblChuThichThe.AutoSize = true;
             this.lblChuThichThe.Location = new System.Drawing.Point(38, 8);
             this.lblChuThichThe.Name = "lblChuThichThe";
-            this.lblChuThichThe.Size = new System.Drawing.Size(129, 25);
+            this.lblChuThichThe.Size = new System.Drawing.Size(120, 25);
             this.lblChuThichThe.TabIndex = 1;
             this.lblChuThichThe.Text = "Thẻ thư viện";
             this.lblChuThichThe.UseMnemonic = false;
@@ -283,9 +283,9 @@
             this.lblChuThichMuon.AutoSize = true;
             this.lblChuThichMuon.Location = new System.Drawing.Point(226, 8);
             this.lblChuThichMuon.Name = "lblChuThichMuon";
-            this.lblChuThichMuon.Size = new System.Drawing.Size(154, 25);
+            this.lblChuThichMuon.Size = new System.Drawing.Size(149, 25);
             this.lblChuThichMuon.TabIndex = 3;
-            this.lblChuThichMuon.Text = "Mượn && gia hạn";
+            this.lblChuThichMuon.Text = "Mượn & gia hạn";
             this.lblChuThichMuon.UseMnemonic = false;
             // 
             // pnlMauPhat
@@ -302,9 +302,9 @@
             this.lblChuThichPhat.AutoSize = true;
             this.lblChuThichPhat.Location = new System.Drawing.Point(446, 8);
             this.lblChuThichPhat.Name = "lblChuThichPhat";
-            this.lblChuThichPhat.Size = new System.Drawing.Size(138, 25);
+            this.lblChuThichPhat.Size = new System.Drawing.Size(135, 25);
             this.lblChuThichPhat.TabIndex = 5;
-            this.lblChuThichPhat.Text = "Phạt && đền bù";
+            this.lblChuThichPhat.Text = "Phạt & đền bù";
             this.lblChuThichPhat.UseMnemonic = false;
             // 
             // dgv

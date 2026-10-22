@@ -208,7 +208,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Yellow;
-            this.button2.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button2.Image = global::LibraryManagerWF.Properties.Resources.icon_tailieu;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(-4, -11);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -233,7 +233,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Yellow;
-            this.button3.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button3.Image = global::LibraryManagerWF.Properties.Resources.icon_bandoc;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(-4, -11);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -258,7 +258,7 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Yellow;
-            this.button4.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button4.Image = global::LibraryManagerWF.Properties.Resources.icon_chomuon;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(-4, -11);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -283,7 +283,7 @@
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Yellow;
-            this.button5.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button5.Image = global::LibraryManagerWF.Properties.Resources.icon_giahan;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(-4, -11);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -308,7 +308,7 @@
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.Yellow;
-            this.button6.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button6.Image = global::LibraryManagerWF.Properties.Resources.icon_trasach;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(-4, -11);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -333,7 +333,7 @@
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.Yellow;
-            this.button7.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button7.Image = global::LibraryManagerWF.Properties.Resources.icon_theodoi;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.Location = new System.Drawing.Point(-4, -11);
             this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -358,7 +358,7 @@
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.Yellow;
-            this.button8.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button8.Image = global::LibraryManagerWF.Properties.Resources.icon_phieuthu;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.Location = new System.Drawing.Point(-4, -11);
             this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -383,7 +383,7 @@
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.Yellow;
-            this.button9.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button9.Image = global::LibraryManagerWF.Properties.Resources.icon_thongke;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.Location = new System.Drawing.Point(-4, -11);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -408,7 +408,7 @@
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.Yellow;
-            this.button10.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button10.Image = global::LibraryManagerWF.Properties.Resources.icon_phanquyen;
             this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.Location = new System.Drawing.Point(-4, -11);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -433,7 +433,7 @@
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(68)))));
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Yellow;
-            this.button11.Image = global::LibraryManagerWF.Properties.Resources.icon_trangchu;
+            this.button11.Image = global::LibraryManagerWF.Properties.Resources.icon_cauhinh;
             this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.Location = new System.Drawing.Point(-4, -11);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

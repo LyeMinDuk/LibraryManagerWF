@@ -48,16 +48,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             lblPhiThe.Text = "Phí cấp / gia hạn thẻ: " + CauHinhSo("PHI_THE").ToString("N0") + " đ, hiệu lực "
                              + CauHinhSo("THE_SO_THANG") + " tháng (theo Cấu hình đơn giá).";
 
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += (s, ev) => { txtTimKiem.Clear(); cboLoc.SelectedIndex = 0; TaiDuLieu(); txtTimKiem.Focus(); };
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
-            cboLoc.SelectedIndexChanged += (s, ev) => TaiDuLieu();
-            dgv.SelectionChanged += (s, ev) => HienThongTinTheoChon();
-            btnCapThe.Click += btnCapThe_Click;
-            btnGiaHan.Click += btnGiaHan_Click;
-            btnKhoaThe.Click += btnKhoaThe_Click;
-            btnXoaThe.Click += btnXoaThe_Click;
-
             TaiDuLieu();
         }
 
@@ -258,6 +248,29 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             string loi = TheBLL.Xoa(_the.MaThe);
             if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
             TaiDuLieu(maDG);
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Clear();
+            cboLoc.SelectedIndex = 0;
+            TaiDuLieu();
+            txtTimKiem.Focus();
+        }
+
+        private void cboLoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            HienThongTinTheoChon();
         }
     }
 }

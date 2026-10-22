@@ -143,6 +143,7 @@
             // 
             // lblNguoiDung
             // 
+            this.lblNguoiDung.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblNguoiDung.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblNguoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNguoiDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
@@ -153,6 +154,7 @@
             this.lblNguoiDung.Size = new System.Drawing.Size(457, 68);
             this.lblNguoiDung.TabIndex = 1;
             this.lblNguoiDung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblNguoiDung.Click += new System.EventHandler(this.lblNguoiDung_Click);
             // 
             // pnlSidebar
             // 
@@ -494,6 +496,7 @@
             this.btnDangXuat.TabIndex = 2;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // SideBarTimer
             // 
@@ -513,6 +516,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainn";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainn_FormClosing);
+            this.Load += new System.EventHandler(this.frmMainn_Load);
             this.panel1.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlSidebar.ResumeLayout(false);

@@ -40,16 +40,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void ucTheLoai_Load(object sender, EventArgs e)
         {
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += (s, ev) => { txtTimKiem.Clear(); TaiDuLieu(); txtTimKiem.Focus(); };
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
-            txtTenTL.KeyDown += oNhap_KeyDown;
-            dgv.SelectionChanged += dgv_SelectionChanged;
-            btnThem.Click += btnThem_Click;
-            btnSua.Click += btnSua_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnXacNhan.Click += btnXacNhan_Click;
-            btnHuy.Click += (s, ev) => DatTrangThai(EditState.Read);
 
             TaiDuLieu();
             DatTrangThai(EditState.Read);
@@ -247,6 +237,24 @@ namespace LibraryManagerWF.GUI.UC.Duc
             string loi = TheLoaiBLL.Xoa(ma);
             if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
             TaiDuLieu();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Clear();
+            TaiDuLieu();
+            txtTimKiem.Focus();
+            
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DatTrangThai(EditState.Read);
         }
     }
 }

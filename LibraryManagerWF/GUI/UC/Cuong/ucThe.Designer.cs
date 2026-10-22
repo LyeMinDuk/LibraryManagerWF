@@ -120,6 +120,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(300, 30);
             this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // btnTimKiem
             // 
@@ -130,6 +131,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnLamMoi
             // 
@@ -140,6 +142,7 @@
             this.btnLamMoi.TabIndex = 3;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // lblLoc
             // 
@@ -166,6 +169,7 @@
             this.cboLoc.Name = "cboLoc";
             this.cboLoc.Size = new System.Drawing.Size(200, 33);
             this.cboLoc.TabIndex = 5;
+            this.cboLoc.SelectedIndexChanged += new System.EventHandler(this.cboLoc_SelectedIndexChanged);
             // 
             // gbThongTin
             // 
@@ -396,6 +400,7 @@
             this.btnCapThe.TabIndex = 0;
             this.btnCapThe.Text = "Cấp thẻ";
             this.btnCapThe.UseVisualStyleBackColor = true;
+            this.btnCapThe.Click += new System.EventHandler(this.btnCapThe_Click);
             // 
             // btnGiaHan
             // 
@@ -406,6 +411,7 @@
             this.btnGiaHan.TabIndex = 1;
             this.btnGiaHan.Text = "Gia hạn thẻ";
             this.btnGiaHan.UseVisualStyleBackColor = true;
+            this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
             // 
             // btnKhoaThe
             // 
@@ -416,6 +422,7 @@
             this.btnKhoaThe.TabIndex = 2;
             this.btnKhoaThe.Text = "Khóa thẻ";
             this.btnKhoaThe.UseVisualStyleBackColor = true;
+            this.btnKhoaThe.Click += new System.EventHandler(this.btnKhoaThe_Click);
             // 
             // btnXoaThe
             // 
@@ -426,6 +433,7 @@
             this.btnXoaThe.TabIndex = 3;
             this.btnXoaThe.Text = "Xóa thẻ";
             this.btnXoaThe.UseVisualStyleBackColor = true;
+            this.btnXoaThe.Click += new System.EventHandler(this.btnXoaThe_Click);
             // 
             // pnlChuThich
             // 
@@ -508,6 +516,7 @@
             this.dgv.RowHeadersWidth = 51;
             this.dgv.Size = new System.Drawing.Size(1200, 221);
             this.dgv.TabIndex = 2;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucThe
             // 

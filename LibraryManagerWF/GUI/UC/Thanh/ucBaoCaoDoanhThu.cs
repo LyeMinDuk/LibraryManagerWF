@@ -202,5 +202,10 @@ namespace LibraryManagerWF.GUI
                 s.Points.AddXY(ngay.ToString("dd/MM"), tien);
             }
         }
+
+        private void btnXemBaoCao_Click(object sender, EventArgs e)
+        {
+            TaiBaoCao();
+        }
     }
 }

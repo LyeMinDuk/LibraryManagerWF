@@ -101,6 +101,7 @@
             this.dgvDocGia.RowHeadersWidth = 51;
             this.dgvDocGia.Size = new System.Drawing.Size(1180, 121);
             this.dgvDocGia.TabIndex = 2;
+            this.dgvDocGia.SelectionChanged += new System.EventHandler(this.dgvDocGia_SelectionChanged);
             // 
             // lblThongTinThe
             // 
@@ -142,6 +143,7 @@
             this.txtTimDG.Name = "txtTimDG";
             this.txtTimDG.Size = new System.Drawing.Size(300, 30);
             this.txtTimDG.TabIndex = 1;
+            this.txtTimDG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimDG_KeyDown);
             // 
             // btnTimDG
             // 
@@ -152,6 +154,7 @@
             this.btnTimDG.TabIndex = 2;
             this.btnTimDG.Text = "Tìm kiếm";
             this.btnTimDG.UseVisualStyleBackColor = true;
+            this.btnTimDG.Click += new System.EventHandler(this.btnTimDG_Click);
             // 
             // tlpChinh
             // 
@@ -192,6 +195,7 @@
             this.dgvSach.RowHeadersWidth = 51;
             this.dgvSach.Size = new System.Drawing.Size(574, 243);
             this.dgvSach.TabIndex = 2;
+            this.dgvSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSach_CellDoubleClick);
             // 
             // flpThemSach
             // 
@@ -211,6 +215,7 @@
             this.btnThemSach.TabIndex = 0;
             this.btnThemSach.Text = "Thêm vào phiếu >>";
             this.btnThemSach.UseVisualStyleBackColor = true;
+            this.btnThemSach.Click += new System.EventHandler(this.btnThemSach_Click);
             // 
             // flpTimSach
             // 
@@ -240,6 +245,7 @@
             this.txtTimSach.Name = "txtTimSach";
             this.txtTimSach.Size = new System.Drawing.Size(230, 30);
             this.txtTimSach.TabIndex = 1;
+            this.txtTimSach.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimSach_KeyDown);
             // 
             // btnTimSach
             // 
@@ -250,6 +256,7 @@
             this.btnTimSach.TabIndex = 2;
             this.btnTimSach.Text = "Tìm kiếm";
             this.btnTimSach.UseVisualStyleBackColor = true;
+            this.btnTimSach.Click += new System.EventHandler(this.btnTimSach_Click);
             // 
             // gbPhieu
             // 
@@ -275,6 +282,7 @@
             this.dgvPhieu.RowHeadersWidth = 51;
             this.dgvPhieu.Size = new System.Drawing.Size(574, 237);
             this.dgvPhieu.TabIndex = 2;
+            this.dgvPhieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieu_CellDoubleClick);
             // 
             // lblTongKet
             // 
@@ -307,6 +315,7 @@
             this.btnBoSach.TabIndex = 0;
             this.btnBoSach.Text = "Bỏ cuốn";
             this.btnBoSach.UseVisualStyleBackColor = true;
+            this.btnBoSach.Click += new System.EventHandler(this.btnBoSach_Click);
             // 
             // btnBoHet
             // 
@@ -317,6 +326,7 @@
             this.btnBoHet.TabIndex = 1;
             this.btnBoHet.Text = "Bỏ hết";
             this.btnBoHet.UseVisualStyleBackColor = true;
+            this.btnBoHet.Click += new System.EventHandler(this.btnBoHet_Click);
             // 
             // btnLapPhieu
             // 
@@ -327,6 +337,7 @@
             this.btnLapPhieu.TabIndex = 2;
             this.btnLapPhieu.Text = "Lập phiếu mượn";
             this.btnLapPhieu.UseVisualStyleBackColor = true;
+            this.btnLapPhieu.Click += new System.EventHandler(this.btnLapPhieu_Click);
             // 
             // ucMuon
             // 

@@ -34,13 +34,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             _toiDa = CauHinhSo("GIA_HAN_TOI_DA");
             _soNgay = CauHinhSo("GIA_HAN_SO_NGAY");
 
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
-            btnLamMoi.Click += btnLamMoi_Click;
-            dgv.SelectionChanged += (s, ev) => CapNhatChon();
-            dgv.CellDoubleClick += (s, ev) => { if (ev.RowIndex >= 0 && btnGiaHan.Enabled) btnGiaHan.PerformClick(); };
-            btnGiaHan.Click += btnGiaHan_Click;
-
             TaiDuLieu();
         }
 
@@ -137,6 +130,22 @@ namespace LibraryManagerWF.GUI.UC.Cuong
                                    + " Gia hạn thêm " + _soNgay + " ngày → hạn mới dự kiến " + hanMoiDuKien.ToString("dd/MM/yyyy") + ".";
                 btnGiaHan.Enabled = true;
             }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            CapNhatChon();
+        }
+
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && btnGiaHan.Enabled)
+                btnGiaHan.PerformClick();
         }
 
         private void btnGiaHan_Click(object sender, EventArgs e)

@@ -69,21 +69,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         {
             _toiDa = CauHinhSo("MUON_TOI_DA");
             _soNgay = CauHinhSo("MUON_SO_NGAY");
-
-            btnTimDG.Click += (s, ev) => TaiDocGia();
-            txtTimDG.KeyDown += (s, ev) => PhimEnter(ev, TaiDocGia);
-            dgvDocGia.SelectionChanged += (s, ev) => HienThongTinThe();
-
-            btnTimSach.Click += (s, ev) => TaiSach();
-            txtTimSach.KeyDown += (s, ev) => PhimEnter(ev, TaiSach);
-            btnThemSach.Click += btnThemSach_Click;
-            dgvSach.CellDoubleClick += (s, ev) => { if (ev.RowIndex >= 0) btnThemSach.PerformClick(); };
-
-            btnBoSach.Click += btnBoSach_Click;
-            btnBoHet.Click += btnBoHet_Click;
-            btnLapPhieu.Click += btnLapPhieu_Click;
-            dgvPhieu.CellDoubleClick += (s, ev) => { if (ev.RowIndex >= 0) btnBoSach.PerformClick(); };
-
             TaiDocGia();
             TaiSach();
             HienGio();
@@ -221,6 +206,43 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             _gio.Clear();
             HienGio();
             TaiSach();
+        }
+
+        private void btnTimDG_Click(object sender, EventArgs e)
+        {
+            TaiDocGia();
+        }
+
+        private void txtTimDG_KeyDown(object sender, KeyEventArgs e)
+        {
+            PhimEnter(e, TaiDocGia);
+        }
+
+        private void btnTimSach_Click(object sender, EventArgs e)
+        {
+            TaiSach();
+        }
+
+        private void dgvDocGia_SelectionChanged(object sender, EventArgs e)
+        {
+            HienThongTinThe();
+        }
+
+        private void txtTimSach_KeyDown(object sender, KeyEventArgs e)
+        {
+            PhimEnter(e, TaiSach);
+        }
+
+        private void dgvSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+                btnThemSach.PerformClick();
+        }
+
+        private void dgvPhieu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                btnBoSach.PerformClick();
         }
 
         private void btnLapPhieu_Click(object sender, EventArgs e)

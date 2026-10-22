@@ -135,6 +135,7 @@
             this.btnXemBaoCao.TabIndex = 4;
             this.btnXemBaoCao.Text = "Xem báo cáo";
             this.btnXemBaoCao.UseVisualStyleBackColor = true;
+            this.btnXemBaoCao.Click += new System.EventHandler(this.btnXemBaoCao_Click);
             // 
             // lblTongKet
             // 

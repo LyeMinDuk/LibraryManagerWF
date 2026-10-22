@@ -53,20 +53,9 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void ucTaiKhoan_Load(object sender, EventArgs e)
         {
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += (s, ev) => { txtTimKiem.Clear(); TaiDuLieu(); txtTimKiem.Focus(); };
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
-            txtTenDN.KeyDown += oNhap_KeyDown;
-            txtHoTen.KeyDown += oNhap_KeyDown;
             txtMatKhau.KeyDown += oNhap_KeyDown;
             dgv.SelectionChanged += dgv_SelectionChanged;
             dgv.CellFormatting += dgv_CellFormatting;
-            btnThem.Click += btnThem_Click;
-            btnSua.Click += btnSua_Click;
-            btnDatLai.Click += btnDatLai_Click;
-            btnKhoa.Click += btnKhoa_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnDoiMkToi.Click += btnDoiMkToi_Click;
             btnXacNhan.Click += btnXacNhan_Click;
             btnHuy.Click += (s, ev) => DatTrangThai(EditState.Read);
 
@@ -75,13 +64,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
         }
 
         // ================= Dữ liệu =================
-
-        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) return;
-            e.SuppressKeyPress = true;
-            TaiDuLieu();
-        }
 
         /// <summary>Enter trong các ô nhập (khi đang thêm / sửa) = bấm Xác nhận.</summary>
         private void oNhap_KeyDown(object sender, KeyEventArgs e)
@@ -356,5 +338,16 @@ namespace LibraryManagerWF.GUI.UC.Duc
             }
         }
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Clear();
+            TaiDuLieu();
+            txtTimKiem.Focus();
+        }
     }
 }

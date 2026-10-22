@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LibraryManagerWF.BLL;
+using LibraryManagerWF.GUI.UC.Cuong;
+using LibraryManagerWF.GUI.UC.Duc;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -43,18 +46,13 @@ namespace LibraryManagerWF.GUI
                 GridStyle.BatDoubleBuffer(v);
             lblTrang.UseMnemonic = false;
 
-            this.Load += frmMainn_Load;
-            this.FormClosing += frmMainn_FormClosing;
-            btnDangXuat.Click += btnDangXuat_Click;
-            lblNguoiDung.Cursor = Cursors.Hand;
-            lblNguoiDung.Click += lblNguoiDung_Click;
             new ToolTip().SetToolTip(lblNguoiDung, "Bấm để đổi mật khẩu của bạn");
 
             KhoiTaoMenu();
             ApDungPhanQuyen();
 
             // Người dùng lấy từ AppSession (AuthBLL.DangNhap đã điền trước khi frmMainn được tạo)
-            lblNguoiDung.Text = AppSession.HoTen + "  ·  " + (AppSession.LaQuanTri ? "Quản trị viên" : "Thủ thư");
+            lblNguoiDung.Text = AppSession.HoTen + "  -  " + (AppSession.LaQuanTri ? "Quản trị viên" : "Thủ thư");
         }
 
         /// <summary>

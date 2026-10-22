@@ -66,18 +66,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private void ucDocGia_Load(object sender, EventArgs e)
         {
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += (s, ev) => { txtTimKiem.Clear(); TaiDuLieu(); txtTimKiem.Focus(); };
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
             foreach (Control c in new Control[] { txtHoTen, txtSDT, txtEmail, txtDiaChi })
                 c.KeyDown += oNhap_KeyDown;
-            dgv.SelectionChanged += dgv_SelectionChanged;
-            btnThem.Click += btnThem_Click;
-            btnSua.Click += btnSua_Click;
-            btnKhoa.Click += btnKhoa_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnXacNhan.Click += btnXacNhan_Click;
-            btnHuy.Click += (s, ev) => DatTrangThai(EditState.Read);
 
             TaiDuLieu();
             DatTrangThai(EditState.Read);
@@ -317,6 +307,23 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             string loi = DocGiaBLL.Xoa(ma);
             if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
             TaiDuLieu();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            txtTimKiem.Clear();
+            TaiDuLieu();
+            txtTimKiem.Focus();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DatTrangThai(EditState.Read);
         }
     }
 }

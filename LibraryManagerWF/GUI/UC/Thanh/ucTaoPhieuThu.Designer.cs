@@ -18,6 +18,7 @@ namespace LibraryManagerWF.GUI
         private void InitializeComponent()
         {
             this.tlp = new System.Windows.Forms.TableLayoutPanel();
+            this.lblGC = new System.Windows.Forms.Label();
             this.lblDocGia = new System.Windows.Forms.Label();
             this.valDocGia = new System.Windows.Forms.Label();
             this.lblMaThe = new System.Windows.Forms.Label();
@@ -38,12 +39,11 @@ namespace LibraryManagerWF.GUI
             this.sepDuoi = new System.Windows.Forms.Panel();
             this.lblTongCong = new System.Windows.Forms.Label();
             this.valTong = new System.Windows.Forms.Label();
+            this.rtbGC = new System.Windows.Forms.RichTextBox();
             this.pnlNut = new System.Windows.Forms.Panel();
             this.btnIn = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnTra = new System.Windows.Forms.Button();
-            this.lblGC = new System.Windows.Forms.Label();
-            this.rtbGC = new System.Windows.Forms.RichTextBox();
             this.tlp.SuspendLayout();
             this.pnlNut.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,16 @@ namespace LibraryManagerWF.GUI
             this.tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 168F));
             this.tlp.Size = new System.Drawing.Size(1212, 810);
             this.tlp.TabIndex = 0;
+            // 
+            // lblGC
+            // 
+            this.lblGC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGC.Location = new System.Drawing.Point(17, 642);
+            this.lblGC.Name = "lblGC";
+            this.lblGC.Size = new System.Drawing.Size(154, 168);
+            this.lblGC.TabIndex = 19;
+            this.lblGC.Text = "Ghi Chú";
+            this.lblGC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDocGia
             // 
@@ -194,10 +204,11 @@ namespace LibraryManagerWF.GUI
             this.cboTinhTrang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTinhTrang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboTinhTrang.FormattingEnabled = true;
-            this.cboTinhTrang.Location = new System.Drawing.Point(177, 180);
+            this.cboTinhTrang.Location = new System.Drawing.Point(177, 182);
             this.cboTinhTrang.Name = "cboTinhTrang";
-            this.cboTinhTrang.Size = new System.Drawing.Size(1018, 37);
+            this.cboTinhTrang.Size = new System.Drawing.Size(1018, 33);
             this.cboTinhTrang.TabIndex = 0;
+            this.cboTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cboTinhTrang_SelectedIndexChanged);
             // 
             // sepTren
             // 
@@ -309,6 +320,17 @@ namespace LibraryManagerWF.GUI
             this.valTong.Text = "0đ";
             this.valTong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // rtbGC
+            // 
+            this.rtbGC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.rtbGC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbGC.ForeColor = System.Drawing.Color.Black;
+            this.rtbGC.Location = new System.Drawing.Point(177, 645);
+            this.rtbGC.Name = "rtbGC";
+            this.rtbGC.Size = new System.Drawing.Size(1018, 162);
+            this.rtbGC.TabIndex = 20;
+            this.rtbGC.Text = "";
+            // 
             // pnlNut
             // 
             this.pnlNut.BackColor = System.Drawing.Color.White;
@@ -332,6 +354,7 @@ namespace LibraryManagerWF.GUI
             this.btnIn.TabIndex = 2;
             this.btnIn.Text = "In hóa đơn";
             this.btnIn.UseVisualStyleBackColor = false;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnHuy
             // 
@@ -345,6 +368,7 @@ namespace LibraryManagerWF.GUI
             this.btnHuy.TabIndex = 1;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnTra
             // 
@@ -359,27 +383,7 @@ namespace LibraryManagerWF.GUI
             this.btnTra.TabIndex = 0;
             this.btnTra.Text = "Đã thu đủ tiền — Trả sách";
             this.btnTra.UseVisualStyleBackColor = false;
-            // 
-            // lblGC
-            // 
-            this.lblGC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGC.Location = new System.Drawing.Point(17, 642);
-            this.lblGC.Name = "lblGC";
-            this.lblGC.Size = new System.Drawing.Size(154, 168);
-            this.lblGC.TabIndex = 19;
-            this.lblGC.Text = "Ghi Chú";
-            this.lblGC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rtbGC
-            // 
-            this.rtbGC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.rtbGC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbGC.ForeColor = System.Drawing.Color.Black;
-            this.rtbGC.Location = new System.Drawing.Point(177, 645);
-            this.rtbGC.Name = "rtbGC";
-            this.rtbGC.Size = new System.Drawing.Size(1018, 162);
-            this.rtbGC.TabIndex = 20;
-            this.rtbGC.Text = "";
+            this.btnTra.Click += new System.EventHandler(this.btnTra_Click);
             // 
             // ucTaoPhieuThu
             // 

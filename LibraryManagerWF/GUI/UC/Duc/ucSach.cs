@@ -52,21 +52,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
         {
             NapComboTheLoai();
 
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += (s, ev) => { DatLaiBoLoc(); TaiDuLieu(); txtTimKiem.Focus(); };
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
-            cboLocTheLoai.SelectedIndexChanged += (s, ev) => { if (!_dangNap) TaiDuLieu(); };
-            cboLocTrangThai.SelectedIndexChanged += (s, ev) => { if (!_dangNap) TaiDuLieu(); };
             foreach (Control o in new Control[] { txtTenSach, txtTacGia, txtNXB, txtNamXB, nudGiaBia, nudSoLuongTong })
                 o.KeyDown += oNhap_KeyDown;
-            dgv.SelectionChanged += dgv_SelectionChanged;
-            dgv.CellFormatting += dgv_CellFormatting;
-            btnThem.Click += btnThem_Click;
-            btnSua.Click += btnSua_Click;
-            btnKhoa.Click += btnKhoa_Click;
-            btnXoa.Click += btnXoa_Click;
-            btnXacNhan.Click += btnXacNhan_Click;
-            btnHuy.Click += (s, ev) => DatTrangThai(EditState.Read);
 
             TaiDuLieu();
             DatTrangThai(EditState.Read);
@@ -382,6 +369,35 @@ namespace LibraryManagerWF.GUI.UC.Duc
             string loi = SachBLL.Xoa(ma);
             if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
             TaiDuLieu();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            DatLaiBoLoc();
+            TaiDuLieu();
+            txtTimKiem.Focus();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DatTrangThai(EditState.Read);
+        }
+
+        private void cboLocTheLoai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!_dangNap)
+                TaiDuLieu();
+        }
+
+        private void cboLocTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!_dangNap)
+                TaiDuLieu();
         }
     }
 }

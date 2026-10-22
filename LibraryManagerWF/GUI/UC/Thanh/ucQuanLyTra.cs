@@ -35,13 +35,6 @@ namespace LibraryManagerWF.GUI
         private void ucQuanLyTra_Load(object sender, EventArgs e)
         {
             CauHinhLuoi();
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += btnLamMoi_Click;
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
-            dgv.SelectionChanged += (s, ev) => CapNhatChon();
-            cboTinhTrang.SelectedIndexChanged += (s, ev) => XemTruoc();
-            btnXacNhan.Click += btnXacNhan_Click;
-            btnHuy.Click += (s, ev) => dgv.ClearSelection();
             TaiDuLieu();
         }
 
@@ -177,6 +170,26 @@ namespace LibraryManagerWF.GUI
             }
 
             main.MoPhieuThuTra(maCTM, hoTen, maThe, tenSach, tinhTrang);
+        }
+
+        private void cboTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            XemTruoc();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            dgv.ClearSelection();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            CapNhatChon();
         }
     }
 }

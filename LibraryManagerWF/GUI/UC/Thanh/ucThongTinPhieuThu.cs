@@ -29,10 +29,6 @@ namespace LibraryManagerWF.GUI
             CauHinhLuoi();
             DoCombobox();
             DatLaiBoLoc();
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += (s, ev) => { DatLaiBoLoc(); TaiDuLieu(); };
-            cboLoaiThu.SelectedIndexChanged += (s, ev) => TaiDuLieu();
-            dgv.SelectionChanged += (s, ev) => HienChiTiet();
             TaiDuLieu();
         }
 
@@ -122,6 +118,25 @@ namespace LibraryManagerWF.GUI
             txtGhiChu.Text = Convert.ToString(v["GhiChu"]);
         }
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
 
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            DatLaiBoLoc();
+            TaiDuLieu();
+        }
+
+        private void cboLoaiThu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            HienChiTiet();
+        }
     }
 }

@@ -34,7 +34,6 @@ namespace LibraryManagerWF.GUI
                 ClientSize = new Size(ClientSize.Width, ClientSize.Height - 48);
             }
 
-            btnLuu.Click += btnLuu_Click;
             ActiveControl = hoiMatKhauCu ? txtCu : txtMoi;
         }
 

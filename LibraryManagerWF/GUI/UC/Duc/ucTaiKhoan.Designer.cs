@@ -111,6 +111,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(300, 30);
             this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.oNhap_KeyDown);
             // 
             // btnTimKiem
             // 
@@ -121,6 +122,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnLamMoi
             // 
@@ -131,6 +133,7 @@
             this.btnLamMoi.TabIndex = 3;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // gbThongTin
             // 
@@ -190,6 +193,7 @@
             this.txtTenDN.Name = "txtTenDN";
             this.txtTenDN.Size = new System.Drawing.Size(342, 30);
             this.txtTenDN.TabIndex = 1;
+            this.txtTenDN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.oNhap_KeyDown);
             // 
             // lblHoTen
             // 
@@ -211,6 +215,7 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(342, 30);
             this.txtHoTen.TabIndex = 3;
+            this.txtHoTen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.oNhap_KeyDown);
             // 
             // lblVaiTro
             // 
@@ -325,6 +330,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -335,6 +341,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnDatLai
             // 
@@ -345,6 +352,7 @@
             this.btnDatLai.TabIndex = 2;
             this.btnDatLai.Text = "Đặt lại mật khẩu";
             this.btnDatLai.UseVisualStyleBackColor = true;
+            this.btnDatLai.Click += new System.EventHandler(this.btnDatLai_Click);
             // 
             // btnKhoa
             // 
@@ -355,6 +363,7 @@
             this.btnKhoa.TabIndex = 3;
             this.btnKhoa.Text = "Khóa";
             this.btnKhoa.UseVisualStyleBackColor = true;
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
             // 
             // btnXoa
             // 
@@ -365,6 +374,7 @@
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnDoiMkToi
             // 
@@ -375,6 +385,7 @@
             this.btnDoiMkToi.TabIndex = 5;
             this.btnDoiMkToi.Text = "Đổi mật khẩu của tôi";
             this.btnDoiMkToi.UseVisualStyleBackColor = true;
+            this.btnDoiMkToi.Click += new System.EventHandler(this.btnDoiMkToi_Click);
             // 
             // btnXacNhan
             // 

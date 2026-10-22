@@ -80,14 +80,16 @@
             this.dgv.Location = new System.Drawing.Point(10, 74);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
-            this.dgv.Size = new System.Drawing.Size(1180, 468);
+            this.dgv.Size = new System.Drawing.Size(1180, 460);
             this.dgv.TabIndex = 0;
+            this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // lblChiTiet
             // 
             this.lblChiTiet.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblChiTiet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChiTiet.Location = new System.Drawing.Point(10, 542);
+            this.lblChiTiet.Location = new System.Drawing.Point(10, 534);
             this.lblChiTiet.Name = "lblChiTiet";
             this.lblChiTiet.Size = new System.Drawing.Size(1180, 32);
             this.lblChiTiet.TabIndex = 1;
@@ -100,7 +102,7 @@
             this.flpThaoTac.Controls.Add(this.btnGiaHan);
             this.flpThaoTac.Controls.Add(this.btnLamMoi);
             this.flpThaoTac.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flpThaoTac.Location = new System.Drawing.Point(10, 574);
+            this.flpThaoTac.Location = new System.Drawing.Point(10, 566);
             this.flpThaoTac.Name = "flpThaoTac";
             this.flpThaoTac.Size = new System.Drawing.Size(1180, 50);
             this.flpThaoTac.TabIndex = 2;
@@ -114,6 +116,7 @@
             this.btnGiaHan.TabIndex = 0;
             this.btnGiaHan.Text = "Gia hạn";
             this.btnGiaHan.UseVisualStyleBackColor = true;
+            this.btnGiaHan.Click += new System.EventHandler(this.btnGiaHan_Click);
             // 
             // btnLamMoi
             // 
@@ -124,6 +127,7 @@
             this.btnLamMoi.TabIndex = 1;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // flpTim
             // 
@@ -153,6 +157,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(320, 30);
             this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // btnTimKiem
             // 
@@ -163,6 +168,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // ucGiaHan
             // 

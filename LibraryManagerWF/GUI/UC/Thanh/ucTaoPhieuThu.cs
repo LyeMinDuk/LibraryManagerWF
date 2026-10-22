@@ -34,10 +34,6 @@ namespace LibraryManagerWF.GUI
             CauHinhGiaoDien();
             cboTinhTrang.Items.AddRange(new object[] { TinhTrangMuon.BinhThuong, TinhTrangMuon.Hong, TinhTrangMuon.Mat });
             cboTinhTrang.SelectedIndex = 0;
-            cboTinhTrang.SelectedIndexChanged += (s, e) => TinhTien();
-            btnTra.Click += btnTra_Click;
-            btnHuy.Click += (s, e) => { if (Dong != null) Dong(this, EventArgs.Empty); };
-            btnIn.Click += btnIn_Click;
             btnIn.Enabled = false;
         }
 
@@ -121,6 +117,17 @@ namespace LibraryManagerWF.GUI
             valPhatTre.Text = _phat.ToString("N0") + "đ";
             valDenBu.Text = _den.ToString("N0") + "đ";
             valTong.Text = (_phat + _den).ToString("N0") + "đ";
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            if (Dong != null)
+                Dong(this, EventArgs.Empty);
+        }
+
+        private void cboTinhTrang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TinhTien();
         }
 
         private void btnTra_Click(object sender, EventArgs e)

@@ -23,9 +23,6 @@ namespace LibraryManagerWF.GUI
             InitializeComponent();
             BatChongNhay();
             ActiveControl = txtTenDangNhap;
-            btnXacNhan.Click += btnXacNhan_Click;   // Enter kích hoạt nút này nhờ AcceptButton
-            Load += frmDangNhap_Load;
-            FormClosed += frmDangNhap_FormClosed;
         }
 
         // ===== Chống giật hình =====

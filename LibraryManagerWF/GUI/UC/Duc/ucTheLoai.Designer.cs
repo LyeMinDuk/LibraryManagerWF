@@ -107,6 +107,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(300, 30);
             this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // btnTimKiem
             // 
@@ -117,6 +118,7 @@
             this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // btnLamMoi
             // 
@@ -127,6 +129,7 @@
             this.btnLamMoi.TabIndex = 3;
             this.btnLamMoi.Text = "Làm mới";
             this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // gbThongTin
             // 
@@ -170,7 +173,7 @@
             this.lblTenTL.AutoSize = true;
             this.lblTenTL.Location = new System.Drawing.Point(3, 9);
             this.lblTenTL.Name = "lblTenTL";
-            this.lblTenTL.Size = new System.Drawing.Size(137, 25);
+            this.lblTenTL.Size = new System.Drawing.Size(120, 25);
             this.lblTenTL.TabIndex = 0;
             this.lblTenTL.Text = "Tên thể loại:";
             this.lblTenTL.UseMnemonic = false;
@@ -184,14 +187,15 @@
             this.txtTenTL.Name = "txtTenTL";
             this.txtTenTL.Size = new System.Drawing.Size(422, 30);
             this.txtTenTL.TabIndex = 1;
+            this.txtTenTL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.oNhap_KeyDown);
             // 
             // lblMaTL
             // 
             this.lblMaTL.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblMaTL.AutoSize = true;
-            this.lblMaTL.Location = new System.Drawing.Point(3, 53);
+            this.lblMaTL.Location = new System.Drawing.Point(3, 60);
             this.lblMaTL.Name = "lblMaTL";
-            this.lblMaTL.Size = new System.Drawing.Size(133, 25);
+            this.lblMaTL.Size = new System.Drawing.Size(113, 25);
             this.lblMaTL.TabIndex = 2;
             this.lblMaTL.Text = "Mã thể loại:";
             this.lblMaTL.UseMnemonic = false;
@@ -199,7 +203,7 @@
             // txtMaTL
             // 
             this.txtMaTL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaTL.Location = new System.Drawing.Point(164, 51);
+            this.txtMaTL.Location = new System.Drawing.Point(164, 58);
             this.txtMaTL.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaTL.Name = "txtMaTL";
             this.txtMaTL.ReadOnly = true;
@@ -210,9 +214,9 @@
             // 
             this.lblSoSach.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblSoSach.AutoSize = true;
-            this.lblSoSach.Location = new System.Drawing.Point(593, 53);
+            this.lblSoSach.Location = new System.Drawing.Point(593, 60);
             this.lblSoSach.Name = "lblSoSach";
-            this.lblSoSach.Size = new System.Drawing.Size(88, 25);
+            this.lblSoSach.Size = new System.Drawing.Size(90, 25);
             this.lblSoSach.TabIndex = 4;
             this.lblSoSach.Text = "Số sách:";
             this.lblSoSach.UseMnemonic = false;
@@ -220,7 +224,7 @@
             // txtSoSach
             // 
             this.txtSoSach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSoSach.Location = new System.Drawing.Point(754, 51);
+            this.txtSoSach.Location = new System.Drawing.Point(754, 58);
             this.txtSoSach.Margin = new System.Windows.Forms.Padding(4);
             this.txtSoSach.Name = "txtSoSach";
             this.txtSoSach.ReadOnly = true;
@@ -273,6 +277,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -283,6 +288,7 @@
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -293,6 +299,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnXacNhan
             // 
@@ -303,6 +310,7 @@
             this.btnXacNhan.TabIndex = 3;
             this.btnXacNhan.Text = "Xác nhận";
             this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // btnHuy
             // 
@@ -313,6 +321,7 @@
             this.btnHuy.TabIndex = 4;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // pnlChuThich
             // 
@@ -339,7 +348,7 @@
             this.lblChuThichTrong.AutoSize = true;
             this.lblChuThichTrong.Location = new System.Drawing.Point(38, 8);
             this.lblChuThichTrong.Name = "lblChuThichTrong";
-            this.lblChuThichTrong.Size = new System.Drawing.Size(293, 25);
+            this.lblChuThichTrong.Size = new System.Drawing.Size(270, 25);
             this.lblChuThichTrong.TabIndex = 1;
             this.lblChuThichTrong.Text = "Chưa có sách nào (xóa được)";
             this.lblChuThichTrong.UseMnemonic = false;
@@ -353,6 +362,7 @@
             this.dgv.RowHeadersWidth = 51;
             this.dgv.Size = new System.Drawing.Size(1200, 285);
             this.dgv.TabIndex = 2;
+            this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 
             // ucTheLoai
             // 

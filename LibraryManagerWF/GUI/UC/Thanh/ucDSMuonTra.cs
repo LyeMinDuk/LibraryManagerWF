@@ -29,9 +29,6 @@ namespace LibraryManagerWF.GUI
         private void ucDSMuonTra_Load(object sender, EventArgs e)
         {
             CauHinhLuoi();
-            btnTimKiem.Click += (s, ev) => TaiDuLieu();
-            btnLamMoi.Click += btnLamMoi_Click;
-            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
             dgv.DataBindingComplete += (s, ev) => ToMauTinhTrang();
             TaiDuLieu();
         }
@@ -91,6 +88,11 @@ namespace LibraryManagerWF.GUI
                 row.DefaultCellStyle.BackColor = nen;
                 row.DefaultCellStyle.ForeColor = Color.Black;
             }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
         }
     }
 }

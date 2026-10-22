@@ -272,6 +272,9 @@
     <EmbeddedResource Include="GUI\frmMainn.resx">
       <DependentUpon>frmMainn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\Cuong\ucGiaHan.resx">
+      <DependentUpon>ucGiaHan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC\Cuong\ucMuon.resx">
       <DependentUpon>ucMuon.cs</DependentUpon>
     </EmbeddedResource>

@@ -58,13 +58,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void ucCauHinh_Load(object sender, EventArgs e)
         {
-            btnLamMoi.Click += (s, ev) => TaiDuLieu();
-            txtGiaTri.KeyDown += txtGiaTri_KeyDown;
-            dgv.SelectionChanged += dgv_SelectionChanged;
-            dgv.CellFormatting += dgv_CellFormatting;
-            btnSua.Click += btnSua_Click;
-            btnXacNhan.Click += btnXacNhan_Click;
-            btnHuy.Click += (s, ev) => DatTrangThai(EditState.Read);
 
             TaiDuLieu();
             DatTrangThai(EditState.Read);
@@ -203,6 +196,16 @@ namespace LibraryManagerWF.GUI.UC.Duc
             {
                 btnXacNhan.Enabled = true;
             }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            TaiDuLieu();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DatTrangThai(EditState.Read);
         }
     }
 }

@@ -33,9 +33,9 @@ namespace LibraryManagerWF.GUI.UC.Duc
         public ucTaiKhoan()
         {
             InitializeComponent();
-            Font = Theme.MakeFont(10.5F);
+            Font = new Font("Microsoft Sans Serif", 12F);
             BackColor = Theme.Nen;
-            lblTieuDe.Font = Theme.MakeFont(10.5F, FontStyle.Bold);
+            lblTieuDe.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
 
             cboVaiTro.DataSource = new[] { new MucVaiTro(VaiTro.ThuThu, "Thủ thư"), new MucVaiTro(VaiTro.QuanTri, "Quản trị viên") };
             cboVaiTro.DisplayMember = "Hien";

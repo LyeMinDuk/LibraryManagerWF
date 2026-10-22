@@ -228,7 +228,7 @@
             this.cboVaiTro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cboVaiTro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboVaiTro.FormattingEnabled = true;
-            this.cboVaiTro.Location = new System.Drawing.Point(144, 61);
+            this.cboVaiTro.Location = new System.Drawing.Point(144, 56);
             this.cboVaiTro.Margin = new System.Windows.Forms.Padding(4);
             this.cboVaiTro.Name = "cboVaiTro";
             this.cboVaiTro.Size = new System.Drawing.Size(342, 33);

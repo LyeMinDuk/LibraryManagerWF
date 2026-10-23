@@ -111,7 +111,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(300, 30);
             this.txtTimKiem.TabIndex = 1;
-            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.oNhap_KeyDown);
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // btnTimKiem
             // 

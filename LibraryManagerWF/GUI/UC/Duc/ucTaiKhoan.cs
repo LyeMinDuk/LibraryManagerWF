@@ -58,6 +58,14 @@ namespace LibraryManagerWF.GUI.UC.Duc
             DatTrangThai(EditState.Read);
         }
 
+        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter)
+                return;
+            e.SuppressKeyPress = true;
+            TaiDuLieu();
+        }
+
         private void oNhap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter || _st == EditState.Read)

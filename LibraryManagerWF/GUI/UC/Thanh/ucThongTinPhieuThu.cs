@@ -47,7 +47,7 @@ namespace LibraryManagerWF.GUI
             GridStyle.Apply(dgv);
             var maPT = GridStyle.AddText(dgv, "Mã PT", "MaPT", "PT00");
             var loai = GridStyle.AddText(dgv, "Loại thu", "LoaiThu");
-            var tien = GridStyle.AddText(dgv, "Số tiền", "SoTien", "N0'đ'", System.Windows.Forms.DataGridViewContentAlignment.MiddleRight);
+            var tien = GridStyle.AddText(dgv, "Số tiền", "SoTien", "#,##0'đ'", System.Windows.Forms.DataGridViewContentAlignment.MiddleRight);
             var ngay = GridStyle.AddText(dgv, "Ngày thu", "NgayThu", "dd/MM/yyyy HH:mm");
             var ghiChu = GridStyle.AddFill(dgv, "Ghi chú", "GhiChu", 150);
 

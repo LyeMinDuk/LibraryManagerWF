@@ -195,7 +195,7 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             series1.IsValueShownAsLabel = true;
-            series1.LabelFormat = "N0đ";
+            series1.LabelFormat = "#,##0'đ'";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartLoai.Series.Add(series1);

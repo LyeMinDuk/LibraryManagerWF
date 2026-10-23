@@ -26,7 +26,7 @@ namespace LibraryManagerWF.GUI.UC.Duc
             GridStyle.AddText(dgv, "Thể loại", "TenTL");
             GridStyle.AddText(dgv, "NXB", "NXB");
             GridStyle.AddText(dgv, "Năm XB", "NamXB", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.AddText(dgv, "Giá bìa", "GiaBia", "N0'đ'", DataGridViewContentAlignment.MiddleRight);
+            GridStyle.AddText(dgv, "Giá bìa", "GiaBia", "#,##0'đ'", DataGridViewContentAlignment.MiddleRight);
             GridStyle.AddText(dgv, "Tổng", "SoLuongTong", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Còn", "SoLuongCon", null, DataGridViewContentAlignment.MiddleCenter);
             GridStyle.AddText(dgv, "Trạng thái", "TrangThai", null, DataGridViewContentAlignment.MiddleCenter);

@@ -35,7 +35,6 @@ namespace LibraryManagerWF.GUI
             dtpTu.Value = DateTime.Today.AddMonths(-1);
             dtpDen.Value = DateTime.Today;
 
-            btnXemBaoCao.Click += (s, ev) => TaiBaoCao();
             btnXuatExcel.Click += btnXuatExcel_Click;
             TaiBaoCao();
         }
@@ -45,7 +44,7 @@ namespace LibraryManagerWF.GUI
             GridStyle.Apply(dgvLoai, 12F);
             GridStyle.AddFill(dgvLoai, "Loại thu", "LoaiThu", 110);
             GridStyle.AddText(dgvLoai, "Số phiếu", "SoPhieu", null, DataGridViewContentAlignment.MiddleCenter);
-            GridStyle.AddText(dgvLoai, "Tổng tiền", "TongTien", "N0đ", DataGridViewContentAlignment.MiddleRight);
+            GridStyle.AddText(dgvLoai, "Tổng tiền", "TongTien", "#,##0'đ'", DataGridViewContentAlignment.MiddleRight);
         }
 
         private static Color? MauTheoLoai(string loaiThu)

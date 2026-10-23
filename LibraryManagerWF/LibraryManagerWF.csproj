@@ -337,9 +337,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config.example" />
-    <None Include="Docs\API_BLL.md" />
-    <None Include="Docs\DeCuong_BTL_QuanLyThuVien.md" />
-    <None Include="Docs\PhanBien.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -357,8 +354,6 @@
   <ItemGroup>
     <Content Include="Database\01_schema_seed.sql" />
     <Content Include="Database\02_doi_soat.sql" />
-    <Content Include="Docs\ER_QuanLyThuVien.png" />
-    <Content Include="Docs\RM_QuanLyThuVien.png" />
     <Content Include="resources\img\logo.png" />
     <Content Include="resources\img\text_utc.png" />
     <None Include="resources\text_utc1.png" />

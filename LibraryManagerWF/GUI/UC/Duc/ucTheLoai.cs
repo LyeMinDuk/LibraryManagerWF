@@ -7,12 +7,6 @@ using LibraryManagerWF.BLL;
 
 namespace LibraryManagerWF.GUI.UC.Duc
 {
-    /// <summary>
-    /// Quản lý thể loại sách (BR10): xem, tìm theo tên, thêm, sửa tên, xóa.
-    /// Giao diện kéo thả trong ucTheLoai.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
-    /// GUI chỉ gọi TheLoaiBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên; mọi luật
-    /// (tên không rỗng, tối đa 100 ký tự, không trùng, thể loại còn sách thì không xóa) nằm ở BLL.
-    /// </summary>
     public partial class ucTheLoai : UserControl
     {
         private EditState _st = EditState.Read;
@@ -39,19 +33,18 @@ namespace LibraryManagerWF.GUI.UC.Duc
             DatTrangThai(EditState.Read);
         }
 
-        // ================= Dữ liệu =================
-
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             TaiDuLieu();
         }
 
-        /// <summary>Enter trong ô nhập (khi đang thêm / sửa) = bấm Xác nhận.</summary>
         private void oNhap_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter || _st == EditState.Read) return;
+            if (e.KeyCode != Keys.Enter || _st == EditState.Read)
+                return;
             e.SuppressKeyPress = true;
             btnXacNhan.PerformClick();
         }
@@ -61,10 +54,10 @@ namespace LibraryManagerWF.GUI.UC.Duc
             return o != null && o.ToString().IndexOf(tuKhoa, StringComparison.CurrentCultureIgnoreCase) >= 0;
         }
 
-        /// <summary>Nạp lại bảng, giữ dòng đang chọn (theo MaTL), hoặc chọn thể loại vừa thêm (theo tên).</summary>
         private void TaiDuLieu(int chonMa = 0, string chonTen = null)
         {
-            if (chonMa == 0 && chonTen == null) chonMa = MaDangChon();
+            if (chonMa == 0 && chonTen == null)
+                chonMa = MaDangChon();
 
             DataTable bang = TheLoaiBLL.LayTatCa();
             var view = new DataView(bang);
@@ -72,7 +65,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
             string tuKhoa = txtTimKiem.Text.Trim();
             if (tuKhoa.Length > 0)
             {
-                // Lọc bằng danh sách mã để khỏi phải escape ký tự đặc biệt của RowFilter
                 var ids = bang.Rows.Cast<DataRow>()
                     .Where(r => Chua(r["TenTL"], tuKhoa))
                     .Select(r => ((int)r["MaTL"]).ToString())
@@ -85,10 +77,12 @@ namespace LibraryManagerWF.GUI.UC.Duc
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 var v = row.DataBoundItem as DataRowView;
-                if (v == null) continue;
+                if (v == null)
+                    continue;
                 bool khop = (chonMa > 0 && (int)v["MaTL"] == chonMa)
                             || (chonTen != null && string.Equals(v["TenTL"].ToString(), chonTen, StringComparison.OrdinalIgnoreCase));
-                if (!khop) continue;
+                if (!khop)
+                    continue;
                 dgv.CurrentCell = row.Cells[0];
                 row.Selected = true;
                 break;
@@ -109,10 +103,9 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
-            if (_st == EditState.Read) HienThongTinTheoChon();
+            if (_st == EditState.Read)
+                HienThongTinTheoChon();
         }
-
-        // ================= Trạng thái màn hình =================
 
         private void HienThongTinTheoChon()
         {
@@ -152,17 +145,16 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
             txtTenTL.ReadOnly = !dangNhap;
 
-            dgv.Enabled = !dangNhap;                        // đang nhập thì khóa lưới, khỏi đổi dòng giữa chừng
+            dgv.Enabled = !dangNhap;
             gbTimKiem.Enabled = !dangNhap;
             foreach (Button b in new[] { btnThem, btnSua, btnXoa })
                 b.Visible = !dangNhap;
             btnXacNhan.Visible = dangNhap;
             btnHuy.Visible = dangNhap;
 
-            if (!dangNhap) HienThongTinTheoChon();
+            if (!dangNhap)
+                HienThongTinTheoChon();
         }
-
-        // ================= Thao tác =================
 
         private static void Bao(string noiDung, MessageBoxIcon icon)
         {
@@ -181,7 +173,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
         private void btnSua_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             _maDangSua = (int)v["MaTL"];
             DatTrangThai(EditState.Update);
             txtTenTL.Focus();
@@ -189,16 +182,20 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            btnXacNhan.Enabled = false;                 // chặn bấm hai lần
+            btnXacNhan.Enabled = false;
             try
             {
                 if (_st == EditState.Create)
                 {
                     string loi = TheLoaiBLL.Them(txtTenTL.Text);
-                    if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                    if (loi != null)
+                    {
+                        Bao(loi, MessageBoxIcon.Warning);
+                        return;
+                    }
 
                     string tenMoi = txtTenTL.Text.Trim();
-                    txtTimKiem.Clear();                 // tránh bộ lọc cũ che mất dòng vừa thêm
+                    txtTimKiem.Clear();
                     DatTrangThai(EditState.Read);
                     TaiDuLieu(0, tenMoi);
                     Bao("Đã thêm thể loại \"" + tenMoi + "\".", MessageBoxIcon.Information);
@@ -206,7 +203,11 @@ namespace LibraryManagerWF.GUI.UC.Duc
                 else if (_st == EditState.Update)
                 {
                     string loi = TheLoaiBLL.Sua(_maDangSua, txtTenTL.Text);
-                    if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                    if (loi != null)
+                    {
+                        Bao(loi, MessageBoxIcon.Warning);
+                        return;
+                    }
 
                     DatTrangThai(EditState.Read);
                     TaiDuLieu(_maDangSua);
@@ -221,15 +222,21 @@ namespace LibraryManagerWF.GUI.UC.Duc
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             int ma = (int)v["MaTL"];
             string ten = v["TenTL"].ToString();
 
             if (MessageBox.Show("Xóa thể loại \"" + ten + "\"?\nThể loại còn sách thì không xóa được.",
-                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
 
             string loi = TheLoaiBLL.Xoa(ma);
-            if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+            if (loi != null)
+            {
+                Bao(loi, MessageBoxIcon.Warning);
+                return;
+            }
             TaiDuLieu();
         }
 

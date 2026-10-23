@@ -7,10 +7,11 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>Bộ lọc danh sách mượn trả. Giá trị số khớp tham số loc của MuonBLL.DanhSachMuon.</summary>
-    public enum LocMuon { TatCa = 0, DangMuon = 1, QuaHan = 2, DaTra = 3 }
+    public enum LocMuon
+    {
+        TatCa = 0, DangMuon = 1, QuaHan = 2, DaTra = 3
+    }
 
-    /// <summary>Danh sách cuốn mượn/trả. Chỉ gọi MuonBLL.DanhSachMuon, gán thẳng DataTable vào lưới.</summary>
     public partial class ucDSMuonTra : UserControl
     {
         private readonly LocMuon _loc;
@@ -41,12 +42,12 @@ namespace LibraryManagerWF.GUI
 
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             TaiDuLieu();
         }
 
-        // Tên thuộc tính trùng tên cột của ChiTietMuonDAL.DanhSach
         private void CauHinhLuoi()
         {
             GridStyle.Apply(dgv);

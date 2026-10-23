@@ -6,15 +6,9 @@ using LibraryManagerWF.BLL;
 
 namespace LibraryManagerWF.GUI.UC.Cuong
 {
-    /// <summary>
-    /// Gia hạn sách (BR03, BR04): chọn một cuốn đang mượn (chưa trả) trong danh sách rồi bấm Gia hạn.
-    /// Giao diện kéo thả trong ucGiaHan.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
-    /// GUI chỉ gọi MuonBLL.GiaHan — toàn bộ điều kiện (quá hạn, số lần gia hạn tối đa, độc giả/thẻ bị khóa,
-    /// còn cuốn khác quá hạn) đều do MuonBLL.GiaHan kiểm tra trong một transaction; GUI chỉ hiện lỗi BLL trả về.
-    /// </summary>
     public partial class ucGiaHan : UserControl
     {
-        private int _toiDa, _soNgay;   // GIA_HAN_TOI_DA, GIA_HAN_SO_NGAY — chỉ để hiển thị; BLL mới là nơi áp dụng luật
+        private int _toiDa, _soNgay;
 
         public ucGiaHan()
         {
@@ -47,7 +41,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             MessageBox.Show(noiDung, "Gia hạn sách", MessageBoxButtons.OK, icon);
         }
 
-        // Cột lấy từ ChiTietMuonDAL.DanhSach (qua MuonBLL.DanhSachMuon)
         private void CauHinhLuoi()
         {
             GridStyle.Apply(dgv, 12F);
@@ -64,7 +57,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             TaiDuLieu();
         }
@@ -76,7 +70,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             txtTimKiem.Focus();
         }
 
-        /// <summary>Chỉ liệt kê cuốn đang mượn (chưa trả) — loc = 1, như ucQuanLyTra.</summary>
         private void TaiDuLieu()
         {
             dgv.DataSource = MuonBLL.DanhSachMuon(txtTimKiem.Text.Trim(), 0, (int)LocMuon.DangMuon);
@@ -144,21 +137,28 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
             DataRowView v = CuonDangChon();
-            if (v == null) return;
+            if (v == null)
+                return;
 
             int maCTM = Convert.ToInt32(v["MaCTM"]);
             string ten = Convert.ToString(v["HoTen"]);
             string sach = Convert.ToString(v["TenSach"]);
 
             if (MessageBox.Show("Gia hạn \"" + sach + "\" cho \"" + ten + "\"?", "Xác nhận gia hạn",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
 
-            btnGiaHan.Enabled = false;                       // chặn bấm hai lần
+            btnGiaHan.Enabled = false;
             try
             {
                 DateTime hanMoi;
                 string loi = MuonBLL.GiaHan(maCTM, out hanMoi);
-                if (loi != null) { Bao(loi, MessageBoxIcon.Warning); TaiDuLieu(); return; }
+                if (loi != null)
+                {
+                    Bao(loi, MessageBoxIcon.Warning);
+                    TaiDuLieu();
+                    return;
+                }
 
                 Bao("Đã gia hạn \"" + sach + "\" cho \"" + ten + "\".\nHạn trả mới: " + hanMoi.ToString("dd/MM/yyyy") + ".", MessageBoxIcon.Information);
                 TaiDuLieu();

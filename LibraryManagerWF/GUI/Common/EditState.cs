@@ -3,10 +3,11 @@ using System.Drawing;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>Trạng thái màn hình thông tin (CRUD): xem / đang thêm / đang sửa. (Map từ enum State của bản cũ.)</summary>
-    public enum EditState { Read, Create, Update }
+    public enum EditState
+    {
+        Read, Create, Update
+    }
 
-    /// <summary>UC con báo cho UC cha đổi thanh tiêu đề (chữ + màu) theo trạng thái. (Map từ StatusRequestEventArgs bản cũ.)</summary>
     public class StatusRequestEventArgs : EventArgs
     {
         public string TitleText { get; private set; }
@@ -21,13 +22,11 @@ namespace LibraryManagerWF.GUI
         }
     }
 
-    /// <summary>UC con nào muốn đổi thanh tiêu đề của UC cha thì cài interface này.</summary>
     public interface IPhatTrangThai
     {
         event EventHandler<StatusRequestEventArgs> OnStatusRequest;
     }
 
-    /// <summary>Màu thanh tiêu đề theo trạng thái (giữ nguyên bảng màu bản cũ).</summary>
     public static class MauTrangThai
     {
         public static readonly Color Xem = Color.FromArgb(32, 36, 104);

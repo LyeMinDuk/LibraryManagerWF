@@ -6,10 +6,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Trang chủ: lời chào và thống kê nhanh. Giao diện kéo thả trong ucTrangChu.Designer.cs,
-    /// ở đây chỉ gọi ThongKeBLL rồi gán chữ. Doanh thu chỉ hiện cho quản trị.
-    /// </summary>
     public partial class ucTrangChu : UserControl
     {
         private static readonly CultureInfo VN = new CultureInfo("vi-VN");
@@ -21,7 +17,8 @@ namespace LibraryManagerWF.GUI
 
         private void ucTrangChu_Load(object sender, EventArgs e)
         {
-            if (DesignMode) return;   // mở trong Designer thì không gọi CSDL
+            if (DesignMode)
+                return;
             TaiThongKe();
         }
 
@@ -44,7 +41,6 @@ namespace LibraryManagerWF.GUI
             lblMuonNaySo.Text = tk.MuonHomNay.ToString("N0", VN);
             lblTraNaySo.Text = tk.TraHomNay.ToString("N0", VN);
 
-            // Doanh thu chỉ dành cho quản trị: thủ thư thì thu hàng đó lại (cao 0)
             bool laQuanTri = AppSession.LaQuanTri;
             pnlDtNgay.Visible = laQuanTri;
             pnlDtThang.Visible = laQuanTri;

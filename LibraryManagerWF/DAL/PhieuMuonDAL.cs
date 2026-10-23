@@ -14,7 +14,8 @@ namespace LibraryManagerWF.DAL
         public static PhieuMuonDTO LayTheoMa(DbHelpers db, int maPM)
         {
             DataTable dt = db.DocBang("SELECT MaPM, MaThe, NgayMuon, MaTK FROM PhieuMuon WHERE MaPM = @0", maPM);
-            if (dt.Rows.Count == 0) return null;
+            if (dt.Rows.Count == 0)
+                return null;
             DataRow r = dt.Rows[0];
             return new PhieuMuonDTO
             {

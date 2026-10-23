@@ -6,7 +6,6 @@ namespace LibraryManagerWF.DAL
 {
     public static class ThongKeDAL
     {
-        /// <summary>Các số đếm của trang chủ, lấy bằng một câu SELECT (một lần đi tới CSDL). Doanh thu để BLL điền riêng.</summary>
         public static ThongKeDTO LaySoDem(DbHelpers db, DateTime homNay)
         {
             DateTime ngayMai = homNay.Date.AddDays(1);
@@ -39,7 +38,6 @@ namespace LibraryManagerWF.DAL
             };
         }
 
-        /// <summary>Tổng tiền các phiếu thu trong [tuNgay, denNgay] (gồm cả ngày cuối). Không có phiếu thì 0.</summary>
         public static decimal TongDoanhThu(DbHelpers db, DateTime tuNgay, DateTime denNgay)
         {
             object v = db.LayMotGiaTri(

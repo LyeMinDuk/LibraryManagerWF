@@ -12,13 +12,6 @@ using LibraryManagerWF.GUI.UC.Duc;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Khung chính (bản Designer mới): 11 nút cố định (button1..button11 trong panel1..panel11
-    /// của flpMenu) thay vì tạo Button động như bản cũ. Logic giữ nguyên tinh thần: ẩn mục
-    /// theo vai trò, đổi màu nút khi chọn, nạp UserControl vào pnlNoiDung, đăng xuất/thoát.
-    /// Muốn gắn module: sửa ĐÚNG dòng của mình trong KhoiTaoMenu() (mỗi module một dòng
-    /// riêng để nhánh Git không xung đột).
-    /// </summary>
     public partial class frmMainn : Form
     {
         public bool DangXuat { get; private set; }
@@ -27,10 +20,10 @@ namespace LibraryManagerWF.GUI
         {
             public string Ten;
             public bool CanQuanTri;
-            public Func<UserControl> Tao;   // null = chưa làm, hiện trang giữ chỗ
+            public Func<UserControl> Tao;
             public string ChuSoHuu;
             public Button Nut;
-            public Panel NutPanel;          // panelX bọc button — ẩn cả panel để FlowLayoutPanel dồn lên
+            public Panel NutPanel;
         }
 
         private List<MucMenu> _menu;
@@ -51,14 +44,9 @@ namespace LibraryManagerWF.GUI
             KhoiTaoMenu();
             ApDungPhanQuyen();
 
-            // Người dùng lấy từ AppSession (AuthBLL.DangNhap đã điền trước khi frmMainn được tạo)
             lblNguoiDung.Text = AppSession.HoTen + "  -  " + (AppSession.LaQuanTri ? "Quản trị viên" : "Thủ thư");
         }
 
-        /// <summary>
-        /// ĐĂNG KÝ MODULE — ĐÚNG THỨ TỰ 1→11 khớp button1..button11 đã kéo sẵn trong Designer.
-        /// Không được đảo thứ tự ở đây, vì nút không còn tạo động mà map cố định theo index.
-        /// </summary>
         private void KhoiTaoMenu()
         {
             _menu = new List<MucMenu>
@@ -90,7 +78,8 @@ namespace LibraryManagerWF.GUI
 
         private UserControl TaoUcQuanLyPhieuThu()
         {
-            if (_taoPhieuThuTiepTheo == null) return new ucQuanLyPhieuThu();
+            if (_taoPhieuThuTiepTheo == null)
+                return new ucQuanLyPhieuThu();
 
             Func<UserControl> tao = _taoPhieuThuTiepTheo;
             _taoPhieuThuTiepTheo = null;
@@ -111,8 +100,6 @@ namespace LibraryManagerWF.GUI
             }
         }
 
-        /// <summary>ThuThu không thấy mục chỉ QuanTri (mục 2) — ẩn cả Panel bọc, không chỉ Button,
-        /// để FlowLayoutPanel tự dồn các mục còn lại lên trên, không để khoảng trống giữa chừng.</summary>
         private void ApDungPhanQuyen()
         {
             foreach (MucMenu m in _menu)
@@ -123,21 +110,24 @@ namespace LibraryManagerWF.GUI
         {
             var btn = (Button)sender;
             var m = (MucMenu)btn.Tag;
-            if (_dangChon != m) btn.BackColor = Theme.SidebarHover;
+            if (_dangChon != m)
+                btn.BackColor = Theme.SidebarHover;
         }
 
         private void Nut_MouseLeave(object sender, EventArgs e)
         {
             var btn = (Button)sender;
             var m = (MucMenu)btn.Tag;
-            if (_dangChon != m) btn.BackColor = Theme.Sidebar;
+            if (_dangChon != m)
+                btn.BackColor = Theme.Sidebar;
         }
 
         private void Nut_Click(object sender, EventArgs e) => ChonMuc((MucMenu)((Button)sender).Tag);
 
         private void ChonMuc(MucMenu m)
         {
-            if (_dangChon != null) _dangChon.Nut.BackColor = Theme.Sidebar;
+            if (_dangChon != null)
+                _dangChon.Nut.BackColor = Theme.Sidebar;
             _dangChon = m;
             m.Nut.BackColor = Theme.SidebarChon;
 
@@ -145,10 +135,8 @@ namespace LibraryManagerWF.GUI
             HienTrang(m.Ten, uc);
         }
 
-        /// <summary>Thay nội dung vùng giữa bằng một UserControl (hủy control cũ để giải phóng bộ nhớ).</summary>
         public void HienTrang(string tieuDe, UserControl uc)
         {
-            // Thêm UC mới (đúng cỡ) rồi mới bỏ UC cũ, để vùng giữa không bị trống giữa hai lần vẽ.
             List<Control> cu = pnlNoiDung.Controls.Cast<Control>().ToList();
             pnlNoiDung.SuspendLayout();
             uc.Size = pnlNoiDung.ClientSize;
@@ -167,10 +155,10 @@ namespace LibraryManagerWF.GUI
         private void frmMainn_Load(object sender, EventArgs e)
         {
             MucMenu dauTien = _menu.FirstOrDefault(m => m.NutPanel.Visible);
-            if (dauTien != null) ChonMuc(dauTien);
+            if (dauTien != null)
+                ChonMuc(dauTien);
         }
 
-        /// <summary>Bấm vào tên người dùng ở góc phải: tự đổi mật khẩu (cả ThuThu lẫn QuanTri), chỉ gọi AuthBLL.DoiMatKhau.</summary>
         private void lblNguoiDung_Click(object sender, EventArgs e)
         {
             using (var f = new frmDoiMatKhau("Đổi mật khẩu của tôi", true, (cu, moi) => AuthBLL.DoiMatKhau(cu, moi)))
@@ -183,7 +171,8 @@ namespace LibraryManagerWF.GUI
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn đăng xuất?", "Xác nhận",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
             AuthBLL.DangXuat();
             DangXuat = true;
             Close();
@@ -191,13 +180,13 @@ namespace LibraryManagerWF.GUI
 
         private void frmMainn_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DangXuat || e.CloseReason != CloseReason.UserClosing) return;
+            if (DangXuat || e.CloseReason != CloseReason.UserClosing)
+                return;
             if (MessageBox.Show("Bạn có muốn thoát chương trình?", "Xác nhận",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 e.Cancel = true;
         }
 
-        // ==== Thu gọn/mở rộng sidebar — giữ nguyên từ bản bạn gửi ====
         private void SideBarTimer_Tick(object sender, EventArgs e)
         {
             if (sideBarExpand)

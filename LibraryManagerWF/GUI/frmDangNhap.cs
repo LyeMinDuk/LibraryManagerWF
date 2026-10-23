@@ -8,14 +8,8 @@ using LibraryManagerWF.BLL;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Màn hình đăng nhập. GUI chỉ gọi AuthBLL.DangNhap (null = thành công, khác null = lỗi nghiệp vụ);
-    /// thành công thì AppSession đã có người dùng và form đóng với DialogResult.OK để Program mở frmMainn.
-    /// Lỗi hệ thống (mất kết nối CSDL...) không bắt ở đây, Program.cs bắt chung.
-    /// </summary>
     public partial class frmDangNhap : Form
     {
-        // Ảnh nền đã co sẵn đúng cỡ (tạo một lần ở Load, giải phóng khi đóng form)
         private readonly List<Image> _anhDaVe = new List<Image>();
 
         public frmDangNhap()
@@ -25,11 +19,6 @@ namespace LibraryManagerWF.GUI
             ActiveControl = txtTenDangNhap;
         }
 
-        // ===== Chống giật hình =====
-        // Nguyên nhân: nền là ảnh Stretch + nhiều control con BackColor Transparent. Mỗi lần một control con vẽ lại,
-        // WinForms vẽ lại cả ảnh nền của cha (co ảnh 1920x960 về cỡ form) rồi mới vẽ chữ lên, nên thấy nháy.
-        // Cách sửa: bật vẽ đệm (DoubleBuffered) cho cả chuỗi control cha, và co ảnh nền về đúng cỡ một lần duy nhất.
-
         private void BatChongNhay()
         {
             DoubleBuffered = true;
@@ -37,7 +26,6 @@ namespace LibraryManagerWF.GUI
                 BatDoubleBuffer(c);
         }
 
-        /// <summary>DoubleBuffered là thuộc tính protected của Control nên phải bật qua reflection.</summary>
         private static void BatDoubleBuffer(Control c)
         {
             typeof(Control).GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic)
@@ -46,7 +34,6 @@ namespace LibraryManagerWF.GUI
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            // Form thiết kế cỡ 1685x838: màn hình nhỏ hơn thì thu lại cho vừa vùng làm việc
             Rectangle vung = Screen.FromControl(this).WorkingArea;
             if (Width > vung.Width || Height > vung.Height)
             {
@@ -63,7 +50,8 @@ namespace LibraryManagerWF.GUI
         private void VeSanNen(Panel p)
         {
             Image goc = p.BackgroundImage;
-            if (goc == null || p.ClientSize.Width <= 0 || p.ClientSize.Height <= 0) return;
+            if (goc == null || p.ClientSize.Width <= 0 || p.ClientSize.Height <= 0)
+                return;
 
             var bmp = new Bitmap(p.ClientSize.Width, p.ClientSize.Height);
             using (Graphics g = Graphics.FromImage(bmp))
@@ -80,15 +68,14 @@ namespace LibraryManagerWF.GUI
         {
             pnlNen.BackgroundImage = null;
             pnlThan.BackgroundImage = null;
-            foreach (Image anh in _anhDaVe) anh.Dispose();
+            foreach (Image anh in _anhDaVe)
+                anh.Dispose();
             _anhDaVe.Clear();
         }
 
-        // ===== Đăng nhập =====
-
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            btnXacNhan.Enabled = false;             // chặn bấm nhiều lần khi đang xử lý
+            btnXacNhan.Enabled = false;
             try
             {
                 string loi = AuthBLL.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text);

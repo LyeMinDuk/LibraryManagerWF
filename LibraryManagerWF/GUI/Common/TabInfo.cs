@@ -3,7 +3,6 @@ using System.Windows.Forms;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>Một tab: tên nút + hàm tạo UserControl con (tạo mới mỗi lần bấm để dữ liệu luôn tươi).</summary>
     public class TabInfo
     {
         public string Ten { get; private set; }

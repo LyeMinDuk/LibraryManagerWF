@@ -13,7 +13,6 @@ namespace LibraryManagerWF.DAL
                 p.LoaiThu, p.SoTien, p.NgayThu, p.MaThe, p.MaCTM, p.MaTK, p.GhiChu);
         }
 
-        /// <summary>Tra cứu phiếu thu trong [tuNgay, denNgay]. loaiThu rỗng là mọi loại.</summary>
         public static DataTable TimKiem(DbHelpers db, DateTime tuNgay, DateTime denNgay, string loaiThu)
         {
             return db.DocBang(

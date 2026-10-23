@@ -7,12 +7,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Trả sách: chọn một cuốn đang mượn, chọn tình trạng, xem trước tiền, xác nhận đã thu rồi mới trả (BR13).
-    /// Luật tính tiền và ghi dữ liệu nằm hết ở TraBLL; GUI chỉ hiển thị và hỏi xác nhận.
-    /// Ô chọn tình trạng (cboTinhTrang) và ô tiền (txtTien) kéo thả trong Designer;
-    /// nút Sửa/Xóa của khung CRUD cũ không có nghĩa với trả sách nên ẩn đi.
-    /// </summary>
     public partial class ucQuanLyTra : UserControl
     {
         public ucQuanLyTra()
@@ -47,12 +41,12 @@ namespace LibraryManagerWF.GUI
 
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             TaiDuLieu();
         }
 
-        // Cột lấy từ ChiTietMuonDAL.DanhSach; chỉ liệt kê cuốn chưa trả nên không có cột Ngày trả / Tình trạng
         private void CauHinhLuoi()
         {
             GridStyle.Apply(dgv);
@@ -96,11 +90,11 @@ namespace LibraryManagerWF.GUI
             XemTruoc();
         }
 
-        /// <summary>Hỏi TraBLL.XemTruoc (chưa ghi gì) rồi hiện số tiền phải thu.</summary>
         private void XemTruoc()
         {
             DataRowView v = CuonDangChon();
-            if (v == null) return;
+            if (v == null)
+                return;
 
             decimal phat, den;
             string loi = TraBLL.XemTruoc(Convert.ToInt32(v["MaCTM"]), (string)cboTinhTrang.SelectedItem, out phat, out den);
@@ -122,7 +116,8 @@ namespace LibraryManagerWF.GUI
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             DataRowView v = CuonDangChon();
-            if (v == null) return;
+            if (v == null)
+                return;
 
             int maCTM = Convert.ToInt32(v["MaCTM"]);
             string tinhTrang = (string)cboTinhTrang.SelectedItem;
@@ -140,7 +135,8 @@ namespace LibraryManagerWF.GUI
             if (phat + den <= 0)
             {
                 string hoi = string.Format("Xác nhận trả \"{0}\" ({1})?", tenSach, tinhTrang);
-                if (MessageBox.Show(hoi, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                if (MessageBox.Show(hoi, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    return;
 
                 loi = TraBLL.Tra(maCTM, tinhTrang, true, out phat, out den, "");
                 if (loi != null)
@@ -156,7 +152,6 @@ namespace LibraryManagerWF.GUI
                 return;
             }
 
-            // Mở phiếu thu, tự điền sẵn thông tin và tình trạng đã chọn; xác nhận thu tiền + trả sách làm trong phiếu
             string hoTen = Convert.ToString(v["HoTen"]);
             int maThe = Convert.ToInt32(v["MaThe"]);
             var main = FindForm() as frmMainn;

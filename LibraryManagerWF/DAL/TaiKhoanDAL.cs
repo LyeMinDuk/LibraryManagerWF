@@ -3,10 +3,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.DAL
 {
-    /// <summary>
-    /// Lớp truy cập dữ liệu: chỉ có SQL. Không kiểm tra luật, không đọc AppSession.
-    /// Mọi hàm nhận db do BLL mở, để BLL quyết định có dùng transaction hay không.
-    /// </summary>
     public static class TaiKhoanDAL
     {
         const string Cot = "MaTK, TenDN, MatKhauHash, HoTen, VaiTro, TrangThai";
@@ -36,7 +32,6 @@ namespace LibraryManagerWF.DAL
             return dt.Rows.Count == 0 ? null : TuDong(dt.Rows[0]);
         }
 
-        /// <summary>Danh sách để hiện lên lưới. Cố ý không lấy MatKhauHash.</summary>
         public static DataTable LayTatCa(DbHelpers db)
         {
             return db.DocBang("SELECT MaTK, TenDN, HoTen, VaiTro, TrangThai FROM TaiKhoan ORDER BY MaTK");
@@ -47,7 +42,6 @@ namespace LibraryManagerWF.DAL
             return (int)db.LayMotGiaTri("SELECT COUNT(*) FROM TaiKhoan WHERE TenDN = @0", tenDN) > 0;
         }
 
-        /// <summary>Thêm tài khoản mới (luôn hoạt động), trả về MaTK vừa sinh.</summary>
         public static int Them(DbHelpers db, TaiKhoanDTO tk)
         {
             return db.ThemLayMa(
@@ -70,7 +64,6 @@ namespace LibraryManagerWF.DAL
             return db.CapNhat("UPDATE TaiKhoan SET TrangThai = @0 WHERE MaTK = @1", hoatDong, maTK);
         }
 
-        /// <summary>Số phiếu mượn và phiếu thu do tài khoản này lập (để BLL áp BR10).</summary>
         public static int DemGiaoDich(DbHelpers db, int maTK)
         {
             return (int)db.LayMotGiaTri(

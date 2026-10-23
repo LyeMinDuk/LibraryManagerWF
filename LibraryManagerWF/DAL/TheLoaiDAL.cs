@@ -12,7 +12,6 @@ namespace LibraryManagerWF.DAL
                 "GROUP BY tl.MaTL, tl.TenTL ORDER BY tl.TenTL");
         }
 
-        /// <summary>Có thể loại khác trùng tên không? (maBoQua = 0 khi thêm mới)</summary>
         public static bool TrungTen(DbHelpers db, string ten, int maBoQua)
         {
             return (int)db.LayMotGiaTri("SELECT COUNT(*) FROM TheLoai WHERE TenTL = @0 AND MaTL <> @1", ten, maBoQua) > 0;

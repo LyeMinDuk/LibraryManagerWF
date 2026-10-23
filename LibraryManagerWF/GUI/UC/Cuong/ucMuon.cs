@@ -9,17 +9,11 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI.UC.Cuong
 {
-    /// <summary>
-    /// Cho mượn (BR02, BR04, BR05): chọn độc giả (có thẻ) → chọn sách còn trong kho → lập phiếu mượn.
-    /// Giao diện kéo thả trong ucMuon.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
-    /// GUI chỉ gọi MuonBLL / TheBLL / DocGiaBLL / SachBLL / CauHinhBLL: điều kiện được mượn, hạn mức, hạn trả,
-    /// trừ kho đều do MuonBLL.Muon xử lý trong một transaction; GUI chỉ hiện lỗi BLL trả về.
-    /// </summary>
     public partial class ucMuon : UserControl
     {
-        private TheThuVienDTO _the;                          // thẻ của độc giả đang chọn, null nếu chưa có thẻ
-        private readonly DataTable _gio = new DataTable();   // sách đã chọn cho phiếu mượn
-        private int _toiDa, _soNgay;                         // chỉ để hiển thị; BLL mới là nơi áp dụng luật
+        private TheThuVienDTO _the;
+        private readonly DataTable _gio = new DataTable();
+        private int _toiDa, _soNgay;
 
         public ucMuon()
         {
@@ -67,7 +61,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private static void PhimEnter(KeyEventArgs e, Action lam)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             lam();
         }
@@ -83,14 +78,11 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             MessageBox.Show(noiDung, "Cho mượn", MessageBoxButtons.OK, icon);
         }
 
-        // ================= Độc giả =================
-
         private DataRowView DocGiaChon()
         {
             return dgvDocGia.SelectedRows.Count > 0 ? dgvDocGia.SelectedRows[0].DataBoundItem as DataRowView : null;
         }
 
-        /// <summary>Nạp lại bảng độc giả, giữ độc giả đang chọn (theo MaDG).</summary>
         private void TaiDocGia()
         {
             DataRowView cu = DocGiaChon();
@@ -101,7 +93,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             foreach (DataGridViewRow row in dgvDocGia.Rows)
             {
                 var v = row.DataBoundItem as DataRowView;
-                if (v == null || chonMa == 0 || (int)v["MaDG"] != chonMa) continue;
+                if (v == null || chonMa == 0 || (int)v["MaDG"] != chonMa)
+                    continue;
                 dgvDocGia.CurrentCell = row.Cells[0];
                 row.Selected = true;
                 break;
@@ -109,7 +102,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             HienThongTinThe();
         }
 
-        /// <summary>Lấy thẻ của độc giả đang chọn và hiện tình trạng, số cuốn đang mượn, số cuốn quá hạn.</summary>
         private void HienThongTinThe()
         {
             DataRowView v = DocGiaChon();
@@ -142,9 +134,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
                                   + (quaHan > 0 ? "  |  " + quaHan + " cuốn quá hạn (phải trả trước khi mượn)" : "");
         }
 
-        // ================= Sách =================
-
-        /// <summary>Nạp sách đang hoạt động, còn trong kho và chưa nằm trong phiếu.</summary>
         private void TaiSach()
         {
             var view = new DataView(SachBLL.TimKiem(txtTimSach.Text, 0, 1));
@@ -159,14 +148,16 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         private void btnThemSach_Click(object sender, EventArgs e)
         {
             DataRowView v = dgvSach.SelectedRows.Count > 0 ? dgvSach.SelectedRows[0].DataBoundItem as DataRowView : null;
-            if (v == null) { Bao("Hãy chọn một cuốn sách trong danh sách bên trái.", MessageBoxIcon.Information); return; }
+            if (v == null)
+            {
+                Bao("Hãy chọn một cuốn sách trong danh sách bên trái.", MessageBoxIcon.Information);
+                return;
+            }
 
             _gio.Rows.Add((int)v["MaSach"], v["TenSach"].ToString(), v["TacGia"].ToString());
             HienGio();
             TaiSach();
         }
-
-        // ================= Phiếu mượn =================
 
         private void HienGio()
         {
@@ -180,9 +171,14 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private void btnBoSach_Click(object sender, EventArgs e)
         {
-            if (dgvPhieu.SelectedRows.Count == 0) { Bao("Hãy chọn cuốn cần bỏ khỏi phiếu.", MessageBoxIcon.Information); return; }
+            if (dgvPhieu.SelectedRows.Count == 0)
+            {
+                Bao("Hãy chọn cuốn cần bỏ khỏi phiếu.", MessageBoxIcon.Information);
+                return;
+            }
             var v = dgvPhieu.SelectedRows[0].DataBoundItem as DataRowView;
-            if (v == null) return;
+            if (v == null)
+                return;
             v.Row.Delete();
             _gio.AcceptChanges();
             HienGio();
@@ -191,9 +187,11 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private void btnBoHet_Click(object sender, EventArgs e)
         {
-            if (_gio.Rows.Count == 0) return;
+            if (_gio.Rows.Count == 0)
+                return;
             if (MessageBox.Show("Bỏ hết " + _gio.Rows.Count + " cuốn khỏi phiếu?", "Cho mượn",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
             _gio.Clear();
             HienGio();
             TaiSach();
@@ -239,26 +237,43 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         private void btnLapPhieu_Click(object sender, EventArgs e)
         {
             DataRowView v = DocGiaChon();
-            if (v == null) { Bao("Hãy chọn độc giả ở bảng phía trên.", MessageBoxIcon.Information); return; }
-            if (_the == null) { Bao(lblThongTinThe.Text, MessageBoxIcon.Warning); return; }
-            if (_gio.Rows.Count == 0) { Bao("Phiếu chưa có cuốn nào.", MessageBoxIcon.Information); return; }
+            if (v == null)
+            {
+                Bao("Hãy chọn độc giả ở bảng phía trên.", MessageBoxIcon.Information);
+                return;
+            }
+            if (_the == null)
+            {
+                Bao(lblThongTinThe.Text, MessageBoxIcon.Warning);
+                return;
+            }
+            if (_gio.Rows.Count == 0)
+            {
+                Bao("Phiếu chưa có cuốn nào.", MessageBoxIcon.Information);
+                return;
+            }
 
             string ten = v["HoTen"].ToString();
             int soCuon = _gio.Rows.Count;
             if (MessageBox.Show("Lập phiếu mượn " + soCuon + " cuốn cho \"" + ten + "\" (thẻ " + _the.MaThe + ")?",
-                    "Lập phiếu mượn", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                    "Lập phiếu mượn", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
 
-            btnLapPhieu.Enabled = false;                    // chặn bấm hai lần
+            btnLapPhieu.Enabled = false;
             try
             {
                 List<int> ds = _gio.Rows.Cast<DataRow>().Select(r => (int)r["MaSach"]).ToList();
                 DateTime hanTra;
                 string loi = MuonBLL.Muon(_the.MaThe, ds, out hanTra);
-                if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                if (loi != null)
+                {
+                    Bao(loi, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 _gio.Clear();
-                TaiSach();                                  // kho đã đổi
-                HienThongTinThe();                          // số cuốn đang mượn đã đổi
+                TaiSach();
+                HienThongTinThe();
                 Bao("Đã lập phiếu mượn " + soCuon + " cuốn cho \"" + ten + "\".\nHạn trả: " + hanTra.ToString("dd/MM/yyyy") + ".", MessageBoxIcon.Information);
             }
             finally

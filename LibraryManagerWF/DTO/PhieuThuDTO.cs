@@ -5,11 +5,11 @@ namespace LibraryManagerWF.DTO
     public class PhieuThuDTO
     {
         public int MaPT { get; set; }
-        public string LoaiThu { get; set; }         // một trong LoaiThu.*
+        public string LoaiThu { get; set; }
         public decimal SoTien { get; set; }
         public DateTime NgayThu { get; set; }
-        public int? MaThe { get; set; }             // chỉ dùng cho Phí thẻ
-        public int? MaCTM { get; set; }             // chỉ dùng cho Phạt trễ và Đền bù
+        public int? MaThe { get; set; }
+        public int? MaCTM { get; set; }
         public int MaTK { get; set; }
         public string GhiChu { get; set; }
     }

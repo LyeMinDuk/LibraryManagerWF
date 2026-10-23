@@ -270,7 +270,7 @@
             "Nam",
             "Nữ",
             "Khác"});
-            this.cboGioiTinh.Location = new System.Drawing.Point(754, 46);
+            this.cboGioiTinh.Location = new System.Drawing.Point(754, 51);
             this.cboGioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.cboGioiTinh.Name = "cboGioiTinh";
             this.cboGioiTinh.Size = new System.Drawing.Size(422, 33);
@@ -471,7 +471,7 @@
             this.dgv.Location = new System.Drawing.Point(0, 314);
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
-            this.dgv.Size = new System.Drawing.Size(1200, 219);
+            this.dgv.Size = new System.Drawing.Size(1200, 259);
             this.dgv.TabIndex = 2;
             this.dgv.SelectionChanged += new System.EventHandler(this.dgv_SelectionChanged);
             // 

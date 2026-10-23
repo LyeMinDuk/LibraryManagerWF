@@ -9,8 +9,8 @@ namespace LibraryManagerWF.DTO
         public int MaSach { get; set; }
         public DateTime HanTra { get; set; }
         public int SoLanGiaHan { get; set; }
-        public DateTime? NgayTra { get; set; }      // null = chưa trả
-        public string TinhTrang { get; set; }       // một trong TinhTrangMuon.*
+        public DateTime? NgayTra { get; set; }
+        public string TinhTrang { get; set; }
     }
 
     public static class TinhTrangMuon

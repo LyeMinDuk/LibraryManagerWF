@@ -5,11 +5,11 @@ namespace LibraryManagerWF.DAL
 {
     public static class CauHinhDAL
     {
-        /// <summary>Giá trị số của một khóa. Thiếu khóa thì ném lỗi, tránh ngầm trả 0 làm sai nghiệp vụ.</summary>
         public static int LayGiaTri(DbHelpers db, string khoa)
         {
             object v = db.LayMotGiaTri("SELECT GiaTri FROM CauHinh WHERE Khoa = @0", khoa);
-            if (v == null) throw new InvalidOperationException("Thiếu khóa cấu hình " + khoa + " trong bảng CauHinh.");
+            if (v == null)
+                throw new InvalidOperationException("Thiếu khóa cấu hình " + khoa + " trong bảng CauHinh.");
             return Convert.ToInt32(v);
         }
 

@@ -6,12 +6,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Phiếu thu khi trả sách: hiện độc giả, mã thẻ, sách, tình trạng, phạt trễ, đền bù, tổng cộng.
-    /// Có thể in bản xem trước trước khi trả sách; chỉ nút "Trả sách" mới ghi nhận trả sách và phiếu thu.
-    /// Cách dùng (nhúng vào form/dialog): uc.Nap(maCTM, hoTen, maThe, tenSach, tinhTrangBanDau);
-    /// lắng nghe DaTraSach (đã trả xong) và Dong (bấm Hủy) để đóng/tải lại danh sách.
-    /// </summary>
     public partial class ucTaoPhieuThu : UserControl
     {
         private int _maCTM;
@@ -23,9 +17,7 @@ namespace LibraryManagerWF.GUI
         private string _tinhTrangDaTra;
         private DateTime _ngayTra;
 
-        /// <summary>Đã trả sách và lập phiếu thu thành công.</summary>
         public event EventHandler DaTraSach;
-        /// <summary>Bấm nút Hủy (hoặc nên đóng khung chứa).</summary>
         public event EventHandler Dong;
 
         public ucTaoPhieuThu()
@@ -67,7 +59,6 @@ namespace LibraryManagerWF.GUI
             btnIn.FlatAppearance.BorderColor = Theme.Accent;
         }
 
-        /// <summary>Nạp một cuốn đang mượn để lập phiếu thu / trả sách.</summary>
         public void Nap(int maCTM, string hoTen, int maThe, string tenSach, string tinhTrang = null)
         {
             _maCTM = maCTM;
@@ -92,10 +83,10 @@ namespace LibraryManagerWF.GUI
             TinhTien();
         }
 
-        // Xem trước (chưa ghi gì) qua TraBLL.XemTruoc
         private void TinhTien()
         {
-            if (_maCTM == 0 || _daTra) return;
+            if (_maCTM == 0 || _daTra)
+                return;
 
             string loi = TraBLL.XemTruoc(_maCTM, (string)cboTinhTrang.SelectedItem, out _phat, out _den);
             if (loi != null)
@@ -103,7 +94,6 @@ namespace LibraryManagerWF.GUI
                 _phat = _den = 0;
                 HienTien();
                 btnTra.Enabled = false;
-                //
                 btnIn.Enabled = false;
                 MessageBox.Show(loi, "Không thể lập phiếu thu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -138,11 +128,11 @@ namespace LibraryManagerWF.GUI
             string hoi = tong > 0
                 ? string.Format("Trả \"{0}\" ({1}).\nPhải thu {2:N0}đ. Đã thu đủ tiền của độc giả chưa?", _tenSach, tinhTrang, tong)
                 : string.Format("Xác nhận trả \"{0}\" ({1})?", _tenSach, tinhTrang);
-            if (MessageBox.Show(hoi, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(hoi, "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
 
             decimal phat, den;
             
-
             string loi = TraBLL.Tra(_maCTM, tinhTrang, true, out phat, out den, _GC);
             if (loi != null)
             {
@@ -164,10 +154,9 @@ namespace LibraryManagerWF.GUI
 
             MessageBox.Show(tong > 0 ? "Đã trả sách và lập phiếu thu." : "Đã trả sách.", "Thành công",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (DaTraSach != null) DaTraSach(this, EventArgs.Empty);
+            if (DaTraSach != null)
+                DaTraSach(this, EventArgs.Empty);
         }
-
-        // ===== In hóa đơn =====
 
         private void btnIn_Click(object sender, EventArgs e)
         {

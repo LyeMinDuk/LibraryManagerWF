@@ -8,11 +8,6 @@ namespace LibraryManagerWF
 {
     internal static class Program
     {
-        /// <summary>
-        /// Đăng nhập -> frmMainn. Đăng xuất thì quay lại đăng nhập, đóng cửa sổ thì thoát.
-        /// Lỗi không bắt ở từng hàm (xem PhanBien.md, "Ba quy ước"): UnauthorizedAccessException từ Quyen
-        /// và lỗi hệ thống (CSDL...) đều rơi về BaoLoi() bên dưới.
-        /// </summary>
         [STAThread]
         static void Main()
         {
@@ -25,7 +20,8 @@ namespace LibraryManagerWF
             {
                 using (var login = new frmDangNhap())
                 {
-                    if (login.ShowDialog() != DialogResult.OK) return;
+                    if (login.ShowDialog() != DialogResult.OK)
+                        return;
                 }
 
                 bool dangXuat;

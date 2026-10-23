@@ -10,20 +10,12 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Báo cáo doanh thu (chỉ Quản trị): chọn khoảng ngày rồi xem doanh thu theo loại thu (biểu đồ tròn)
-    /// và theo ngày (biểu đồ cột). Giao diện kéo thả trong ucBaoCaoDoanhThu.Designer.cs (chữ cỡ 12);
-    /// file này chỉ nạp dữ liệu vào biểu đồ/lưới. GUI chỉ gọi PhieuThuBLL.DoanhThuTheoLoai /
-    /// PhieuThuBLL.DoanhThuTheoNgay — toàn bộ tính toán (GROUP BY, SUM) nằm ở PhieuThuDAL.
-    /// </summary>
     public partial class ucBaoCaoDoanhThu : UserControl
     {
-        // Màu cho từng loại thu, đồng bộ với bảng màu ở "Phiếu thu" (ucThongTinPhieuThu)
         private static readonly Color MauPhiThe = Theme.HangNhan;
         private static readonly Color MauPhatTre = Theme.HangCanhBao;
         private static readonly Color MauDenBu = Theme.HangCam;
 
-        // Dữ liệu của lần xem báo cáo gần nhất, dùng lại khi xuất Excel
         private DataTable _theoLoai;
         private DataTable _theoNgay;
 
@@ -58,9 +50,12 @@ namespace LibraryManagerWF.GUI
 
         private static Color? MauTheoLoai(string loaiThu)
         {
-            if (loaiThu == LoaiThu.PhiThe) return MauPhiThe;
-            if (loaiThu == LoaiThu.PhatTre) return MauPhatTre;
-            if (loaiThu == LoaiThu.DenBu) return MauDenBu;
+            if (loaiThu == LoaiThu.PhiThe)
+                return MauPhiThe;
+            if (loaiThu == LoaiThu.PhatTre)
+                return MauPhatTre;
+            if (loaiThu == LoaiThu.DenBu)
+                return MauDenBu;
             return null;
         }
 
@@ -69,7 +64,6 @@ namespace LibraryManagerWF.GUI
             return MauTheoLoai(loaiThu) ?? Theme.Accent;
         }
 
-        /// <summary>Nạp báo cáo theo khoảng ngày đang chọn. Trả về false nếu khoảng ngày không hợp lệ.</summary>
         private bool TaiBaoCao()
         {
             if (dtpTu.Value.Date > dtpDen.Value.Date)
@@ -92,14 +86,10 @@ namespace LibraryManagerWF.GUI
             return true;
         }
 
-        /// <summary>
-        /// Xuất báo cáo các ngày đang chọn ra Excel, tên file gợi ý: bcdt_tungay_denngay.xlsx
-        /// (vd: bcdt_22-09-2026_22-10-2026.xlsx). Phần vẽ file nằm ở ExcelBaoCaoDoanhThu.
-        /// </summary>
         private void btnXuatExcel_Click(object sender, EventArgs e)
         {
-            // Nạp lại theo đúng khoảng ngày trên màn hình (kể cả khi chưa bấm "Xem báo cáo")
-            if (!TaiBaoCao()) return;
+            if (!TaiBaoCao())
+                return;
 
             DateTime tu = dtpTu.Value.Date;
             DateTime den = dtpDen.Value.Date;
@@ -113,7 +103,8 @@ namespace LibraryManagerWF.GUI
                 hop.AddExtension = true;
                 hop.OverwritePrompt = true;
                 hop.FileName = string.Format("bcdt_{0:dd-MM-yyyy}_{1:dd-MM-yyyy}.xlsx", tu, den);
-                if (hop.ShowDialog(this) != DialogResult.OK) return;
+                if (hop.ShowDialog(this) != DialogResult.OK)
+                    return;
                 duongDan = hop.FileName;
             }
 

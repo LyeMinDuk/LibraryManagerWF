@@ -6,10 +6,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Tra cứu phiếu thu theo khoảng ngày và loại thu (PhieuThuBLL.TimKiem). Chỉ xem: phiếu thu là sổ ghi tiền
-    /// do nghiệp vụ tự sinh (BR08), không sửa/xóa nên khung nút Xác nhận/Sửa/Xóa/Hủy của designer cũ được ẩn.
-    /// </summary>
     public partial class ucThongTinPhieuThu : UserControl
     {
         public ucThongTinPhieuThu()
@@ -46,7 +42,6 @@ namespace LibraryManagerWF.GUI
             cboLoaiThu.SelectedIndex = 0;
         }
 
-        // Tên thuộc tính trùng tên cột của PhieuThuDAL.TimKiem
         private void CauHinhLuoi()
         {
             GridStyle.Apply(dgv);

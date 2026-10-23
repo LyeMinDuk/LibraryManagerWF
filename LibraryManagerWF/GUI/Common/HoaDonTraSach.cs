@@ -6,11 +6,6 @@ using LibraryManagerWF.BLL;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// Hóa đơn trả sách (khổ ~80mm): giữ dữ liệu cần in và lo phần vẽ/in.
-    /// Dùng: new HoaDonTraSach { ... }.XemTruocVaIn(this);
-    /// Chỉ vẽ ra giấy, không đụng CSDL hay giao diện nên dùng lại được ở bất kỳ màn hình nào.
-    /// </summary>
     public class HoaDonTraSach
     {
         public string HoTen { get; set; }
@@ -22,14 +17,13 @@ namespace LibraryManagerWF.GUI
         public decimal Den { get; set; }
         public DateTime Ngay { get; set; }
 
-        /// <summary>Mở cửa sổ xem trước; bấm biểu tượng máy in trong đó để in thật.</summary>
         public void XemTruocVaIn(IWin32Window chu)
         {
             using (var pd = new PrintDocument())
             using (var xem = new PrintPreviewDialog())
             {
                 pd.DocumentName = "Hoa don tra sach";
-                pd.DefaultPageSettings.PaperSize = new PaperSize("Receipt", 315, 600);   // khổ ~80mm
+                pd.DefaultPageSettings.PaperSize = new PaperSize("Receipt", 315, 600);
                 pd.DefaultPageSettings.Margins = new Margins(15, 15, 20, 20);
                 pd.PrintPage += InTrang;
                 xem.Document = pd;

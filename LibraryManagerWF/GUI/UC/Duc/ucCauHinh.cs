@@ -7,15 +7,8 @@ using LibraryManagerWF.BLL;
 
 namespace LibraryManagerWF.GUI.UC.Duc
 {
-    /// <summary>
-    /// Cấu hình đơn giá và quy định (BR01 đến BR07, chỉ QuanTri): xem các tham số trong bảng CauHinh và sửa giá trị.
-    /// Giao diện kéo thả trong ucCauHinh.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
-    /// Không thêm / xóa tham số: bộ khóa cố định do nghiệp vụ cần. GUI chỉ gọi CauHinhBLL; việc kiểm tra giá trị
-    /// (số nguyên không âm) và quyền QuanTri nằm ở BLL. Giá trị mới chỉ áp dụng cho giao dịch từ lúc đổi trở đi.
-    /// </summary>
     public partial class ucCauHinh : UserControl
     {
-        // Đơn vị hiển thị cạnh giá trị (chỉ để dễ đọc, không lưu vào CSDL)
         private static readonly Dictionary<string, string> DonVi = new Dictionary<string, string>
         {
             { "THE_SO_THANG", "tháng" },
@@ -42,7 +35,7 @@ namespace LibraryManagerWF.GUI.UC.Duc
             GridStyle.AddFill(dgv, "Quy định", "MoTa", 300);
             GridStyle.AddText(dgv, "Mã tham số", "Khoa");
             GridStyle.AddText(dgv, "Giá trị", "GiaTri", null, DataGridViewContentAlignment.MiddleRight);
-            GridStyle.AddText(dgv, "Đơn vị", "DonVi");      // cột phụ, điền trong CellFormatting
+            GridStyle.AddText(dgv, "Đơn vị", "DonVi");
 
             Load += ucCauHinh_Load;
         }
@@ -54,27 +47,28 @@ namespace LibraryManagerWF.GUI.UC.Duc
             DatTrangThai(EditState.Read);
         }
 
-        // ================= Dữ liệu =================
-
         private void txtGiaTri_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter || _st == EditState.Read) return;
+            if (e.KeyCode != Keys.Enter || _st == EditState.Read)
+                return;
             e.SuppressKeyPress = true;
             btnXacNhan.PerformClick();
         }
 
-        /// <summary>Nạp lại bảng, giữ dòng đang chọn (theo mã tham số).</summary>
         private void TaiDuLieu(string chonKhoa = null)
         {
-            if (chonKhoa == null) chonKhoa = KhoaDangChon();
+            if (chonKhoa == null)
+                chonKhoa = KhoaDangChon();
 
             dgv.DataSource = CauHinhBLL.LayTatCa();
             dgv.ClearSelection();
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 var v = row.DataBoundItem as DataRowView;
-                if (v == null || chonKhoa == null) continue;
-                if (!string.Equals(v["Khoa"].ToString(), chonKhoa, StringComparison.Ordinal)) continue;
+                if (v == null || chonKhoa == null)
+                    continue;
+                if (!string.Equals(v["Khoa"].ToString(), chonKhoa, StringComparison.Ordinal))
+                    continue;
                 dgv.CurrentCell = row.Cells[0];
                 row.Selected = true;
                 break;
@@ -95,9 +89,11 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex < 0) return;
+            if (e.RowIndex < 0)
+                return;
             var v = dgv.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (v == null) return;
+            if (v == null)
+                return;
 
             string cot = dgv.Columns[e.ColumnIndex].Name;
             if (cot == "DonVi")
@@ -110,10 +106,9 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
-            if (_st == EditState.Read) HienThongTinTheoChon();
+            if (_st == EditState.Read)
+                HienThongTinTheoChon();
         }
-
-        // ================= Trạng thái màn hình =================
 
         private void HienThongTinTheoChon()
         {
@@ -143,18 +138,17 @@ namespace LibraryManagerWF.GUI.UC.Duc
             lblTieuDe.BackColor = tt.BackColor;
             lblTieuDe.ForeColor = tt.ForeColor;
 
-            txtGiaTri.ReadOnly = !dangSua;                  // mã tham số và mô tả luôn chỉ đọc
+            txtGiaTri.ReadOnly = !dangSua;
 
-            dgv.Enabled = !dangSua;                         // đang sửa thì khóa lưới, khỏi đổi dòng giữa chừng
+            dgv.Enabled = !dangSua;
             btnSua.Visible = !dangSua;
             btnLamMoi.Visible = !dangSua;
             btnXacNhan.Visible = dangSua;
             btnHuy.Visible = dangSua;
 
-            if (!dangSua) HienThongTinTheoChon();
+            if (!dangSua)
+                HienThongTinTheoChon();
         }
-
-        // ================= Thao tác =================
 
         private static void Bao(string noiDung, MessageBoxIcon icon)
         {
@@ -164,7 +158,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
         private void btnSua_Click(object sender, EventArgs e)
         {
             string khoa = KhoaDangChon();
-            if (khoa == null) return;
+            if (khoa == null)
+                return;
             _khoaDangSua = khoa;
             DatTrangThai(EditState.Update);
             txtGiaTri.Focus();
@@ -173,11 +168,15 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            btnXacNhan.Enabled = false;                 // chặn bấm hai lần
+            btnXacNhan.Enabled = false;
             try
             {
                 string loi = CauHinhBLL.CapNhat(_khoaDangSua, txtGiaTri.Text.Trim());
-                if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                if (loi != null)
+                {
+                    Bao(loi, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 DatTrangThai(EditState.Read);
                 TaiDuLieu(_khoaDangSua);

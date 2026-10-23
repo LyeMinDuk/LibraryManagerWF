@@ -7,18 +7,11 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI.UC.Duc
 {
-    /// <summary>
-    /// Quản lý sách (BR05, BR10, BR12): xem, tìm / lọc, thêm, sửa, khóa / mở khóa, xóa.
-    /// Giao diện kéo thả trong ucSach.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
-    /// GUI chỉ gọi SachBLL / TheLoaiBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên; mọi luật
-    /// (giá và số lượng lớn hơn 0, tổng không nhỏ hơn số cuốn đang mượn, sách đã mượn chỉ khóa không xóa) nằm ở BLL.
-    /// Ba trạng thái Read / Create / Update dùng chung EditState và màu thanh tiêu đề (MauTrangThai) như ucTaiKhoan.
-    /// </summary>
     public partial class ucSach : UserControl
     {
         private EditState _st = EditState.Read;
         private int _maDangSua;
-        private bool _dangNap;      // true khi đang đặt lại ô lọc bằng code, để khỏi tải lưới nhiều lần
+        private bool _dangNap;
 
         public ucSach()
         {
@@ -52,9 +45,6 @@ namespace LibraryManagerWF.GUI.UC.Duc
             DatTrangThai(EditState.Read);
         }
 
-        // ================= Dữ liệu =================
-
-        /// <summary>Nạp hai ô thể loại: ô lọc (có thêm dòng "Tất cả thể loại") và ô nhập. Dùng hai bản sao để hai ô không chọn chung dòng.</summary>
         private void NapComboTheLoai()
         {
             _dangNap = true;
@@ -90,7 +80,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
             try
             {
                 txtTimKiem.Clear();
-                if (cboLocTheLoai.Items.Count > 0) cboLocTheLoai.SelectedIndex = 0;
+                if (cboLocTheLoai.Items.Count > 0)
+                    cboLocTheLoai.SelectedIndex = 0;
                 cboLocTrangThai.SelectedIndex = 0;
             }
             finally
@@ -107,23 +98,24 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             TaiDuLieu();
         }
 
-        /// <summary>Enter trong các ô nhập (khi đang thêm / sửa) = bấm Xác nhận.</summary>
         private void oNhap_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter || _st == EditState.Read) return;
+            if (e.KeyCode != Keys.Enter || _st == EditState.Read)
+                return;
             e.SuppressKeyPress = true;
             btnXacNhan.PerformClick();
         }
 
-        /// <summary>Nạp lại lưới theo bộ lọc, giữ dòng đang chọn (theo MaSach), hoặc chọn sách vừa thêm (theo tên, lấy mã lớn nhất).</summary>
         private void TaiDuLieu(int chonMa = 0, string chonTen = null)
         {
-            if (chonMa == 0 && chonTen == null) chonMa = MaDangChon();
+            if (chonMa == 0 && chonTen == null)
+                chonMa = MaDangChon();
 
             int trangThai = cboLocTrangThai.SelectedIndex == 1 ? 1 : (cboLocTrangThai.SelectedIndex == 2 ? 0 : -1);
             dgv.DataSource = SachBLL.TimKiem(txtTimKiem.Text.Trim(), MaChon(cboLocTheLoai), trangThai);
@@ -133,12 +125,15 @@ namespace LibraryManagerWF.GUI.UC.Duc
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 var v = row.DataBoundItem as DataRowView;
-                if (v == null) continue;
+                if (v == null)
+                    continue;
                 bool khop = (chonMa > 0 && (int)v["MaSach"] == chonMa)
                             || (chonTen != null && string.Equals(v["TenSach"].ToString(), chonTen, StringComparison.OrdinalIgnoreCase));
-                if (!khop) continue;
+                if (!khop)
+                    continue;
                 chon = row;
-                if (chonMa > 0) break;      // theo tên thì đi tiếp để lấy dòng cuối (mã lớn nhất)
+                if (chonMa > 0)
+                    break;
             }
             if (chon != null)
             {
@@ -161,20 +156,22 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void dgv_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            if (dgv.Columns[e.ColumnIndex].Name != "TrangThai") return;
+            if (e.RowIndex < 0)
+                return;
+            if (dgv.Columns[e.ColumnIndex].Name != "TrangThai")
+                return;
             var v = dgv.Rows[e.RowIndex].DataBoundItem as DataRowView;
-            if (v == null) return;
+            if (v == null)
+                return;
             e.Value = (bool)v["TrangThai"] ? "Hoạt động" : "Đã khóa";
             e.FormattingApplied = true;
         }
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
-            if (_st == EditState.Read) HienThongTinTheoChon();
+            if (_st == EditState.Read)
+                HienThongTinTheoChon();
         }
-
-        // ================= Trạng thái màn hình =================
 
         private void HienThongTinTheoChon()
         {
@@ -240,17 +237,16 @@ namespace LibraryManagerWF.GUI.UC.Duc
             nudGiaBia.ReadOnly = !dangNhap;
             nudSoLuongTong.ReadOnly = !dangNhap;
 
-            dgv.Enabled = !dangNhap;                        // đang nhập thì khóa lưới, khỏi đổi dòng giữa chừng
+            dgv.Enabled = !dangNhap;
             gbTimKiem.Enabled = !dangNhap;
             foreach (Button b in new[] { btnThem, btnSua, btnKhoa, btnXoa })
                 b.Visible = !dangNhap;
             btnXacNhan.Visible = dangNhap;
             btnHuy.Visible = dangNhap;
 
-            if (!dangNhap) HienThongTinTheoChon();
+            if (!dangNhap)
+                HienThongTinTheoChon();
         }
-
-        // ================= Thao tác =================
 
         private static void Bao(string noiDung, MessageBoxIcon icon)
         {
@@ -268,7 +264,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
         private void btnSua_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             _maDangSua = (int)v["MaSach"];
             DatTrangThai(EditState.Update);
             txtTenSach.Focus();
@@ -276,10 +273,9 @@ namespace LibraryManagerWF.GUI.UC.Duc
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            btnXacNhan.Enabled = false;                 // chặn bấm hai lần
+            btnXacNhan.Enabled = false;
             try
             {
-                // Năm xuất bản để trống = không có
                 int? nam = null;
                 string namChu = txtNamXB.Text.Trim();
                 if (namChu.Length > 0)
@@ -309,10 +305,14 @@ namespace LibraryManagerWF.GUI.UC.Duc
                 if (_st == EditState.Create)
                 {
                     string loi = SachBLL.Them(s);
-                    if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                    if (loi != null)
+                    {
+                        Bao(loi, MessageBoxIcon.Warning);
+                        return;
+                    }
 
                     string tenMoi = s.TenSach.Trim();
-                    DatLaiBoLoc();                      // tránh bộ lọc cũ che mất dòng vừa thêm
+                    DatLaiBoLoc();
                     DatTrangThai(EditState.Read);
                     TaiDuLieu(0, tenMoi);
                     Bao("Đã thêm sách \"" + tenMoi + "\".", MessageBoxIcon.Information);
@@ -320,7 +320,11 @@ namespace LibraryManagerWF.GUI.UC.Duc
                 else if (_st == EditState.Update)
                 {
                     string loi = SachBLL.Sua(s);
-                    if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                    if (loi != null)
+                    {
+                        Bao(loi, MessageBoxIcon.Warning);
+                        return;
+                    }
 
                     DatTrangThai(EditState.Read);
                     TaiDuLieu(_maDangSua);
@@ -335,7 +339,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
         private void btnKhoa_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             int ma = (int)v["MaSach"];
             string ten = v["TenSach"].ToString();
             bool dangHoatDong = (bool)v["TrangThai"];
@@ -343,7 +348,8 @@ namespace LibraryManagerWF.GUI.UC.Duc
             string hoi = dangHoatDong
                 ? "Khóa sách \"" + ten + "\"?\nSách bị khóa sẽ không cho mượn cho đến khi được mở khóa."
                 : "Mở khóa sách \"" + ten + "\"?";
-            if (MessageBox.Show(hoi, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(hoi, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
 
             SachBLL.DoiTrangThai(ma, !dangHoatDong);
             TaiDuLieu(ma);
@@ -352,15 +358,21 @@ namespace LibraryManagerWF.GUI.UC.Duc
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             int ma = (int)v["MaSach"];
             string ten = v["TenSach"].ToString();
 
             if (MessageBox.Show("Xóa vĩnh viễn sách \"" + ten + "\"?\nSách đã có giao dịch mượn thì không xóa được, chỉ khóa.",
-                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
 
             string loi = SachBLL.Xoa(ma);
-            if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+            if (loi != null)
+            {
+                Bao(loi, MessageBoxIcon.Warning);
+                return;
+            }
             TaiDuLieu();
         }
 

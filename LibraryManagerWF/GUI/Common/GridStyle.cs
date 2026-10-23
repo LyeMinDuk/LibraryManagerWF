@@ -6,13 +6,8 @@ using System.Windows.Forms;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>Kiểu lưới dùng chung (map từ ConfigureDGVStyle của bản cũ). Cột khai báo bằng AddText/AddFill.</summary>
     internal static class GridStyle
     {
-        /// <summary>
-        /// Bật vẽ đệm (DoubleBuffered) cho control bất kỳ. Thuộc tính này là protected nên phải bật qua reflection.
-        /// Dùng cho DataGridView, Panel, TableLayoutPanel, FlowLayoutPanel... để hết nháy khi vẽ lại / đổi kích thước.
-        /// </summary>
         public static void BatDoubleBuffer(Control c)
         {
             typeof(Control).GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic)
@@ -34,7 +29,6 @@ namespace LibraryManagerWF.GUI
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            // Tiêu đề: giữ màu như bản cũ (nền xanh tím, chữ trắng)
             dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(48, 52, 129);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -44,7 +38,6 @@ namespace LibraryManagerWF.GUI
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgv.ColumnHeadersHeight = 38;
 
-            // Ô dữ liệu: nền trắng đồng nhất (không tô xen kẽ, không tô theo trạng thái), chọn dòng bằng xám xanh nhạt
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.DefaultCellStyle.Font = new Font(dgv.Font.FontFamily, 12f, FontStyle.Regular);
@@ -62,13 +55,13 @@ namespace LibraryManagerWF.GUI
             string format = null, DataGridViewContentAlignment align = DataGridViewContentAlignment.MiddleLeft)
         {
             var c = new DataGridViewTextBoxColumn { HeaderText = header, DataPropertyName = property, Name = property };
-            if (format != null) c.DefaultCellStyle.Format = format;
+            if (format != null)
+                c.DefaultCellStyle.Format = format;
             c.DefaultCellStyle.Alignment = align;
             dgv.Columns.Add(c);
             return c;
         }
 
-        /// <summary>Cột dài: chiếm phần còn lại của lưới.</summary>
         public static DataGridViewTextBoxColumn AddFill(DataGridView dgv, string header, string property, int minWidth)
         {
             DataGridViewTextBoxColumn c = AddText(dgv, header, property);
@@ -77,7 +70,6 @@ namespace LibraryManagerWF.GUI
             return c;
         }
 
-        /// <summary>Như Apply nhưng chọn cỡ chữ cho cả tiêu đề cột và ô (module nào cần chữ 12 thì gọi bản này).</summary>
         public static void Apply(DataGridView dgv, float coChu)
         {
             Apply(dgv);

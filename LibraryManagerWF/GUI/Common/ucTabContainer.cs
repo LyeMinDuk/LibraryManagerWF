@@ -6,10 +6,6 @@ using System.Windows.Forms;
 
 namespace LibraryManagerWF.GUI
 {
-    /// <summary>
-    /// UC "cha" dùng chung cho mọi module: thanh tiêu đề (đổi màu theo trạng thái của UC con) + hàng nút chuyển tab + vùng nội dung.
-    /// Thay cho 3 UC cha giống hệt nhau của bản cũ (ucFrmQuanLyTaiLieu / BanDoc / PhanQuyen).
-    /// </summary>
     public partial class ucTabContainer : UserControl
     {
         private readonly List<Button> _nut = new List<Button>();
@@ -49,7 +45,11 @@ namespace LibraryManagerWF.GUI
                 _nut.Add(nut);
                 flpTab.Controls.Add(nut);
             }
-            Load += (s, e) => { if (_nut.Count > 0) _nut[0].PerformClick(); };
+            Load += (s, e) =>
+            {
+                if (_nut.Count > 0)
+                    _nut[0].PerformClick();
+            };
         }
 
         private static void KieuThuong(Button b)
@@ -61,17 +61,19 @@ namespace LibraryManagerWF.GUI
 
         private void ChonTab(Button nut, TabInfo tab)
         {
-            if (_dangChon != null) KieuThuong(_dangChon);
+            if (_dangChon != null)
+                KieuThuong(_dangChon);
             _dangChon = nut;
             nut.BackColor = Color.FromArgb(48, 52, 129);
             nut.ForeColor = Color.White;
             nut.Font = new Font("Consolas", 12F, FontStyle.Bold);
 
-            // Tạo UC mới và đặt đúng cỡ TRƯỚC, thêm vào, rồi mới bỏ UC cũ: vùng nội dung không bao giờ bị trống giữa hai lần vẽ.
             UserControl uc = tab.Tao();
             var pt = uc as IPhatTrangThai;
-            if (pt != null) pt.OnStatusRequest += (s, e) => DatTieuDe(e.TitleText, e.BackColor, e.ForeColor);
-            else DatTieuDe(_tieuDeMacDinh, MauTrangThai.Xem, Color.White);
+            if (pt != null)
+                pt.OnStatusRequest += (s, e) => DatTieuDe(e.TitleText, e.BackColor, e.ForeColor);
+            else
+                DatTieuDe(_tieuDeMacDinh, MauTrangThai.Xem, Color.White);
 
             List<Control> cu = pnlNoiDung.Controls.Cast<Control>().ToList();
             pnlNoiDung.SuspendLayout();

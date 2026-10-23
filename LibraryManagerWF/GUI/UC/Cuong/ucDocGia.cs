@@ -7,12 +7,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.GUI.UC.Cuong
 {
-    /// <summary>
-    /// Hồ sơ độc giả (BR10, BR12): xem, tìm theo họ tên / số điện thoại, thêm, sửa, khóa / mở khóa, xóa.
-    /// Giao diện kéo thả trong ucDocGia.Designer.cs (chữ cỡ 12); file này chỉ chứa xử lý sự kiện.
-    /// GUI chỉ gọi DocGiaBLL / TheBLL: hàm ghi trả về lỗi (null = thành công) thì hiện lên; mọi luật
-    /// (họ tên, ngày sinh, SĐT 10 số, email, độc giả đã có thẻ thì không xóa) nằm ở BLL.
-    /// </summary>
     public partial class ucDocGia : UserControl
     {
         private EditState _st = EditState.Read;
@@ -39,10 +33,6 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         internal const string ChuaCoThe = "Chưa có thẻ";
 
-        /// <summary>
-        /// Thêm hai cột hiển thị vào bảng DocGiaBLL.TimKiem trả về: TrangThaiChu (Hoạt động / Khóa) và
-        /// TinhTrangThe (Chưa có thẻ / Hoạt động / Hết hạn / Khóa, do TheBLL.TinhTrangThe tính). Dùng chung với ucThe.
-        /// </summary>
         internal static DataTable ThemCotHienThi(DataTable bang)
         {
             bang.Columns.Add("TrangThaiChu", typeof(string));
@@ -66,38 +56,36 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             DatTrangThai(EditState.Read);
         }
 
-        // ================= Dữ liệu =================
-
         private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter) return;
+            if (e.KeyCode != Keys.Enter)
+                return;
             e.SuppressKeyPress = true;
             TaiDuLieu();
         }
 
-        /// <summary>Enter trong ô nhập (khi đang thêm / sửa) = bấm Xác nhận.</summary>
         private void oNhap_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode != Keys.Enter || _st == EditState.Read) return;
+            if (e.KeyCode != Keys.Enter || _st == EditState.Read)
+                return;
             e.SuppressKeyPress = true;
             btnXacNhan.PerformClick();
         }
 
-        /// <summary>
-        /// Nạp lại bảng, giữ dòng đang chọn (theo MaDG). Truyền chonMa để chọn một độc giả cụ thể,
-        /// hoặc chonDongDau = true để chọn dòng đầu (bảng sắp mã giảm dần nên đó là độc giả vừa thêm).
-        /// </summary>
         private void TaiDuLieu(int chonMa = 0, bool chonDongDau = false)
         {
-            if (chonMa == 0 && !chonDongDau) chonMa = MaDangChon();
+            if (chonMa == 0 && !chonDongDau)
+                chonMa = MaDangChon();
 
             dgv.DataSource = ThemCotHienThi(DocGiaBLL.TimKiem(txtTimKiem.Text));
             dgv.ClearSelection();
             for (int i = 0; i < dgv.Rows.Count; i++)
             {
                 var v = dgv.Rows[i].DataBoundItem as DataRowView;
-                if (v == null) continue;
-                if (!(chonDongDau ? i == 0 : (chonMa > 0 && (int)v["MaDG"] == chonMa))) continue;
+                if (v == null)
+                    continue;
+                if (!(chonDongDau ? i == 0 : (chonMa > 0 && (int)v["MaDG"] == chonMa)))
+                    continue;
                 dgv.CurrentCell = dgv.Rows[i].Cells[0];
                 dgv.Rows[i].Selected = true;
                 break;
@@ -118,10 +106,9 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
-            if (_st == EditState.Read) HienThongTinTheoChon();
+            if (_st == EditState.Read)
+                HienThongTinTheoChon();
         }
-
-        // ================= Trạng thái màn hình =================
 
         private static string ChuoiHoacRong(object o)
         {
@@ -189,17 +176,16 @@ namespace LibraryManagerWF.GUI.UC.Cuong
             dtpNgaySinh.Enabled = dangNhap;
             cboGioiTinh.Enabled = dangNhap;
 
-            dgv.Enabled = !dangNhap;                        // đang nhập thì khóa lưới, khỏi đổi dòng giữa chừng
+            dgv.Enabled = !dangNhap;
             gbTimKiem.Enabled = !dangNhap;
             foreach (Button b in new[] { btnThem, btnSua, btnKhoa, btnXoa })
                 b.Visible = !dangNhap;
             btnXacNhan.Visible = dangNhap;
             btnHuy.Visible = dangNhap;
 
-            if (!dangNhap) HienThongTinTheoChon();
+            if (!dangNhap)
+                HienThongTinTheoChon();
         }
-
-        // ================= Thao tác =================
 
         private static void Bao(string noiDung, MessageBoxIcon icon)
         {
@@ -232,7 +218,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         private void btnSua_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             _maDangSua = (int)v["MaDG"];
             DatTrangThai(EditState.Update);
             txtHoTen.Focus();
@@ -240,16 +227,20 @@ namespace LibraryManagerWF.GUI.UC.Cuong
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            btnXacNhan.Enabled = false;                 // chặn bấm hai lần
+            btnXacNhan.Enabled = false;
             try
             {
                 if (_st == EditState.Create)
                 {
                     DocGiaDTO d = DocTuForm(0);
                     string loi = DocGiaBLL.Them(d);
-                    if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                    if (loi != null)
+                    {
+                        Bao(loi, MessageBoxIcon.Warning);
+                        return;
+                    }
 
-                    txtTimKiem.Clear();                 // tránh bộ lọc cũ che mất dòng vừa thêm
+                    txtTimKiem.Clear();
                     DatTrangThai(EditState.Read);
                     TaiDuLieu(0, true);
                     Bao("Đã thêm độc giả \"" + d.HoTen + "\".\nSang tab \"Thẻ thư viện\" để cấp thẻ cho độc giả này.", MessageBoxIcon.Information);
@@ -257,7 +248,11 @@ namespace LibraryManagerWF.GUI.UC.Cuong
                 else if (_st == EditState.Update)
                 {
                     string loi = DocGiaBLL.Sua(DocTuForm(_maDangSua));
-                    if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+                    if (loi != null)
+                    {
+                        Bao(loi, MessageBoxIcon.Warning);
+                        return;
+                    }
 
                     DatTrangThai(EditState.Read);
                     TaiDuLieu(_maDangSua);
@@ -272,7 +267,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         private void btnKhoa_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             int ma = (int)v["MaDG"];
             string ten = v["HoTen"].ToString();
             bool dangHoatDong = (bool)v["TrangThai"];
@@ -281,7 +277,8 @@ namespace LibraryManagerWF.GUI.UC.Cuong
                 ? "Khóa độc giả \"" + ten + "\"?\nĐộc giả bị khóa không được mượn hoặc gia hạn sách, nhưng vẫn trả sách và nộp phạt.\nThẻ thư viện không bị khóa theo."
                 : "Mở khóa độc giả \"" + ten + "\"?";
             if (MessageBox.Show(hoi, dangHoatDong ? "Khóa độc giả" : "Mở khóa độc giả",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
 
             DocGiaBLL.DoiTrangThai(ma, !dangHoatDong);
             TaiDuLieu(ma);
@@ -290,15 +287,21 @@ namespace LibraryManagerWF.GUI.UC.Cuong
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DataRowView v = DongChon();
-            if (v == null) return;
+            if (v == null)
+                return;
             int ma = (int)v["MaDG"];
             string ten = v["HoTen"].ToString();
 
             if (MessageBox.Show("Xóa độc giả \"" + ten + "\"?\nĐộc giả đã có thẻ thì không xóa được, chỉ khóa.",
-                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                    "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
 
             string loi = DocGiaBLL.Xoa(ma);
-            if (loi != null) { Bao(loi, MessageBoxIcon.Warning); return; }
+            if (loi != null)
+            {
+                Bao(loi, MessageBoxIcon.Warning);
+                return;
+            }
             TaiDuLieu();
         }
 

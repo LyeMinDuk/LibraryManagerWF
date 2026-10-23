@@ -10,7 +10,8 @@ namespace LibraryManagerWF.DAL
         {
             DataTable dt = db.DocBang(
                 "SELECT MaDG, HoTen, NgaySinh, GioiTinh, DiaChi, SDT, Email, TrangThai FROM DocGia WHERE MaDG = @0", maDG);
-            if (dt.Rows.Count == 0) return null;
+            if (dt.Rows.Count == 0)
+                return null;
             DataRow r = dt.Rows[0];
             return new DocGiaDTO
             {
@@ -25,7 +26,6 @@ namespace LibraryManagerWF.DAL
             };
         }
 
-        /// <summary>Tìm theo họ tên hoặc số điện thoại, kèm thông tin thẻ (MaThe, NgayHetHan, TrangThaiThe nếu đã có thẻ).</summary>
         public static DataTable TimKiem(DbHelpers db, string tuKhoa)
         {
             return db.DocBang(

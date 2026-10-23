@@ -4,7 +4,6 @@ using LibraryManagerWF.DTO;
 
 namespace LibraryManagerWF.BLL
 {
-    /// <summary>Thống kê nhanh cho trang chủ. Thủ thư xem được số liệu mượn trả, doanh thu chỉ dành cho quản trị (khớp quyền của menu Báo cáo doanh thu).</summary>
     public static class ThongKeBLL
     {
         public static ThongKeDTO LayThongKeTrangChu()

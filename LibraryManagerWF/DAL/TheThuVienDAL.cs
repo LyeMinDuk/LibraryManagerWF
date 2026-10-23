@@ -10,7 +10,8 @@ namespace LibraryManagerWF.DAL
         {
             DataTable dt = db.DocBang(
                 "SELECT MaThe, MaDG, NgayCap, NgayHetHan, TrangThai FROM TheThuVien WHERE " + dieuKien, gt);
-            if (dt.Rows.Count == 0) return null;
+            if (dt.Rows.Count == 0)
+                return null;
             DataRow r = dt.Rows[0];
             return new TheThuVienDTO
             {
@@ -22,10 +23,15 @@ namespace LibraryManagerWF.DAL
             };
         }
 
-        public static TheThuVienDTO LayTheoMa(DbHelpers db, int maThe) { return LayMot(db, "MaThe = @0", maThe); }
+        public static TheThuVienDTO LayTheoMa(DbHelpers db, int maThe)
+        {
+            return LayMot(db, "MaThe = @0", maThe);
+        }
 
-        /// <summary>Mỗi độc giả tối đa một thẻ (UNIQUE MaDG), nên trả về một thẻ hoặc null.</summary>
-        public static TheThuVienDTO LayTheoDocGia(DbHelpers db, int maDG) { return LayMot(db, "MaDG = @0", maDG); }
+        public static TheThuVienDTO LayTheoDocGia(DbHelpers db, int maDG)
+        {
+            return LayMot(db, "MaDG = @0", maDG);
+        }
 
         public static int Them(DbHelpers db, TheThuVienDTO t)
         {
@@ -34,7 +40,6 @@ namespace LibraryManagerWF.DAL
                 t.MaDG, t.NgayCap, t.NgayHetHan);
         }
 
-        /// <summary>Chỉ đổi khi NgayHetHan vẫn là giá trị đã đọc (chặn bấm gia hạn hai lần). 0 dòng = thẻ vừa bị đổi.</summary>
         public static int GiaHan(DbHelpers db, int maThe, DateTime hetHanCu, DateTime hetHanMoi)
         {
             return db.CapNhat("UPDATE TheThuVien SET NgayHetHan = @0 WHERE MaThe = @1 AND NgayHetHan = @2", hetHanMoi, maThe, hetHanCu);
